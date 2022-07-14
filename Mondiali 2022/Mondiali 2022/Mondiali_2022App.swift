@@ -11,7 +11,7 @@ import SwiftUI
 struct Mondiali_2022App: App {
     var body: some Scene {
         WindowGroup {
-            Homepage()
+            AnimazioneIniziale()
         }
     }
 }

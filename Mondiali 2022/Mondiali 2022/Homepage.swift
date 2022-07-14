@@ -10,11 +10,11 @@ import SwiftUI
 struct Homepage: View {
     @Environment(\.verticalSizeClass) var sizeClass
     var body: some View {
+        
         NavigationView{
-            ScrollView{
+            VStack{
                 NavigationLink(destination: Text("Info Qatar")) {
                     VStack{
-                        Spacer()
                         Image("Cup").resizable()
                             .scaledToFit()
                             .frame(height: UIScreen.main.bounds.size.height*220/400)
@@ -32,7 +32,8 @@ struct Homepage: View {
                         }.frame(height: UIScreen.main.bounds.size.height/6)
                     }
                 }.buttonStyle(PlainButtonStyle())
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: UIScreen.main.bounds.size.width/4))]){
+                HStack{
+                    /*CREARE METODO UNICO - STESSO BLOCCO RIPETUTO 3 VOLTE*/
                     NavigationLink(destination: Text("Squadre")) {
                         VStack{
                             Text("🗺").font(.largeTitle).padding(.top)
@@ -64,16 +65,6 @@ struct Homepage: View {
                                 .stroke(Color.primary, lineWidth: 2/3)
                         )
                     }.buttonStyle(PlainButtonStyle())
-                    /*
-                    ZStack{
-                        RoundedRectangle(cornerRadius: 20).strokeBorder(lineWidth: 2/3)
-                        VStack{
-                            Text("🗓").font(.largeTitle).padding(.top)
-                            Text("CALENDARIO").font(.callout).aspectRatio(contentMode: .fit)
-                        }
-                        .padding(.bottom)
-                    }
-                    */
                 }
                 .padding().frame( width: UIScreen.main.bounds.size.width, height:UIScreen.main.bounds.size.height/5)
                 
