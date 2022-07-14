@@ -7,16 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17260935287F21F900652149 /* Homepage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17260934287F21F900652149 /* Homepage.swift */; };
 		17D85F90287C104A003D4D19 /* Mondiali_2022App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D85F8F287C104A003D4D19 /* Mondiali_2022App.swift */; };
-		17D85F92287C104A003D4D19 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D85F91287C104A003D4D19 /* ContentView.swift */; };
 		17D85F94287C104E003D4D19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D85F93287C104E003D4D19 /* Assets.xcassets */; };
 		17D85F97287C104E003D4D19 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D85F96287C104E003D4D19 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		17260934287F21F900652149 /* Homepage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homepage.swift; sourceTree = "<group>"; };
 		17D85F8C287C104A003D4D19 /* Mondiali 2022.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mondiali 2022.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		17D85F8F287C104A003D4D19 /* Mondiali_2022App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mondiali_2022App.swift; sourceTree = "<group>"; };
-		17D85F91287C104A003D4D19 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		17D85F93287C104E003D4D19 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		17D85F96287C104E003D4D19 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -52,7 +52,7 @@
 			isa = PBXGroup;
 			children = (
 				17D85F8F287C104A003D4D19 /* Mondiali_2022App.swift */,
-				17D85F91287C104A003D4D19 /* ContentView.swift */,
+				17260934287F21F900652149 /* Homepage.swift */,
 				17D85F93287C104E003D4D19 /* Assets.xcassets */,
 				17D85F95287C104E003D4D19 /* Preview Content */,
 			);
@@ -137,7 +137,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17D85F92287C104A003D4D19 /* ContentView.swift in Sources */,
+				17260935287F21F900652149 /* Homepage.swift in Sources */,
 				17D85F90287C104A003D4D19 /* Mondiali_2022App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

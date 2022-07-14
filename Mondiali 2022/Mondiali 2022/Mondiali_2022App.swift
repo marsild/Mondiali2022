@@ -1,4 +1,4 @@
-//
+ //
 //  Mondiali_2022App.swift
 //  Mondiali 2022
 //
@@ -11,7 +11,7 @@ import SwiftUI
 struct Mondiali_2022App: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            Homepage()
         }
     }
 }
