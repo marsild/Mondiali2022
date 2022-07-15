@@ -24,7 +24,7 @@ struct AnimazioneIniziale: View {
                 }
                 .opacity(opacity)
                 .onAppear {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5){
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1){
                         withAnimation(.easeIn(duration: 0.5)) {
                             self.opacity = 0.00
                         }
@@ -32,7 +32,7 @@ struct AnimazioneIniziale: View {
                 }
             }
             .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                     withAnimation {
                         self.animazioneTerminata = true
                     }

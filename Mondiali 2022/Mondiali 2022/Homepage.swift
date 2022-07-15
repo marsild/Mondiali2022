@@ -9,32 +9,39 @@ import SwiftUI
 
 struct Homepage: View {
     @Environment(\.verticalSizeClass) var sizeClass
+    @State private var showView = ""
+    @State private var opacity = 1.0
     var body: some View {
-        
-        NavigationView{
-            VStack{
-                NavigationLink(destination: Text("Info Qatar")) {
-                    VStack{
-                        Image("Cup").resizable()
-                            .scaledToFit()
-                            .frame(height: UIScreen.main.bounds.size.height*220/400)
-
+        switch showView{
+        case "squadre":
+            TabBarView(selectedTab: "One")//.transition(.opacity)
+        case "tabelloni":
+            TabBarView(selectedTab: "Two")
+        case "calendario":
+            TabBarView(selectedTab: "Four")
+        default:
+            NavigationView{
+                VStack{
+                    NavigationLink(destination: Text("Info Qatar")) {
                         VStack{
-                            Text("WORLD CUP")
-                                .font(.title2)
-                                .minimumScaleFactor(0.01)
-                            Text("QATAR")
-                                .font(.title2)
-                                .minimumScaleFactor(0.01)
-                            Text("2022")
-                                .font(.system(size: 50))
-                                .minimumScaleFactor(0.01)
-                        }.frame(height: UIScreen.main.bounds.size.height/6)
-                    }
-                }.buttonStyle(PlainButtonStyle())
-                HStack{
-                    /*CREARE METODO UNICO - STESSO BLOCCO RIPETUTO 3 VOLTE*/
-                    NavigationLink(destination: Text("Squadre")) {
+                            Image("Cup").resizable()
+                                .scaledToFit()
+                                .frame(height: UIScreen.main.bounds.size.height*220/400)
+                            VStack{
+                                Text("WORLD CUP")
+                                    .font(.title2)
+                                    .minimumScaleFactor(0.01)
+                                Text("QATAR")
+                                    .font(.title2)
+                                    .minimumScaleFactor(0.01)
+                                Text("2022")
+                                    .font(.system(size: 50))
+                                    .minimumScaleFactor(0.01)
+                            }.frame(height: UIScreen.main.bounds.size.height/6)
+                        }
+                    }.buttonStyle(PlainButtonStyle())
+                    HStack{
+                        /*CREARE METODO UNICO - STESSO BLOCCO RIPETUTO 3 VOLTE*/
                         VStack{
                             Text("🗺").font(.largeTitle).padding(.top)
                             Text("SQUADRE")
@@ -43,9 +50,11 @@ struct Homepage: View {
                         }.frame(width: UIScreen.main.bounds.size.width*115/400,height: UIScreen.main.bounds.size.height*12/60).overlay(
                             RoundedRectangle(cornerRadius: 10)
                                 .stroke(Color.primary, lineWidth: 2/3)
-                        )
-                    }.buttonStyle(PlainButtonStyle())
-                    NavigationLink(destination: Text("Tabelloni")) {
+                        ).onTapGesture{
+                            withAnimation(.easeIn) {
+                                showView = "squadre"
+                            }
+                        }
                         VStack{
                             Text("🏆").font(.largeTitle).padding(.top)
                             Text("TABELLONI")
@@ -54,21 +63,27 @@ struct Homepage: View {
                         }.frame(width: UIScreen.main.bounds.size.width*115/400,height: UIScreen.main.bounds.size.height*12/60).overlay(
                             RoundedRectangle(cornerRadius: 10)
                                 .stroke(Color.primary, lineWidth: 2/3)
-                        )
-                    }.buttonStyle(PlainButtonStyle())
-                    NavigationLink(destination: Text("Calendario")) {
+                        ).onTapGesture{
+                            withAnimation(.easeIn) {
+                                showView = "tabelloni"
+                            }
+                        }
                         VStack{
                             Text("🗓").font(.largeTitle).padding(.top)
                             Text("CALENDARIO").font(.callout).padding(.bottom)
                         }.frame(width: UIScreen.main.bounds.size.width*115/400,height: UIScreen.main.bounds.size.height*12/60).overlay(
                             RoundedRectangle(cornerRadius: 10)
                                 .stroke(Color.primary, lineWidth: 2/3)
-                        )
-                    }.buttonStyle(PlainButtonStyle())
-                }
-                .padding().frame( width: UIScreen.main.bounds.size.width, height:UIScreen.main.bounds.size.height/5)
-                
-            }.navigationBarHidden(true)
+                        ).onTapGesture{
+                            withAnimation(.easeIn) {
+                                showView = "calendario"
+                            }
+                        }
+                    }
+                    .padding().frame( width: UIScreen.main.bounds.size.width, height:UIScreen.main.bounds.size.height/5)
+                    
+                }.navigationBarHidden(true).opacity(opacity)
+            }.transition(.opacity)
         }
     }
 }
