@@ -14,15 +14,15 @@ struct Homepage: View {
     var body: some View {
         switch showView{
         case "squadre":
-            TabBarView(selectedTab: "One")//.transition(.opacity)
+            TabBarView(selectedTab: "One").transition(.move(edge: .trailing))
         case "tabelloni":
-            TabBarView(selectedTab: "Two")
+            TabBarView(selectedTab: "Two").transition(.move(edge: .trailing))
         case "calendario":
-            TabBarView(selectedTab: "Four")
+            TabBarView(selectedTab: "Four").transition(.move(edge: .trailing))
         default:
             NavigationView{
                 VStack{
-                    NavigationLink(destination: Text("Info Qatar")) {
+                    NavigationLink(destination: InfoQatarView()) {
                         VStack{
                             Image("Cup").resizable()
                                 .scaledToFit()
@@ -83,7 +83,7 @@ struct Homepage: View {
                     .padding().frame( width: UIScreen.main.bounds.size.width, height:UIScreen.main.bounds.size.height/5)
                     
                 }.navigationBarHidden(true).opacity(opacity)
-            }.transition(.opacity)
+            }
         }
     }
 }

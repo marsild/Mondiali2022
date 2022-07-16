@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct GironiView: View {
+    @Binding var showSidebar: Bool
     var body: some View {
         NavigationView{
             VStack{
@@ -16,13 +17,23 @@ struct GironiView: View {
                     Text("gironi")
                 }
                 Divider()
-            }.navigationBarTitleDisplayMode(.inline).navigationTitle("Gironi")
+            }.navigationBarTitleDisplayMode(.inline).navigationTitle("Gironi").toolbar {
+                ToolbarItemGroup(placement: .navigationBarLeading) {
+                    Button{
+                        withAnimation{
+                            self.showSidebar.toggle()
+                        }
+                    } label:{
+                        Label("menu", systemImage: "line.3.horizontal")
+                    }
+                }
+            }
         }
     }
 }
 
 struct GironiView_Previews: PreviewProvider {
     static var previews: some View {
-        GironiView()
+        GironiView(showSidebar: .constant(false))
     }
 }

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct EliminazioneView: View {
+    @Binding var showSidebar: Bool
     var body: some View {
         NavigationView{
             VStack{
@@ -16,13 +17,23 @@ struct EliminazioneView: View {
                     Text("eliminazione")
                 }
                 Divider()
-            }.navigationBarTitleDisplayMode(.inline).navigationTitle("Eliminazione")
+            }.navigationBarTitleDisplayMode(.inline).navigationTitle("Eliminazione").toolbar {
+                ToolbarItemGroup(placement: .navigationBarLeading) {
+                    Button{
+                        withAnimation{
+                            self.showSidebar.toggle()
+                        }
+                    } label:{
+                        Label("menu", systemImage: "line.3.horizontal")
+                    }
+                }
+            }
         }
     }
 }
 
 struct EliminazioneView_Previews: PreviewProvider {
     static var previews: some View {
-        EliminazioneView()
+        EliminazioneView(showSidebar: .constant(false))
     }
 }

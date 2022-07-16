@@ -10,25 +10,34 @@ import SwiftUI
 struct TabBarView: View {
     @Environment(\.verticalSizeClass) var sizeClass
     @State var selectedTab: String
+    @State var showSidebar: Bool = false
     var body: some View {
+        GeometryReader { geometry in
             TabView(selection: $selectedTab){
-                SquadreView().tabItem{
+                SquadreView(showSidebar: $showSidebar).tabItem{
                     Image(systemName: "map")
                     Text("SQUADRE")
-                }.tag("One").navigationTitle("Squadre")
-                GironiView().tabItem{
+                }.tag("One")
+                GironiView(showSidebar: $showSidebar).tabItem{
                     Image(systemName: "square.grid.2x2")
                     Text("GIRONI")
-                }.tag("Two").navigationTitle("Gironi")
-                EliminazioneView().tabItem{
+                }.tag("Two")
+                EliminazioneView(showSidebar: $showSidebar).tabItem{
                     Image(systemName: "square.and.line.vertical.and.square.filled")
                     Text("ELIMINAZIONE")
                 }.tag("Three")
-                CalendarioView().tabItem{
+                CalendarioView(showSidebar: $showSidebar).tabItem{
                     Image(systemName: "calendar")
                     Text("CALENDARIO")
                 }.tag("Four")
+            }.frame(width: geometry.size.width, height: geometry.size.height).offset(x: self.showSidebar ? geometry.size.width : 0)
+                .disabled(self.showSidebar ? true : false)
+            if self.showSidebar {
+                SideMenuView(showSidebar: $showSidebar)
+                    .frame(width: geometry.size.width)
+                    .transition(.move(edge: .leading))
             }
+        }
     }
 }
 

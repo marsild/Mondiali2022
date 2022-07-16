@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct AnimazioneIniziale: View {
+    @StateObject var appState = AppState.shared
     @Environment(\.verticalSizeClass) var sizeClass
     @State var animazioneTerminata : Bool = false
-    @State private var opacity = 1.0
     
     var body: some View {
         if animazioneTerminata {
-            Homepage()
+            Homepage().id(appState.gameID)
         } else {
             VStack {
                 VStack {
@@ -22,15 +22,7 @@ struct AnimazioneIniziale: View {
                         .scaledToFit()
                         .frame(height: UIScreen.main.bounds.size.height/5)
                 }
-                .opacity(opacity)
-                .onAppear {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1){
-                        withAnimation(.easeIn(duration: 0.5)) {
-                            self.opacity = 0.00
-                        }
-                    }
-                }
-            }
+            }.transition(.scale(scale: 100))
             .onAppear {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                     withAnimation {
