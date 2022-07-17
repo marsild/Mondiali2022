@@ -56,6 +56,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		178BFA9F28841C990091A032 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				178BFA852881A3F70091A032 /* TabBarView.swift */,
+				178BFA872881BA510091A032 /* SquadreView.swift */,
+				178BFA892881C0AE0091A032 /* GironiView.swift */,
+				178BFA8B2881C0D40091A032 /* EliminazioneView.swift */,
+				178BFA8D2881C0EC0091A032 /* CalendarioView.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		178BFAA028841CA60091A032 /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				178BFA912882905C0091A032 /* SideMenuView.swift */,
+				178BFA952882A95A0091A032 /* PrediciFuturoView.swift */,
+				178BFA932882A9480091A032 /* CreaSquadraView.swift */,
+				178BFA972882A9650091A032 /* SegnalaView.swift */,
+			);
+			path = SideMenu;
+			sourceTree = "<group>";
+		};
 		17D85F83287C104A003D4D19 = {
 			isa = PBXGroup;
 			children = (
@@ -76,21 +99,14 @@
 			isa = PBXGroup;
 			children = (
 				17D85F8F287C104A003D4D19 /* Mondiali_2022App.swift */,
+				178BFA992882AEB00091A032 /* AppState.swift */,
+				178BFA832880917D0091A032 /* AnimazioneIniziale.swift */,
 				17260934287F21F900652149 /* Homepage.swift */,
 				178BFA9B2882B3BA0091A032 /* InfoQatarView.swift */,
-				178BFA832880917D0091A032 /* AnimazioneIniziale.swift */,
-				178BFA852881A3F70091A032 /* TabBarView.swift */,
-				178BFA8B2881C0D40091A032 /* EliminazioneView.swift */,
-				178BFA8D2881C0EC0091A032 /* CalendarioView.swift */,
+				178BFA9F28841C990091A032 /* TabBar */,
+				178BFAA028841CA60091A032 /* SideMenu */,
 				17D85F93287C104E003D4D19 /* Assets.xcassets */,
 				17D85F95287C104E003D4D19 /* Preview Content */,
-				178BFA872881BA510091A032 /* SquadreView.swift */,
-				178BFA892881C0AE0091A032 /* GironiView.swift */,
-				178BFA912882905C0091A032 /* SideMenuView.swift */,
-				178BFA952882A95A0091A032 /* PrediciFuturoView.swift */,
-				178BFA972882A9650091A032 /* SegnalaView.swift */,
-				178BFA932882A9480091A032 /* CreaSquadraView.swift */,
-				178BFA992882AEB00091A032 /* AppState.swift */,
 			);
 			path = "Mondiali 2022";
 			sourceTree = "<group>";
