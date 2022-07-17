@@ -12,13 +12,13 @@ struct SideMenuView: View {
     @State private var showView = ""
     var body: some View {
         let drag = DragGesture()
-                    .onEnded {
-                        if $0.translation.width < -100 {
-                            withAnimation {
-                                self.showSidebar = false
-                            }
-                        }
+            .onEnded {
+                if $0.translation.width < -100 {
+                    withAnimation {
+                        self.showSidebar = false
                     }
+                }
+            }
         switch showView{
         case "crea":
             CreaSquadraView().transition(.opacity)
@@ -27,61 +27,61 @@ struct SideMenuView: View {
         case "segnala":
             SegnalaView().transition(.opacity)
         default:
-        NavigationView{
-            VStack(alignment: .leading){
-                Divider()
-                Group{
-                    HStack{
-                        Image(systemName: "house").frame(width: 40)
-                        Text("Homepage")
-                    }.onTapGesture{
-                        withAnimation(.easeIn) {
-                            AppState.shared.gameID = UUID()
-                        }
-                    }.padding(.leading)
+            NavigationView{
+                VStack(alignment: .leading){
                     Divider()
-                    HStack{
-                        Image(systemName: "person.3").frame(width: 40)
-                        Text("Crea la tua squadra")
-                    }.onTapGesture{
-                        withAnimation(.easeIn) {
-                            showView = "crea"
+                    Group{
+                        HStack{
+                            Image(systemName: "house").frame(width: 40)
+                            Text("Homepage")
+                        }.onTapGesture{
+                            withAnimation(.easeIn) {
+                                AppState.shared.gameID = UUID()
+                            }
+                        }.padding(.leading)
+                        Divider()
+                        HStack{
+                            Image(systemName: "person.3").frame(width: 40)
+                            Text("Crea la tua squadra")
+                        }.onTapGesture{
+                            withAnimation(.easeIn) {
+                                showView = "crea"
+                            }
+                        }.padding(.leading)
+                        Divider()
+                        HStack{
+                            Image(systemName: "lasso.and.sparkles").frame(width: 40)
+                            Text("Predici il futuro")
+                        }.onTapGesture{
+                            withAnimation(.easeIn) {
+                                showView = "predici"
+                            }
+                        }.padding(.leading)
+                        Divider()
+                        HStack{
+                            Image(systemName: "exclamationmark.triangle").frame(width: 40)
+                            Text("Segnala")
+                        }.onTapGesture{
+                            withAnimation(.easeIn) {
+                                showView = "segnala"
+                            }
+                        }.padding(.leading)
+                        Divider()
+                    }
+                    Spacer()
+                }.frame(maxWidth: .infinity, alignment: .leading).navigationBarTitleDisplayMode(.inline).navigationTitle("Menù").navigationBarBackButtonHidden(true).toolbar {
+                    ToolbarItemGroup(placement: .navigationBarTrailing) {
+                        Button{
+                            withAnimation{
+                                self.showSidebar.toggle()
+                            }
+                        } label:{
+                            Label("back", systemImage: "chevron.forward")
                         }
-                    }.padding(.leading)
-                    Divider()
-                    HStack{
-                        Image(systemName: "lasso.and.sparkles").frame(width: 40)
-                        Text("Predici il futuro")
-                    }.onTapGesture{
-                        withAnimation(.easeIn) {
-                            showView = "predici"
-                        }
-                    }.padding(.leading)
-                    Divider()
-                    HStack{
-                        Image(systemName: "exclamationmark.triangle").frame(width: 40)
-                        Text("Segnala")
-                    }.onTapGesture{
-                        withAnimation(.easeIn) {
-                            showView = "segnala"
-                        }
-                    }.padding(.leading)
-                    Divider()
-                }
-                Spacer()
-            }.frame(maxWidth: .infinity, alignment: .leading).navigationBarTitleDisplayMode(.inline).navigationTitle("Menù").navigationBarBackButtonHidden(true).toolbar {
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
-                    Button{
-                        withAnimation{
-                            self.showSidebar.toggle()
-                        }
-                    } label:{
-                        Label("back", systemImage: "chevron.forward")
                     }
                 }
-            }
-        }.gesture(drag)
-    }
+            }.gesture(drag)
+        }
     }
 }
 

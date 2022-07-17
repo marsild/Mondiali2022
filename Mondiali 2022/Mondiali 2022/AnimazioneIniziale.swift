@@ -11,7 +11,6 @@ struct AnimazioneIniziale: View {
     @StateObject var appState = AppState.shared
     @Environment(\.verticalSizeClass) var sizeClass
     @State var animazioneTerminata : Bool = false
-    
     var body: some View {
         if animazioneTerminata {
             Homepage().id(appState.gameID)
@@ -23,13 +22,13 @@ struct AnimazioneIniziale: View {
                         .frame(height: UIScreen.main.bounds.size.height/5)
                 }
             }.transition(.scale(scale: 100))
-            .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                    withAnimation {
-                        self.animazioneTerminata = true
+                .onAppear {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                        withAnimation {
+                            self.animazioneTerminata = true
+                        }
                     }
                 }
-            }
         }
     }
 }
