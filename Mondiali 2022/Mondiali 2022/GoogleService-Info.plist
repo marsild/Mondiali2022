@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>776593103806-4u0jmae39rinvobfom3t35hkvcm76172.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.776593103806-4u0jmae39rinvobfom3t35hkvcm76172</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDkHmVmWChY_4hWTMhImeg4cbZS-Eq8FZU</string>
+	<key>GCM_SENDER_ID</key>
+	<string>776593103806</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>it.unibo.marsild.Mondiali-2022</string>
+	<key>PROJECT_ID</key>
+	<string>mondiali2022-16a08</string>
+	<key>STORAGE_BUCKET</key>
+	<string>mondiali2022-16a08.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:776593103806:ios:f2e56d00d19c863247f7ef</string>
+</dict>
+</plist>

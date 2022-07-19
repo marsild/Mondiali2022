@@ -11,12 +11,8 @@ struct EliminazioneView: View {
     @Binding var showSidebar: Bool
     var body: some View {
         NavigationView{
-            VStack{
-                Divider()
-                ScrollView{
-                    Text("eliminazione")
-                }
-                Divider()
+            ScrollView{
+                Text("eliminazione")
             }.navigationBarTitleDisplayMode(.inline).navigationTitle("Eliminazione").toolbar {
                 ToolbarItemGroup(placement: .navigationBarLeading) {
                     Button{

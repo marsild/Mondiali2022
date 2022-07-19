@@ -11,12 +11,8 @@ struct GironiView: View {
     @Binding var showSidebar: Bool
     var body: some View {
         NavigationView{
-            VStack{
-                Divider()
-                ScrollView{
-                    Text("gironi")
-                }
-                Divider()
+            ScrollView{
+                Text("gironi")
             }.navigationBarTitleDisplayMode(.inline).navigationTitle("Gironi").toolbar {
                 ToolbarItemGroup(placement: .navigationBarLeading) {
                     Button{

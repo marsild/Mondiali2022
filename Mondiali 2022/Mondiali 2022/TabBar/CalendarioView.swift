@@ -11,12 +11,8 @@ struct CalendarioView: View {
     @Binding var showSidebar: Bool
     var body: some View {
         NavigationView{
-            VStack{
-                Divider()
-                ScrollView{
-                    Text("calendario")
-                }
-                Divider()
+            ScrollView{
+                Text("calendario")
             }.navigationBarTitleDisplayMode(.inline).navigationTitle("Calendario").toolbar {
                 ToolbarItemGroup(placement: .navigationBarLeading) {
                     Button{
