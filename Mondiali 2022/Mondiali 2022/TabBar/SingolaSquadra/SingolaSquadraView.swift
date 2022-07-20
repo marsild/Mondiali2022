@@ -15,6 +15,7 @@ struct SingolaSquadraView: View {
     var descrizione: String
     var id: String
     @Environment(\.verticalSizeClass) var sizeClass
+    @State var bellFilled: Bool = false
     var body: some View {
         ScrollView {
             VStack(alignment:.leading){
@@ -30,19 +31,29 @@ struct SingolaSquadraView: View {
                 }.frame(width: UIScreen.main.bounds.size.width, alignment: .center).offset(y:-70).padding(.bottom, -75)
             }
             VStack(alignment: .leading) {
-                HStack{
-                    Text(nome).font(.title)
-                    Label("", systemImage: "bell" )
-                }.frame(width:UIScreen.main.bounds.width, alignment: .center)
+                Text(nome).font(.title).frame(width:UIScreen.main.bounds.width, alignment: .center)
                 Divider()
                 Text(descrizione)
-                    .font(.callout)
+                    .font(.footnote)
                     .padding(.horizontal)
                 Divider()
+                Text("Convocati").font(.title).padding(.leading)
             }
         }.frame(width:UIScreen.main.bounds.width, alignment: .leading)
             .navigationTitle(nome)
-            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarTitleDisplayMode(.inline).toolbar {
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    Button{
+                        bellFilled.toggle()
+                    } label:{
+                        if bellFilled{
+                            Label("filled bell", systemImage: "bell.fill")
+                        } else {
+                            Label("empty bell", systemImage: "bell")
+                        }
+                    }
+                }
+            }
     }
 }
 

@@ -13,10 +13,6 @@ struct SquadreView: View {
     var body: some View {
         NavigationView {
             ScrollView{
-                /*
-                 ForEach(model.list){ squadra in
-                 Text(squadra.emoji)
-                 }*/
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 100))]) {
                     ForEach(model.list){ squadra in
                         NavigationLink(destination: SingolaSquadraView(latitudine: squadra.latitudine, longitudine: squadra.longitudine, emoji: squadra.emoji, nome: squadra.nome, descrizione: squadra.descrizione, id: squadra.id)){
@@ -48,7 +44,9 @@ struct SquadreView: View {
     }
     init(showSidebar: Binding<Bool>){
         self._showSidebar = showSidebar
-        model.getData()
+        if !model.isLoaded{
+            model.getData()
+        }
     }
 }
 

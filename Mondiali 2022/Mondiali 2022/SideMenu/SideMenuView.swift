@@ -12,8 +12,8 @@ struct SideMenuView: View {
     @State private var showView = ""
     var body: some View {
         let drag = DragGesture()
-            .onEnded {
-                if $0.translation.width < -100 {
+            .onChanged {
+                if $0.translation.width < -50 {
                     withAnimation {
                         self.showSidebar = false
                     }

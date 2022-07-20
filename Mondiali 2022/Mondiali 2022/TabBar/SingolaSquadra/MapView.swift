@@ -12,7 +12,7 @@ struct MapView: View {
     
     var latitudine: Double
     var longitudine: Double
-    
+    @Environment(\.verticalSizeClass) var sizeClass
     private var locationCoordinates: CLLocationCoordinate2D {
         CLLocationCoordinate2D(latitude: latitudine, longitude: longitudine)
     }
