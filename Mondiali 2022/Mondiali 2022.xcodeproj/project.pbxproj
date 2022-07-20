@@ -26,6 +26,8 @@
 		17A58A492887373F00B7DC06 /* Squadra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A58A482887373F00B7DC06 /* Squadra.swift */; };
 		17A58A4B2887517600B7DC06 /* SingolaSquadraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A58A4A2887517600B7DC06 /* SingolaSquadraView.swift */; };
 		17A58A4F288752AA00B7DC06 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A58A4E288752AA00B7DC06 /* MapView.swift */; };
+		17A58A512887F2CB00B7DC06 /* SingleGironeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A58A502887F2CB00B7DC06 /* SingleGironeView.swift */; };
+		17A58A542887FA6F00B7DC06 /* CompressedGironeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A58A532887FA6F00B7DC06 /* CompressedGironeView.swift */; };
 		17D85F90287C104A003D4D19 /* Mondiali_2022App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D85F8F287C104A003D4D19 /* Mondiali_2022App.swift */; };
 		17D85F94287C104E003D4D19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D85F93287C104E003D4D19 /* Assets.xcassets */; };
 		17D85F97287C104E003D4D19 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D85F96287C104E003D4D19 /* Preview Assets.xcassets */; };
@@ -50,6 +52,8 @@
 		17A58A482887373F00B7DC06 /* Squadra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Squadra.swift; sourceTree = "<group>"; };
 		17A58A4A2887517600B7DC06 /* SingolaSquadraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingolaSquadraView.swift; sourceTree = "<group>"; };
 		17A58A4E288752AA00B7DC06 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		17A58A502887F2CB00B7DC06 /* SingleGironeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleGironeView.swift; sourceTree = "<group>"; };
+		17A58A532887FA6F00B7DC06 /* CompressedGironeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompressedGironeView.swift; sourceTree = "<group>"; };
 		17D85F8C287C104A003D4D19 /* Mondiali 2022.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mondiali 2022.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		17D85F8F287C104A003D4D19 /* Mondiali_2022App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mondiali_2022App.swift; sourceTree = "<group>"; };
 		17D85F93287C104E003D4D19 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -75,6 +79,7 @@
 				178BFA872881BA510091A032 /* SquadreView.swift */,
 				17A58A4D2887524000B7DC06 /* SingolaSquadra */,
 				178BFA892881C0AE0091A032 /* GironiView.swift */,
+				17A58A522887FA4A00B7DC06 /* SingoloGirone */,
 				178BFA8B2881C0D40091A032 /* EliminazioneView.swift */,
 				178BFA8D2881C0EC0091A032 /* CalendarioView.swift */,
 			);
@@ -108,6 +113,15 @@
 				17A58A4E288752AA00B7DC06 /* MapView.swift */,
 			);
 			path = SingolaSquadra;
+			sourceTree = "<group>";
+		};
+		17A58A522887FA4A00B7DC06 /* SingoloGirone */ = {
+			isa = PBXGroup;
+			children = (
+				17A58A502887F2CB00B7DC06 /* SingleGironeView.swift */,
+				17A58A532887FA6F00B7DC06 /* CompressedGironeView.swift */,
+			);
+			path = SingoloGirone;
 			sourceTree = "<group>";
 		};
 		17D85F83287C104A003D4D19 = {
@@ -242,9 +256,11 @@
 				178BFA882881BA510091A032 /* SquadreView.swift in Sources */,
 				17A58A492887373F00B7DC06 /* Squadra.swift in Sources */,
 				178BFA842880917D0091A032 /* AnimazioneIniziale.swift in Sources */,
+				17A58A512887F2CB00B7DC06 /* SingleGironeView.swift in Sources */,
 				17A58A47288736CD00B7DC06 /* ViewModel.swift in Sources */,
 				178BFA9A2882AEB00091A032 /* AppState.swift in Sources */,
 				17D85F90287C104A003D4D19 /* Mondiali_2022App.swift in Sources */,
+				17A58A542887FA6F00B7DC06 /* CompressedGironeView.swift in Sources */,
 				178BFA9C2882B3BA0091A032 /* InfoQatarView.swift in Sources */,
 				178BFA962882A95A0091A032 /* PrediciFuturoView.swift in Sources */,
 			);

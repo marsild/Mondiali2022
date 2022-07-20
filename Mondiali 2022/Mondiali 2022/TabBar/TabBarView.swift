@@ -9,16 +9,17 @@ import SwiftUI
 
 struct TabBarView: View {
     @Environment(\.verticalSizeClass) var sizeClass
+    @ObservedObject var model = ViewModel()
     @State var selectedTab: String
     @State var showSidebar: Bool = false
     var body: some View {
         GeometryReader { geometry in
             TabView(selection: $selectedTab){
-                SquadreView(showSidebar: $showSidebar).tabItem{
+                SquadreView(showSidebar: $showSidebar, model: model).tabItem{
                     Image(systemName: "map")
                     Text("SQUADRE")
                 }.tag("One")
-                GironiView(showSidebar: $showSidebar).tabItem{
+                GironiView(showSidebar: $showSidebar, model: model).tabItem{
                     Image(systemName: "square.grid.2x2")
                     Text("GIRONI")
                 }.tag("Two")

@@ -10,6 +10,7 @@ import Firebase
 
 class ViewModel: ObservableObject{
     @Published var list = [Squadra]()
+    
     @Published var isLoaded: Bool = false
     func getData(){
         let db = Firestore.firestore()
@@ -33,6 +34,7 @@ class ViewModel: ObservableObject{
                 // errore
                 print("Errore \(error?.localizedDescription ?? "error")")
             }
+            
         }
         self.isLoaded = true
     }

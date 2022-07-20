@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SquadreView: View {
     @Binding var showSidebar: Bool
-    @ObservedObject var model = ViewModel()
+    @ObservedObject var model: ViewModel
     var body: some View {
         NavigationView {
             ScrollView{
@@ -42,16 +42,17 @@ struct SquadreView: View {
                 }
         }
     }
-    init(showSidebar: Binding<Bool>){
+    init(showSidebar: Binding<Bool>, model: ViewModel){
         self._showSidebar = showSidebar
+        self.model = model
         if !model.isLoaded{
             model.getData()
         }
     }
 }
-
+/*
 struct SquadreView_Previews: PreviewProvider {
     static var previews: some View {
         SquadreView(showSidebar: .constant(false))
     }
-}
+}*/

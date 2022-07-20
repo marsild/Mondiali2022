@@ -10,15 +10,9 @@ import SwiftUI
 struct SideMenuView: View {
     @Binding var showSidebar: Bool
     @State private var showView = ""
+    @State var startPos : CGPoint = .zero
+    @State var isSwipping = true
     var body: some View {
-        let drag = DragGesture()
-            .onChanged {
-                if $0.translation.width < -50 {
-                    withAnimation {
-                        self.showSidebar = false
-                    }
-                }
-            }
         switch showView{
         case "crea":
             CreaSquadraView().transition(.opacity)
@@ -80,7 +74,24 @@ struct SideMenuView: View {
                         }
                     }
                 }
-            }.gesture(drag)
+            }.gesture(DragGesture()
+                .onChanged { gesture in
+                    if self.isSwipping {
+                        self.startPos = gesture.location
+                        self.isSwipping.toggle()
+                    }
+                }
+                .onEnded { gesture in
+                    let xDist =  abs(gesture.location.x - self.startPos.x)
+                    let yDist =  abs(gesture.location.y - self.startPos.y)
+                    if self.startPos.x > gesture.location.x && yDist < xDist {
+                        withAnimation{
+                            self.showSidebar = false
+                        }
+                    }
+                    self.isSwipping.toggle()
+                }
+            )
         }
     }
 }
