@@ -28,6 +28,8 @@
 		17A58A4F288752AA00B7DC06 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A58A4E288752AA00B7DC06 /* MapView.swift */; };
 		17A58A512887F2CB00B7DC06 /* SingleGironeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A58A502887F2CB00B7DC06 /* SingleGironeView.swift */; };
 		17A58A542887FA6F00B7DC06 /* CompressedGironeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A58A532887FA6F00B7DC06 /* CompressedGironeView.swift */; };
+		17A58A562889A6F700B7DC06 /* Giocatore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A58A552889A6F700B7DC06 /* Giocatore.swift */; };
+		17A58A5A2889B3E400B7DC06 /* ConvocatiSquadraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A58A592889B3E400B7DC06 /* ConvocatiSquadraView.swift */; };
 		17D85F90287C104A003D4D19 /* Mondiali_2022App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D85F8F287C104A003D4D19 /* Mondiali_2022App.swift */; };
 		17D85F94287C104E003D4D19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D85F93287C104E003D4D19 /* Assets.xcassets */; };
 		17D85F97287C104E003D4D19 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D85F96287C104E003D4D19 /* Preview Assets.xcassets */; };
@@ -54,6 +56,8 @@
 		17A58A4E288752AA00B7DC06 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		17A58A502887F2CB00B7DC06 /* SingleGironeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleGironeView.swift; sourceTree = "<group>"; };
 		17A58A532887FA6F00B7DC06 /* CompressedGironeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompressedGironeView.swift; sourceTree = "<group>"; };
+		17A58A552889A6F700B7DC06 /* Giocatore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Giocatore.swift; sourceTree = "<group>"; };
+		17A58A592889B3E400B7DC06 /* ConvocatiSquadraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvocatiSquadraView.swift; sourceTree = "<group>"; };
 		17D85F8C287C104A003D4D19 /* Mondiali 2022.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mondiali 2022.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		17D85F8F287C104A003D4D19 /* Mondiali_2022App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mondiali_2022App.swift; sourceTree = "<group>"; };
 		17D85F93287C104E003D4D19 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -102,6 +106,7 @@
 			children = (
 				17A58A46288736CD00B7DC06 /* ViewModel.swift */,
 				17A58A482887373F00B7DC06 /* Squadra.swift */,
+				17A58A552889A6F700B7DC06 /* Giocatore.swift */,
 			);
 			path = FireStore;
 			sourceTree = "<group>";
@@ -111,6 +116,7 @@
 			children = (
 				17A58A4A2887517600B7DC06 /* SingolaSquadraView.swift */,
 				17A58A4E288752AA00B7DC06 /* MapView.swift */,
+				17A58A592889B3E400B7DC06 /* ConvocatiSquadraView.swift */,
 			);
 			path = SingolaSquadra;
 			sourceTree = "<group>";
@@ -247,6 +253,7 @@
 				178BFA942882A9480091A032 /* CreaSquadraView.swift in Sources */,
 				178BFA982882A9650091A032 /* SegnalaView.swift in Sources */,
 				17260935287F21F900652149 /* Homepage.swift in Sources */,
+				17A58A562889A6F700B7DC06 /* Giocatore.swift in Sources */,
 				17A58A4B2887517600B7DC06 /* SingolaSquadraView.swift in Sources */,
 				178BFA8A2881C0AE0091A032 /* GironiView.swift in Sources */,
 				178BFA922882905C0091A032 /* SideMenuView.swift in Sources */,
@@ -259,6 +266,7 @@
 				17A58A512887F2CB00B7DC06 /* SingleGironeView.swift in Sources */,
 				17A58A47288736CD00B7DC06 /* ViewModel.swift in Sources */,
 				178BFA9A2882AEB00091A032 /* AppState.swift in Sources */,
+				17A58A5A2889B3E400B7DC06 /* ConvocatiSquadraView.swift in Sources */,
 				17D85F90287C104A003D4D19 /* Mondiali_2022App.swift in Sources */,
 				17A58A542887FA6F00B7DC06 /* CompressedGironeView.swift in Sources */,
 				178BFA9C2882B3BA0091A032 /* InfoQatarView.swift in Sources */,

@@ -14,6 +14,7 @@ struct SingolaSquadraView: View {
     var nome: String
     var descrizione: String
     var id: String
+    @ObservedObject var model: ViewModel
     @Environment(\.verticalSizeClass) var sizeClass
     @State var bellFilled: Bool = false
     var body: some View {
@@ -34,10 +35,9 @@ struct SingolaSquadraView: View {
                 Text(nome).font(.title).frame(width:UIScreen.main.bounds.width, alignment: .center)
                 Divider()
                 Text(descrizione)
-                    .font(.footnote)
+                    .font(.callout)
                     .padding(.horizontal)
-                Divider()
-                Text("Convocati").font(.title).padding(.leading)
+                ConvocatiSquadraView(giocatori: model.giocatoriInSquadra(squadra: Int8(self.id)!))
             }
         }.frame(width:UIScreen.main.bounds.width, alignment: .leading)
             .navigationTitle(nome)
@@ -56,9 +56,9 @@ struct SingolaSquadraView: View {
             }
     }
 }
-
+/*
 struct SingolaSquadraView_Previews: PreviewProvider {
     static var previews: some View {
         SingolaSquadraView(latitudine: 0.0, longitudine: 0.0, emoji: "🇦🇷", nome: "Argentina", descrizione: "test", id: "1")
     }
-}
+}*/

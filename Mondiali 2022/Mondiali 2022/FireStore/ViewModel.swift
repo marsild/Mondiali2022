@@ -10,7 +10,7 @@ import Firebase
 
 class ViewModel: ObservableObject{
     @Published var list = [Squadra]()
-    
+    @Published var listGiocatori = [Giocatore]()
     @Published var isLoaded: Bool = false
     func getData(){
         let db = Firestore.firestore()
@@ -32,11 +32,40 @@ class ViewModel: ObservableObject{
                 }
             } else {
                 // errore
-                print("Errore \(error?.localizedDescription ?? "error")")
+                print("Errore Squadre \(error?.localizedDescription ?? "error squadre")")
             }
-            
+        }
+        db.collection("giocatori").getDocuments { snapshot, error in
+            if error == nil {
+                if let snapshot = snapshot {
+                    DispatchQueue.main.async {
+                        self.listGiocatori = snapshot.documents.map { d in
+                            return Giocatore(id: d.documentID,
+                                             idsquadra: d["idsquadra"] as? Int8 ?? 0,
+                                             nazione: d["nazione"] as? String ?? "",
+                                             ruolo: d["ruolo"] as? String ?? "",
+                                             nome: d["nome"] as? String ?? "")
+                        }
+                    }
+                    
+                }
+            } else {
+                // errore
+                print("Errore giocatori \(error?.localizedDescription ?? "error giocatori")")
+            }
         }
         self.isLoaded = true
     }
-    
+    func giocatoriInSquadra(squadra: Int8) -> [Giocatore]{
+        return self.listGiocatori.filter { giocatore in
+            giocatore.idsquadra == squadra
+        }.sorted { Giocatore1, Giocatore2 in
+            Giocatore1.ruolo > Giocatore2.ruolo
+        }
+    }
+    func squadreInGruppo(gruppo: Int8) -> [Squadra]{
+        return self.list.filter({ squadra in
+            squadra.gruppo == gruppo
+        })
+    }
 }
