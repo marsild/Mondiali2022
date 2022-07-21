@@ -41,7 +41,7 @@ class ViewModel: ObservableObject{
                     DispatchQueue.main.async {
                         self.listGiocatori = snapshot.documents.map { d in
                             return Giocatore(id: d.documentID,
-                                             idsquadra: d["idsquadra"] as? Int8 ?? 0,
+                                             idsquadra: d["idsquadra"] as? String ?? "",
                                              nazione: d["nazione"] as? String ?? "",
                                              ruolo: d["ruolo"] as? String ?? "",
                                              nome: d["nome"] as? String ?? "")
@@ -56,7 +56,7 @@ class ViewModel: ObservableObject{
         }
         self.isLoaded = true
     }
-    func giocatoriInSquadra(squadra: Int8) -> [Giocatore]{
+    func giocatoriInSquadra(squadra: String) -> [Giocatore]{
         return self.listGiocatori.filter { giocatore in
             giocatore.idsquadra == squadra
         }.sorted { Giocatore1, Giocatore2 in

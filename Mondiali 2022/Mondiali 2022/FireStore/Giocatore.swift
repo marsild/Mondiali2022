@@ -8,7 +8,7 @@
 import Foundation
 struct Giocatore: Identifiable {
     var id: String
-    var idsquadra: Int8
+    var idsquadra: String
     var nazione: String
     var ruolo: String
     var nome: String

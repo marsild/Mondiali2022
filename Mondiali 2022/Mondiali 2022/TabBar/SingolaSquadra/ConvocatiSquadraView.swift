@@ -43,6 +43,6 @@ struct ConvocatiSquadraView: View {
 
 struct ConvocatiSquadraView_Previews: PreviewProvider {
     static var previews: some View {
-        ConvocatiSquadraView(giocatori: [Giocatore(id: "", idsquadra: 1, nazione: "", ruolo: "P", nome: "Ricardo Kaka"),Giocatore(id: "2", idsquadra: 1, nazione: "", ruolo: "P", nome: "Ricardo Kaka")])
+        ConvocatiSquadraView(giocatori: [Giocatore(id: "", idsquadra: "1", nazione: "", ruolo: "P", nome: "Ricardo Kaka"),Giocatore(id: "2", idsquadra: "1", nazione: "", ruolo: "P", nome: "Ricardo Kaka")])
     }
 }
