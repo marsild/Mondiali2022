@@ -9,8 +9,8 @@ import SwiftUI
 
 struct TabBarView: View {
     @Environment(\.verticalSizeClass) var sizeClass
-    @ObservedObject var model = ViewModel()
     @State var selectedTab: String
+    @ObservedObject var model: ViewModel
     @State var showSidebar: Bool = false
     var body: some View {
         GeometryReader { geometry in
@@ -41,9 +41,9 @@ struct TabBarView: View {
         }
     }
 }
-
+/*
 struct TabBarView_Previews: PreviewProvider {
     static var previews: some View {
         TabBarView(selectedTab: "One")
     }
-}
+}*/

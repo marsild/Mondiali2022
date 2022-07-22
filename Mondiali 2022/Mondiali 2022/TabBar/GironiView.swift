@@ -100,13 +100,6 @@ struct GironiView: View {
             }
         )
     }
-    init(showSidebar: Binding<Bool>, model: ViewModel){
-        self._showSidebar = showSidebar
-        self.model = model
-        if !model.isLoaded{
-            model.getData()
-        }
-    }
 }
 
 /*struct GironiView_Previews: PreviewProvider {

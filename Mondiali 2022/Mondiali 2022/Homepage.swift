@@ -9,16 +9,17 @@ import SwiftUI
 
 struct Homepage: View {
     @Environment(\.verticalSizeClass) var sizeClass
+    @ObservedObject var model = ViewModel()
     @State private var showView = ""
     @State private var opacity = 1.0
     var body: some View {
         switch showView{
         case "squadre":
-            TabBarView(selectedTab: "One").transition(.move(edge: .trailing))
+            TabBarView(selectedTab: "One", model: model).transition(.move(edge: .trailing))
         case "tabelloni":
-            TabBarView(selectedTab: "Two").transition(.move(edge: .trailing))
+            TabBarView(selectedTab: "Two", model: model).transition(.move(edge: .trailing))
         case "calendario":
-            TabBarView(selectedTab: "Four").transition(.move(edge: .trailing))
+            TabBarView(selectedTab: "Four", model: model).transition(.move(edge: .trailing))
         default:
             NavigationView{
                 VStack{
@@ -84,6 +85,11 @@ struct Homepage: View {
                     
                 }.navigationBarHidden(true).opacity(opacity)
             }
+        }
+    }
+    init(){
+        if model.isLoaded==false {
+            model.getData()
         }
     }
 }

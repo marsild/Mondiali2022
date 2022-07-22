@@ -17,18 +17,17 @@ class ViewModel: ObservableObject{
         db.collection("squadre").getDocuments { snapshot, error in
             if error == nil {
                 if let snapshot = snapshot {
-                    DispatchQueue.main.async {
-                        self.list = snapshot.documents.map { d in
-                            return Squadra(id: d.documentID,
-                                           nome: d["nome"] as? String ?? "",
-                                           emoji: d["emoji"] as? String ?? "",
-                                           descrizione: d["descrizione"] as? String ?? "",
-                                           gruppo: d["gruppo"] as? Int8 ?? 0,
-                                           latitudine: d["latitudine"] as? Double ?? 0,
-                                           longitudine: d["longitudine"] as? Double ?? 0)
-                        }
+                    //DispatchQueue.main.async {
+                    self.list = snapshot.documents.map { d in
+                        return Squadra(id: d.documentID,
+                                       nome: d["nome"] as? String ?? "",
+                                       emoji: d["emoji"] as? String ?? "",
+                                       descrizione: d["descrizione"] as? String ?? "",
+                                       gruppo: d["gruppo"] as? Int8 ?? 0,
+                                       latitudine: d["latitudine"] as? Double ?? 0,
+                                       longitudine: d["longitudine"] as? Double ?? 0)
                     }
-                    
+                    //}
                 }
             } else {
                 // errore
@@ -38,16 +37,15 @@ class ViewModel: ObservableObject{
         db.collection("giocatori").getDocuments { snapshot, error in
             if error == nil {
                 if let snapshot = snapshot {
-                    DispatchQueue.main.async {
-                        self.listGiocatori = snapshot.documents.map { d in
-                            return Giocatore(id: d.documentID,
-                                             idsquadra: d["idsquadra"] as? String ?? "",
-                                             nazione: d["nazione"] as? String ?? "",
-                                             ruolo: d["ruolo"] as? String ?? "",
-                                             nome: d["nome"] as? String ?? "")
-                        }
+                    //DispatchQueue.main.async {
+                    self.listGiocatori = snapshot.documents.map { d in
+                        return Giocatore(id: d.documentID,
+                                         idsquadra: d["idsquadra"] as? String ?? "",
+                                         nazione: d["nazione"] as? String ?? "",
+                                         ruolo: d["ruolo"] as? String ?? "",
+                                         nome: d["nome"] as? String ?? "")
                     }
-                    
+                    //}
                 }
             } else {
                 // errore
@@ -56,6 +54,7 @@ class ViewModel: ObservableObject{
         }
         self.isLoaded = true
     }
+    //func1
     func giocatoriInSquadra(squadra: String) -> [Giocatore]{
         return self.listGiocatori.filter { giocatore in
             giocatore.idsquadra == squadra
@@ -63,6 +62,7 @@ class ViewModel: ObservableObject{
             Giocatore1.ruolo > Giocatore2.ruolo
         }
     }
+    //func2
     func squadreInGruppo(gruppo: Int8) -> [Squadra]{
         return self.list.filter({ squadra in
             squadra.gruppo == gruppo
