@@ -14,7 +14,7 @@ struct SquadreView: View {
         NavigationView {
             ScrollView{
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 100))]) {
-                    ForEach(model.list){ squadra in
+                    ForEach(model.list.sorted(by: {$0.nome < $1.nome})){ squadra in
                         NavigationLink(destination: SingolaSquadraView(latitudine: squadra.latitudine, longitudine: squadra.longitudine, emoji: squadra.emoji, nome: squadra.nome, descrizione: squadra.descrizione, id: squadra.id, model: model)){
                             ZStack{
                                 RoundedRectangle(cornerRadius: 20).strokeBorder(lineWidth: 2/3)
