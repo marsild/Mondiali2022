@@ -6,7 +6,7 @@
 //
 
 import Foundation
-struct Giocatore: Identifiable {
+struct Giocatore: Identifiable, Codable {
     var id: String
     var idsquadra: String
     var nazione: String

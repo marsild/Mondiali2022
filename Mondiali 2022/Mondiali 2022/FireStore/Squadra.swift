@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Squadra: Identifiable {
+struct Squadra: Identifiable, Codable {
     var id: String
     var nome: String
     var emoji: String

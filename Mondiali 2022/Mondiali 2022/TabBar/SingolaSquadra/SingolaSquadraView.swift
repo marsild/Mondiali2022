@@ -37,7 +37,9 @@ struct SingolaSquadraView: View {
                 Text(descrizione)
                     .font(.callout)
                     .padding(.horizontal)
-                ConvocatiSquadraView(giocatori: model.giocatoriInSquadra(squadra: self.id))
+                ConvocatiSquadraView(giocatori: model.giocatoriInSquadra(squadra: self.id))/*.onAppear{model.jsonPrintPlayers()
+                    model.jsonPrintSquads()
+                }*/
             }
         }.frame(width:UIScreen.main.bounds.width, alignment: .leading)
             .navigationTitle(nome)
