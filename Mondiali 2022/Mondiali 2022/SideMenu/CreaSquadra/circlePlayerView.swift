@@ -24,7 +24,9 @@ struct circlePlayerView: View{
                     Text("\(player.emoji)").font(.title).minimumScaleFactor(0.1)
                 }
             }
-            Text("\(player.name)").minimumScaleFactor(0.1).multilineTextAlignment(.center).padding(5).background(Color.green.opacity(0.8)).cornerRadius(5).foregroundColor(.black)
+            if(!player.name.isEmpty){
+                Text("\(player.name)").minimumScaleFactor(0.1).multilineTextAlignment(.center).padding(5).background(Color.green.opacity(0.8)).cornerRadius(5).foregroundColor(.black)
+            }
         }.onTapGesture {
             if(player.name == ""){
                 showingSheet.toggle()

@@ -43,43 +43,39 @@ struct CreaSquadraView: View {
                 Image("footballpitch").resizable().frame(maxHeight: UIScreen.main.bounds.size.height).cornerRadius(15).padding(.vertical,2.5).padding(2)
                 VStack{
                     HStack(alignment:.center){
-                        Text(" Allenatore:").foregroundColor(.white)
+                        Text("Allenatore:").foregroundColor(.black)
                         if selectedImage != nil {
                             Image(uiImage: selectedImage!)
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
-                                .clipShape(Circle()).onTapGesture {
-                                    self.isImagePickerDisplay.toggle()
-                                }
+                                .clipShape(Circle())
                         } else {
-                            Image(systemName: "camera.macro")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .clipShape(Circle()).onTapGesture {
-                                    self.isImagePickerDisplay.toggle()
-                                }.overlay(Circle().strokeBorder().foregroundColor(.blue)).foregroundColor(.blue).padding(.vertical,5)
+                            Image(systemName: "camera.viewfinder")
+                                .foregroundColor(.blue)
                         }
-                    }.frame(width:UIScreen.main.bounds.size.width-12, height: UIScreen.main.bounds.height/8, alignment:.center).background(Color.black.opacity(0.3)).cornerRadius(10)
+                    }.padding(.vertical,1).frame(width: UIScreen.main.bounds.width/2, height: UIScreen.main.bounds.height/7).background(Color.green.opacity(0.9)).cornerRadius(10).onTapGesture {
+                        self.isImagePickerDisplay.toggle()
+                    }
                     VStack{
                         HStack(alignment: .top){
                             circlePlayerView(player: $att1, title: "Attaccanti", ListaGiocatori: self.$ListaAttaccanti, squadre: model.list).frame(maxWidth: UIScreen.main.bounds.size.width/3)
                             circlePlayerView(player: $att2, title: "Attaccanti", ListaGiocatori: self.$ListaAttaccanti, squadre: model.list).frame(maxWidth: UIScreen.main.bounds.size.width/3)
                             circlePlayerView(player: $att3, title: "Attaccanti", ListaGiocatori: self.$ListaAttaccanti, squadre: model.list).frame(maxWidth: UIScreen.main.bounds.size.width/3)
-                        }.frame(maxHeight: UIScreen.main.bounds.size.height).padding(.horizontal)
+                        }.frame(height: UIScreen.main.bounds.size.height/6).padding(.horizontal)
                         HStack(alignment: .top){
                             circlePlayerView(player: $cen1, title: "Centrocampisti", ListaGiocatori: self.$ListaCentrocampisti, squadre: model.list).frame(maxWidth: UIScreen.main.bounds.size.width/3)
                             circlePlayerView(player: $cen2,title: "Centrocampisti", ListaGiocatori: self.$ListaCentrocampisti, squadre: model.list).frame(maxWidth: UIScreen.main.bounds.size.width/3)
                             circlePlayerView(player: $cen3,title: "Centrocampisti", ListaGiocatori: self.$ListaCentrocampisti, squadre: model.list).frame(maxWidth: UIScreen.main.bounds.size.width/3)
-                        }.frame(maxHeight: UIScreen.main.bounds.size.height).padding(.horizontal)
+                        }.frame(height: UIScreen.main.bounds.size.height/6).padding(.horizontal)
                         HStack(alignment: .top){
                             circlePlayerView(player: $dif1,title: "Difensori", ListaGiocatori: self.$ListaDifensori, squadre: model.list).frame(maxWidth: UIScreen.main.bounds.size.width/4)
                             circlePlayerView(player: $dif2,title: "Difensori", ListaGiocatori: self.$ListaDifensori, squadre: model.list).frame(maxWidth: UIScreen.main.bounds.size.width/4)
                             circlePlayerView(player: $dif3, title: "Difensori", ListaGiocatori: self.$ListaDifensori, squadre: model.list).frame(maxWidth: UIScreen.main.bounds.size.width/4)
                             circlePlayerView(player: $dif4, title: "Difensori", ListaGiocatori: self.$ListaDifensori, squadre: model.list).frame(maxWidth: UIScreen.main.bounds.size.width/4)
-                        }.frame(maxHeight: UIScreen.main.bounds.size.height).padding(.horizontal)
+                        }.frame(height: UIScreen.main.bounds.size.height/6).padding(.horizontal)
                         HStack(alignment: .bottom){
                             circlePlayerView(player: $por, title: "Portieri", ListaGiocatori: self.$ListaPortieri, squadre: model.list)
-                        }.frame(alignment: .center).padding(.bottom,5)
+                        }.frame(height: UIScreen.main.bounds.size.height/6, alignment: .center).padding(.bottom,5)
                     }
                 }.padding(.vertical,5)
             }.navigationBarTitleDisplayMode(.inline).navigationTitle("Crea la tua squadra").toolbar {
@@ -94,17 +90,17 @@ struct CreaSquadraView: View {
                 }
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     Button{
+                        refresh()
+                    } label:{
+                        Label("restart", systemImage: "arrow.counterclockwise")
+                    }
+                    Button{
                         if let screenshotMaker = screenshotMaker {
                             imageShare = screenshotMaker.screenshot()!
                             self.showingShareSheet = true
                         }
                     } label:{
                         Label("share", systemImage: "square.and.arrow.up")
-                    }
-                    Button{
-                        refresh()
-                    } label:{
-                        Label("restart", systemImage: "arrow.counterclockwise")
                     }
                 }
             }.screenshotView { screenshotMaker in
