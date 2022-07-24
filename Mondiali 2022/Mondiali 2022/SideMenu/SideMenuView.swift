@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SideMenuView: View {
+    @ObservedObject var model: ViewModel
     @Binding var showSidebar: Bool
     @State private var showView = ""
     @State var startPos : CGPoint = .zero
@@ -15,7 +16,7 @@ struct SideMenuView: View {
     var body: some View {
         switch showView{
         case "crea":
-            CreaSquadraView().transition(.opacity)
+            CreaSquadraView(model: model).transition(.opacity)
         case "predici":
             PrediciFuturoView().transition(.opacity)
         case "segnala":
@@ -95,9 +96,9 @@ struct SideMenuView: View {
         }
     }
 }
-
+/*
 struct SideMenuView_Previews: PreviewProvider {
     static var previews: some View {
         SideMenuView(showSidebar: .constant(true))
     }
-}
+}*/

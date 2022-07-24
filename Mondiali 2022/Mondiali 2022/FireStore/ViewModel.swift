@@ -160,4 +160,38 @@ class ViewModel: ObservableObject{
             squadra.gruppo == gruppo
         })
     }
+    //func
+    func listaPortieri() -> [Giocatore]{
+        return self.listGiocatori.filter({ g in
+            g.ruolo == "P"
+        }).sorted { giocatore1, giocatore2 in
+            giocatore1.idsquadra < giocatore2.idsquadra
+        }
+    }
+    //func
+    func listaDifensori() -> [Giocatore]{
+        return self.listGiocatori.filter({ g in
+            g.ruolo == "D"
+        }).sorted { giocatore1, giocatore2 in
+            giocatore1.idsquadra < giocatore2.idsquadra
+        }
+    }
+    //func
+    func listaCentrocampisti() -> [Giocatore]{
+        return self.listGiocatori.filter({ g in
+            g.ruolo == "C"
+        }).sorted { giocatore1, giocatore2 in
+            giocatore1.idsquadra < giocatore2.idsquadra
+        }
+    }
+    //func
+    func listaAttaccanti() -> [Giocatore]{
+        return self.listGiocatori.filter({ g in
+            g.ruolo == "A"
+        }).sorted { giocatore1, giocatore2 in
+            giocatore1.idsquadra < giocatore2.idsquadra
+        }
+    }
+    
+    
 }

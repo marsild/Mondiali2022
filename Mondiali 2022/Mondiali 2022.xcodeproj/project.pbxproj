@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		17260935287F21F900652149 /* Homepage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17260934287F21F900652149 /* Homepage.swift */; };
+		175A4A0A288D571D003161B5 /* ScreenshotMakerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175A4A09288D571D003161B5 /* ScreenshotMakerView.swift */; };
+		175A4A0C288D572C003161B5 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175A4A0B288D572C003161B5 /* ViewExtension.swift */; };
+		175A4A0E288D5739003161B5 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175A4A0D288D5739003161B5 /* ImagePickerView.swift */; };
+		175A4A10288D574D003161B5 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175A4A0F288D574D003161B5 /* Coordinator.swift */; };
+		175A4A12288D5763003161B5 /* circlePlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175A4A11288D5763003161B5 /* circlePlayerView.swift */; };
+		175A4A14288D577F003161B5 /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175A4A13288D577F003161B5 /* SheetView.swift */; };
+		175A4A17288D58BD003161B5 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175A4A16288D58BD003161B5 /* ActivityView.swift */; };
 		178BFA842880917D0091A032 /* AnimazioneIniziale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178BFA832880917D0091A032 /* AnimazioneIniziale.swift */; };
 		178BFA862881A3F70091A032 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178BFA852881A3F70091A032 /* TabBarView.swift */; };
 		178BFA882881BA510091A032 /* SquadreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178BFA872881BA510091A032 /* SquadreView.swift */; };
@@ -39,6 +46,13 @@
 
 /* Begin PBXFileReference section */
 		17260934287F21F900652149 /* Homepage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homepage.swift; sourceTree = "<group>"; };
+		175A4A09288D571D003161B5 /* ScreenshotMakerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotMakerView.swift; sourceTree = "<group>"; };
+		175A4A0B288D572C003161B5 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		175A4A0D288D5739003161B5 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
+		175A4A0F288D574D003161B5 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		175A4A11288D5763003161B5 /* circlePlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = circlePlayerView.swift; sourceTree = "<group>"; };
+		175A4A13288D577F003161B5 /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
+		175A4A16288D58BD003161B5 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
 		178BFA832880917D0091A032 /* AnimazioneIniziale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimazioneIniziale.swift; sourceTree = "<group>"; };
 		178BFA852881A3F70091A032 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		178BFA872881BA510091A032 /* SquadreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquadreView.swift; sourceTree = "<group>"; };
@@ -80,6 +94,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		175A4A08288D5705003161B5 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				175A4A09288D571D003161B5 /* ScreenshotMakerView.swift */,
+				175A4A0B288D572C003161B5 /* ViewExtension.swift */,
+				175A4A0D288D5739003161B5 /* ImagePickerView.swift */,
+				175A4A0F288D574D003161B5 /* Coordinator.swift */,
+				175A4A16288D58BD003161B5 /* ActivityView.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		175A4A15288D57D1003161B5 /* CreaSquadra */ = {
+			isa = PBXGroup;
+			children = (
+				178BFA932882A9480091A032 /* CreaSquadraView.swift */,
+				175A4A11288D5763003161B5 /* circlePlayerView.swift */,
+				175A4A13288D577F003161B5 /* SheetView.swift */,
+			);
+			path = CreaSquadra;
+			sourceTree = "<group>";
+		};
 		178BFA9F28841C990091A032 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -98,9 +134,10 @@
 			isa = PBXGroup;
 			children = (
 				178BFA912882905C0091A032 /* SideMenuView.swift */,
-				178BFA952882A95A0091A032 /* PrediciFuturoView.swift */,
-				178BFA932882A9480091A032 /* CreaSquadraView.swift */,
+				175A4A08288D5705003161B5 /* Utils */,
+				175A4A15288D57D1003161B5 /* CreaSquadra */,
 				178BFA972882A9650091A032 /* SegnalaView.swift */,
+				178BFA952882A95A0091A032 /* PrediciFuturoView.swift */,
 			);
 			path = SideMenu;
 			sourceTree = "<group>";
@@ -267,24 +304,31 @@
 			files = (
 				178BFA862881A3F70091A032 /* TabBarView.swift in Sources */,
 				178BFA942882A9480091A032 /* CreaSquadraView.swift in Sources */,
+				175A4A10288D574D003161B5 /* Coordinator.swift in Sources */,
 				178BFA982882A9650091A032 /* SegnalaView.swift in Sources */,
 				17260935287F21F900652149 /* Homepage.swift in Sources */,
 				17A58A562889A6F700B7DC06 /* Giocatore.swift in Sources */,
 				17A58A4B2887517600B7DC06 /* SingolaSquadraView.swift in Sources */,
+				175A4A0C288D572C003161B5 /* ViewExtension.swift in Sources */,
 				178BFA8A2881C0AE0091A032 /* GironiView.swift in Sources */,
 				178BFA922882905C0091A032 /* SideMenuView.swift in Sources */,
+				175A4A0E288D5739003161B5 /* ImagePickerView.swift in Sources */,
 				17A58A4F288752AA00B7DC06 /* MapView.swift in Sources */,
 				178BFA8C2881C0D40091A032 /* EliminazioneView.swift in Sources */,
+				175A4A0A288D571D003161B5 /* ScreenshotMakerView.swift in Sources */,
 				178BFA8E2881C0EC0091A032 /* CalendarioView.swift in Sources */,
 				178BFA882881BA510091A032 /* SquadreView.swift in Sources */,
 				17A58A492887373F00B7DC06 /* Squadra.swift in Sources */,
+				175A4A17288D58BD003161B5 /* ActivityView.swift in Sources */,
 				178BFA842880917D0091A032 /* AnimazioneIniziale.swift in Sources */,
 				17A58A512887F2CB00B7DC06 /* SingleGironeView.swift in Sources */,
 				17A58A47288736CD00B7DC06 /* ViewModel.swift in Sources */,
 				178BFA9A2882AEB00091A032 /* AppState.swift in Sources */,
 				17A58A5A2889B3E400B7DC06 /* ConvocatiSquadraView.swift in Sources */,
+				175A4A14288D577F003161B5 /* SheetView.swift in Sources */,
 				17D85F90287C104A003D4D19 /* Mondiali_2022App.swift in Sources */,
 				17A58A542887FA6F00B7DC06 /* CompressedGironeView.swift in Sources */,
+				175A4A12288D5763003161B5 /* circlePlayerView.swift in Sources */,
 				178BFA9C2882B3BA0091A032 /* InfoQatarView.swift in Sources */,
 				178BFA962882A95A0091A032 /* PrediciFuturoView.swift in Sources */,
 			);
@@ -418,6 +462,8 @@
 				DEVELOPMENT_TEAM = LFA44YRHTC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -447,6 +493,8 @@
 				DEVELOPMENT_TEAM = LFA44YRHTC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

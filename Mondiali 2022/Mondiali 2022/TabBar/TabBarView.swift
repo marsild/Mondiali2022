@@ -34,7 +34,7 @@ struct TabBarView: View {
             }.frame(width: geometry.size.width, height: geometry.size.height).offset(x: self.showSidebar ? geometry.size.width : 0)
                 .disabled(self.showSidebar ? true : false)
             if self.showSidebar {
-                SideMenuView(showSidebar: $showSidebar)
+                SideMenuView(model: model, showSidebar: $showSidebar)
                     .frame(width: geometry.size.width)
                     .transition(.move(edge: .leading))
             }
