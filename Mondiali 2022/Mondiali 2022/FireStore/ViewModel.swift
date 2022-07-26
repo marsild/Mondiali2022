@@ -11,10 +11,15 @@ import Firebase
 class ViewModel: ObservableObject{
     @Published var list = [Squadra]()
     @Published var listGiocatori = [Giocatore]()
-    @Published var isLoaded: Bool = false
+    @Published var listPartite = [Partita]()
+    init(){
+        self.getData()
+    }
+    
     func getData(){
-        getSquadre()
-        getGiocatori()
+        list = getType(fileName: "squads.json")
+        listGiocatori = getType(fileName: "players.json")
+        listPartite = getType(fileName: "matches.json")
         /*
         let db = Firestore.firestore()
         db.collection("squadre").getDocuments { snapshot, error in
@@ -55,9 +60,53 @@ class ViewModel: ObservableObject{
                 print("Errore giocatori \(error?.localizedDescription ?? "error giocatori")")
             }
         }
+         db.collection("partite").getDocuments { snapshot, error in
+             if error == nil {
+                 if let snapshot = snapshot {
+                     self.listPartite = snapshot.documents.map { d in
+                         return Partita(id: d.documentID,
+                                        casa: d["casa"] as? String ?? "",
+                                        ospite: d["ospite"] as? String ?? "",
+                                        data: (d["data"] as? Timestamp ?? Timestamp()).dateValue(),
+                                        stadio: d["stadio"] as? String ?? "",
+                                        golCasa: d["golCasa"] as? Int8 ?? 0,
+                                        golOspite: d["golOspite"] as? Int8 ?? 0,
+                                        gruppoCasa: d["gruppoCasa"] as? String ?? "",
+                                        gruppoOspite: d["gruppoOspite"] as? String ?? "",
+                                        partitaCasa: d["partitaCasa"] as? String ?? "",
+                                        partitaOspite: d["partitaOspite"] as? String ?? "")
+                     }
+                 }
+             } else {
+                 // errore
+                 print("Errore Partite \(error?.localizedDescription ?? "error partite")")
+             }
+         }
          */
-        self.isLoaded = true
     }
+    func getType<T : Codable>(fileName: String) -> [T]{
+        var outputArray : [T]
+        guard let file = Bundle.main.url(forResource: fileName, withExtension: nil)
+        else { fatalError("File \(fileName) not found")}
+        let data: Data
+        
+        do {
+            data = try Data(contentsOf: file)
+        } catch {
+          fatalError("\(fileName) not loaded: \(error)")
+        }
+        
+        let decoder = JSONDecoder()
+        
+        
+        do {
+            outputArray = try decoder.decode([T].self, from: data)
+        } catch {
+            fatalError("Error parsing \(fileName) as \([Squadra].self): \(error)")
+        }
+        return outputArray
+    }
+    /*
     func getSquadre(){
         //Squadre from json
         let fileName = "squads.json"
@@ -81,32 +130,9 @@ class ViewModel: ObservableObject{
             fatalError("Error parsing \(fileName) as \([Squadra].self): \(error)")
         }
     }
-    func getGiocatori(){
-        //Squadre from json
-        let fileName = "players.json"
-        guard let file = Bundle.main.url(forResource: fileName, withExtension: nil)
-        else { fatalError("File \(fileName) not found")}
-        let data: Data
-        
-        do {
-            data = try Data(contentsOf: file)
-        } catch {
-          fatalError("\(fileName) not loaded: \(error)")
-        }
-        
-        let decoder = JSONDecoder()
-        
-        
-        do {
-            listGiocatori = try decoder.decode([Giocatore].self, from: data)
-            
-        } catch {
-            fatalError("Error parsing \(fileName) as \([Giocatore].self): \(error)")
-        }
-    }
+   */
     /*
     func jsonPrintSquads(){
-        
         let pathDirectory = getDocumentsDirectory()
         try? FileManager().createDirectory(at: pathDirectory, withIntermediateDirectories: true)
         let filePath = pathDirectory.appendingPathComponent("squads.json")
@@ -125,7 +151,6 @@ class ViewModel: ObservableObject{
             return paths[0]
         }
     }
-    
     func jsonPrintPlayers(){
     
         let pathDirectory = getDocumentsDirectory()
@@ -133,6 +158,25 @@ class ViewModel: ObservableObject{
         let filePath = pathDirectory.appendingPathComponent("players.json")
 
         let json = try? JSONEncoder().encode(listGiocatori)
+
+        do {
+             try json!.write(to: filePath)
+        } catch {
+            print("Failed to write JSON data: \(error.localizedDescription)")
+        }
+
+        func getDocumentsDirectory() -> URL {
+            let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+            return paths[0]
+        }
+    }
+    func jsonPrintMatches(){
+    
+        let pathDirectory = getDocumentsDirectory()
+        try? FileManager().createDirectory(at: pathDirectory, withIntermediateDirectories: true)
+        let filePath = pathDirectory.appendingPathComponent("matches.json")
+        print(filePath.absoluteString)
+        let json = try? JSONEncoder().encode(listPartite)
 
         do {
              try json!.write(to: filePath)

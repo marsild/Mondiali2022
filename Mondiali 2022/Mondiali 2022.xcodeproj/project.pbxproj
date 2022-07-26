@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		17260935287F21F900652149 /* Homepage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17260934287F21F900652149 /* Homepage.swift */; };
+		174631242890365500264748 /* Partita.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174631232890365500264748 /* Partita.swift */; };
+		17463128289063DF00264748 /* matches.json in Resources */ = {isa = PBXBuildFile; fileRef = 17463127289063DF00264748 /* matches.json */; };
 		175A4A0A288D571D003161B5 /* ScreenshotMakerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175A4A09288D571D003161B5 /* ScreenshotMakerView.swift */; };
 		175A4A0C288D572C003161B5 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175A4A0B288D572C003161B5 /* ViewExtension.swift */; };
 		175A4A0E288D5739003161B5 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175A4A0D288D5739003161B5 /* ImagePickerView.swift */; };
@@ -46,6 +48,8 @@
 
 /* Begin PBXFileReference section */
 		17260934287F21F900652149 /* Homepage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homepage.swift; sourceTree = "<group>"; };
+		174631232890365500264748 /* Partita.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Partita.swift; sourceTree = "<group>"; };
+		17463127289063DF00264748 /* matches.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = matches.json; sourceTree = "<group>"; };
 		175A4A09288D571D003161B5 /* ScreenshotMakerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotMakerView.swift; sourceTree = "<group>"; };
 		175A4A0B288D572C003161B5 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		175A4A0D288D5739003161B5 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
@@ -148,6 +152,7 @@
 				17A58A46288736CD00B7DC06 /* ViewModel.swift */,
 				17A58A482887373F00B7DC06 /* Squadra.swift */,
 				17A58A552889A6F700B7DC06 /* Giocatore.swift */,
+				174631232890365500264748 /* Partita.swift */,
 			);
 			path = FireStore;
 			sourceTree = "<group>";
@@ -176,6 +181,7 @@
 			children = (
 				17A58A5E288B42DE00B7DC06 /* players.json */,
 				17A58A5F288B42DE00B7DC06 /* squads.json */,
+				17463127289063DF00264748 /* matches.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -288,6 +294,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				17A58A60288B42DF00B7DC06 /* players.json in Resources */,
+				17463128289063DF00264748 /* matches.json in Resources */,
 				17D85F97287C104E003D4D19 /* Preview Assets.xcassets in Resources */,
 				17A58A61288B42DF00B7DC06 /* squads.json in Resources */,
 				17D85F94287C104E003D4D19 /* Assets.xcassets in Resources */,
@@ -305,6 +312,7 @@
 				178BFA862881A3F70091A032 /* TabBarView.swift in Sources */,
 				178BFA942882A9480091A032 /* CreaSquadraView.swift in Sources */,
 				175A4A10288D574D003161B5 /* Coordinator.swift in Sources */,
+				174631242890365500264748 /* Partita.swift in Sources */,
 				178BFA982882A9650091A032 /* SegnalaView.swift in Sources */,
 				17260935287F21F900652149 /* Homepage.swift in Sources */,
 				17A58A562889A6F700B7DC06 /* Giocatore.swift in Sources */,
