@@ -20,20 +20,20 @@ struct CreaSquadraView: View {
     @State private var selectedImage: UIImage?
     @State private var isImagePickerDisplay = false
     //por
-    @State var por = (name: "", emoji: "", idsquadra: "", ruolo:"")
+    @State var por = (giocatore: Giocatore(id: "por", idsquadra: "", nazione: "", ruolo: "", nome: ""), emoji: "")
     //def
-    @State var dif1 = (name: "", emoji: "", idsquadra: "", ruolo:"")
-    @State var dif2 = (name: "", emoji: "", idsquadra: "", ruolo:"")
-    @State var dif3 = (name: "", emoji: "", idsquadra: "", ruolo:"")
-    @State var dif4 = (name: "", emoji: "", idsquadra: "", ruolo:"")
+    @State var dif1 = (giocatore: Giocatore(id: "dif1", idsquadra: "", nazione: "", ruolo: "", nome: ""), emoji: "")
+    @State var dif2 = (giocatore: Giocatore(id: "dif2", idsquadra: "", nazione: "", ruolo: "", nome: ""), emoji: "")
+    @State var dif3 = (giocatore: Giocatore(id: "dif3", idsquadra: "", nazione: "", ruolo: "", nome: ""), emoji: "")
+    @State var dif4 = (giocatore: Giocatore(id: "dif4", idsquadra: "", nazione: "", ruolo: "", nome: ""), emoji: "")
     //cen
-    @State var cen1 = (name: "", emoji: "", idsquadra: "", ruolo:"")
-    @State var cen2 = (name: "", emoji: "", idsquadra: "", ruolo:"")
-    @State var cen3 = (name: "", emoji: "", idsquadra: "", ruolo:"")
+    @State var cen1 = (giocatore: Giocatore(id: "cen1", idsquadra: "", nazione: "", ruolo: "", nome: ""), emoji: "")
+    @State var cen2 = (giocatore: Giocatore(id: "cen2", idsquadra: "", nazione: "", ruolo: "", nome: ""), emoji: "")
+    @State var cen3 = (giocatore: Giocatore(id: "cen3", idsquadra: "", nazione: "", ruolo: "", nome: ""), emoji: "")
     //for
-    @State var att1 = (name: "", emoji: "", idsquadra: "", ruolo:"")
-    @State var att2 = (name: "", emoji: "", idsquadra: "", ruolo:"")
-    @State var att3 = (name: "", emoji: "", idsquadra: "", ruolo:"")
+    @State var att1 = (giocatore: Giocatore(id: "att1", idsquadra: "", nazione: "", ruolo: "", nome: ""), emoji: "")
+    @State var att2 = (giocatore: Giocatore(id: "att2", idsquadra: "", nazione: "", ruolo: "", nome: ""), emoji: "")
+    @State var att3 = (giocatore: Giocatore(id: "att3", idsquadra: "", nazione: "", ruolo: "", nome: ""), emoji: "")
     //
     @State var ListaPortieri : [Giocatore] = []
     @State var ListaDifensori : [Giocatore] = []
@@ -144,7 +144,7 @@ struct CreaSquadraView: View {
         }
     }
     func isModified() -> Bool{
-        if self.por == (name: "", emoji: "", idsquadra: "", ruolo:"") && self.dif1 == (name: "", emoji: "", idsquadra: "", ruolo:"") && self.dif2 == (name: "", emoji: "", idsquadra: "", ruolo:"") && self.dif3 == (name: "", emoji: "", idsquadra: "", ruolo:"") && self.dif4 == (name: "", emoji: "", idsquadra: "", ruolo:"") && self.cen1 == (name: "", emoji: "", idsquadra: "", ruolo:"") && self.cen2 == (name: "", emoji: "", idsquadra: "", ruolo:"") && self.cen3 == (name: "", emoji: "", idsquadra: "", ruolo:"") && self.att1 == (name: "", emoji: "", idsquadra: "", ruolo:"") && self.att2 == (name: "", emoji: "", idsquadra: "", ruolo:"") && self.att3 == (name: "", emoji: "", idsquadra: "", ruolo:"") && self.selectedImage == nil {
+        if self.por.emoji == "" && self.dif1.emoji == "" && self.dif2.emoji == "" && self.dif3.emoji == "" && self.dif4.emoji == "" && self.cen1.emoji == "" && self.cen2.emoji == "" && self.cen3.emoji == "" && self.att1.emoji == "" && self.att2.emoji == "" && self.att3.emoji == "" && self.selectedImage == nil {
             return false
         } else {
             return true
@@ -155,17 +155,17 @@ struct CreaSquadraView: View {
         self.ListaDifensori = model.listaDifensori()
         self.ListaCentrocampisti = model.listaCentrocampisti()
         self.ListaAttaccanti = model.listaAttaccanti()
-        self.por = (name: "", emoji: "", idsquadra: "", ruolo:"")
-        self.dif1 = (name: "", emoji: "", idsquadra: "", ruolo:"")
-        self.dif2 = (name: "", emoji: "", idsquadra: "", ruolo:"")
-        self.dif3 = (name: "", emoji: "", idsquadra: "", ruolo:"")
-        self.dif4 = (name: "", emoji: "", idsquadra: "", ruolo:"")
-        self.cen1 = (name: "", emoji: "", idsquadra: "", ruolo:"")
-        self.cen2 = (name: "", emoji: "", idsquadra: "", ruolo:"")
-        self.cen3 = (name: "", emoji: "", idsquadra: "", ruolo:"")
-        self.att1 = (name: "", emoji: "", idsquadra: "", ruolo:"")
-        self.att2 = (name: "", emoji: "", idsquadra: "", ruolo:"")
-        self.att3 = (name: "", emoji: "", idsquadra: "", ruolo:"")
+        self.por = (giocatore: Giocatore(id: "por", idsquadra: "", nazione: "", ruolo: "", nome: ""), emoji: "")
+        self.dif1 = (giocatore: Giocatore(id: "dif1", idsquadra: "", nazione: "", ruolo: "", nome: ""), emoji: "")
+        self.dif2 = (giocatore: Giocatore(id: "dif2", idsquadra: "", nazione: "", ruolo: "", nome: ""), emoji: "")
+        self.dif3 = (giocatore: Giocatore(id: "dif3", idsquadra: "", nazione: "", ruolo: "", nome: ""), emoji: "")
+        self.dif4 = (giocatore: Giocatore(id: "dif4", idsquadra: "", nazione: "", ruolo: "", nome: ""), emoji: "")
+        self.cen1 = (giocatore: Giocatore(id: "cen1", idsquadra: "", nazione: "", ruolo: "", nome: ""), emoji: "")
+        self.cen2 = (giocatore: Giocatore(id: "cen2", idsquadra: "", nazione: "", ruolo: "", nome: ""), emoji: "")
+        self.cen3 = (giocatore: Giocatore(id: "cen3", idsquadra: "", nazione: "", ruolo: "", nome: ""), emoji: "")
+        self.att1 = (giocatore: Giocatore(id: "att1", idsquadra: "", nazione: "", ruolo: "", nome: ""), emoji: "")
+        self.att2 = (giocatore: Giocatore(id: "att2", idsquadra: "", nazione: "", ruolo: "", nome: ""), emoji: "")
+        self.att3 = (giocatore: Giocatore(id: "att3", idsquadra: "", nazione: "", ruolo: "", nome: ""), emoji: "")
         self.selectedImage = nil
     }
 }

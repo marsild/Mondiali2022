@@ -9,7 +9,7 @@ import SwiftUI
 
 struct circlePlayerView: View{
     @State private var showingSheet = false
-    @Binding var player : (name:String, emoji:String, idsquadra: String, ruolo:String)
+    @Binding var player : (giocatore:Giocatore, emoji:String)
     var title:String
     @Binding var ListaGiocatori : [Giocatore]
     var squadre: [Squadra]
@@ -24,8 +24,8 @@ struct circlePlayerView: View{
                     Text("\(player.emoji)").font(.title).minimumScaleFactor(0.1)
                 }
             }
-            if(!player.name.isEmpty){
-                Text("\(player.name)").minimumScaleFactor(0.1).multilineTextAlignment(.center).padding(5).background(Color.green.opacity(0.8)).cornerRadius(5).foregroundColor(.black)
+            if(!player.giocatore.nome.isEmpty){
+                Text("\(player.giocatore.nome)").minimumScaleFactor(0.1).multilineTextAlignment(.center).padding(5).background(Color.green.opacity(0.8)).cornerRadius(5).foregroundColor(.black)
             }
         }.onTapGesture {
             //if(player.name == ""){
