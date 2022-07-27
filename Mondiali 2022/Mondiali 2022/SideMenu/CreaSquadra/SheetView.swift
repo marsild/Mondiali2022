@@ -51,7 +51,7 @@ struct SheetView: View {
                         }
                     }
                 }
-                if !searchText.isEmpty && !checkitem($searchText){
+                if (!searchText.isEmpty && !checkitem($searchText)) || searchText.count > 3{
                     ForEach(ListaGiocatori){ p in
                         if p.nome.localizedStandardContains(searchText) {
                             let emoji = squadre.first { Squadra in
@@ -93,7 +93,7 @@ struct SheetView: View {
         for nomeSquadra in squadre.map({ Squadra in
             Squadra.nome
         }){
-            if nomeSquadra.contains(t.wrappedValue){
+            if nomeSquadra.localizedStandardContains(t.wrappedValue){
                 test = true
             }
         }
