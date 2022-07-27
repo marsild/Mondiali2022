@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SheetView: View {
     @Environment(\.dismiss) var dismiss
-    @Binding var player : (name:String, emoji:String)
+    @Binding var player : (name:String, emoji:String, idsquadra:String, ruolo:String)
     var title:String
     @Binding var ListaGiocatori : [Giocatore]
     var squadre: [Squadra]
@@ -35,11 +35,16 @@ struct SheetView: View {
                                     Squadra.id == p.idsquadra
                                 }?.emoji ?? "🏴‍☠️"
                                 Button{
+                                    if(player.name != "" || player.emoji != ""){
+                                        ListaGiocatori.append(Giocatore(id: "\(player.name)", idsquadra: player.idsquadra, nazione: "", ruolo: player.ruolo, nome: player.name))
+                                    }
                                     ListaGiocatori.removeAll { giocatore in
                                         giocatore.nome == p.nome
                                     }
                                     player.name = p.nome
                                     player.emoji = emoji
+                                    player.ruolo = p.ruolo
+                                    player.idsquadra = p.idsquadra
                                     dismiss()
                                 } label: {
                                     Text("\(p.nome)").foregroundColor(Color(UIColor.label))
