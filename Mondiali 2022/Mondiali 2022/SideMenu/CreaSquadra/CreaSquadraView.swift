@@ -48,16 +48,16 @@ struct CreaSquadraView: View {
                     HStack(alignment:.center){
                         Text(" Allenatore: ").foregroundColor(.black)
                         if selectedImage != nil {
-                            if(!isFrontCamera){
-                                Image(uiImage: selectedImage!)
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .clipShape(Circle())
-                            } else {
+                            if(isFrontCamera){
                                 Image(uiImage: selectedImage!)
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
                                     .clipShape(Circle()).rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
+                            } else {
+                                Image(uiImage: selectedImage!)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .clipShape(Circle())
                             }
                         } else {
                             Image(systemName: "camera.viewfinder")
