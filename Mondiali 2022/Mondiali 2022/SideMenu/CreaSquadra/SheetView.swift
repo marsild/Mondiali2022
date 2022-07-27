@@ -34,35 +34,39 @@ struct SheetView: View {
                                 let emoji = squadre.first { Squadra in
                                     Squadra.id == p.idsquadra
                                 }?.emoji ?? "🏴‍☠️"
-                                    Text("\(p.nome)").onTapGesture {
-                                        ListaGiocatori.removeAll { giocatore in
-                                            giocatore.nome == p.nome
-                                        }
-                                        player.name = p.nome
-                                        player.emoji = emoji
-                                        dismiss()
+                                Button{
+                                    ListaGiocatori.removeAll { giocatore in
+                                        giocatore.nome == p.nome
                                     }
+                                    player.name = p.nome
+                                    player.emoji = emoji
+                                    dismiss()
+                                } label: {
+                                    Text("\(p.nome)").foregroundColor(Color(UIColor.label))
+                                }
                             }
                         }
                     }
                 }
                 if !searchText.isEmpty && !checkitem($searchText){
-                ForEach(ListaGiocatori){ p in
-                     if p.nome.contains(searchText) {
-                        let emoji = squadre.first { Squadra in
-                            Squadra.id == p.idsquadra
-                        }?.emoji ?? "🏴‍☠️"
-                            Text("\(p.nome)").onTapGesture {
+                    ForEach(ListaGiocatori){ p in
+                        if p.nome.contains(searchText) {
+                            let emoji = squadre.first { Squadra in
+                                Squadra.id == p.idsquadra
+                            }?.emoji ?? "🏴‍☠️"
+                            Button{
                                 ListaGiocatori.removeAll { giocatore in
                                     giocatore.nome == p.nome
                                 }
                                 player.name = p.nome
                                 player.emoji = emoji
                                 dismiss()
+                            } label: {
+                                Text("\(p.nome)").foregroundColor(Color(UIColor.label))
                             }
+                        }
                     }
                 }
-            }
             }.navigationBarTitleDisplayMode(.inline).navigationTitle(title).searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always)).toolbar {
                 ToolbarItemGroup(placement: .navigationBarLeading) {
                     Button{

@@ -8,34 +8,28 @@
 import SwiftUI
 
 struct ConvocatiSquadraView: View {
-     let ruoli : Dictionary<String, String> = ["P": "Portieri",
-     "D": "Difensori",
-     "C": "Centrocampisti",
-     "A": "Attaccanti"]
+     let ruoli : Dictionary<String, String> = ["P": "PORTIERI",
+     "D": "DIFENSORI",
+     "C": "CENTROCAMPISTI",
+     "A": "ATTACCANTI"]
     let giocatori: [Giocatore]
     var body: some View {
         VStack{
-            Divider()
             ForEach(ruoli.sorted(by: >), id: \.key) { key, value in
-                DisclosureGroup{
+                Text(value).font(.caption).frame(maxWidth: UIScreen.main.bounds.size.width ,alignment: .leading).padding(.top).padding(.leading, 20)
                     VStack{
+                        Divider().foregroundColor(Color(UIColor.label)).opacity(0.1).padding(.bottom,5)
                         ForEach(giocatori){ giocatore in
                             if giocatore.ruolo == key {
-                                Divider()
                                 HStack{
                                     Text(giocatore.nome)
                                         .font(.callout)
                                     Spacer()
-                                }
+                                }.padding(.horizontal)
+                                Divider().foregroundColor(Color(UIColor.label)).opacity(0.07)
                             }
                         }
-                    }.padding(.top, 5)
-                    
-                } label: {
-                    Text(value)
-                }
-                .padding(.horizontal)
-                Divider()
+                    }.frame(maxWidth: UIScreen.main.bounds.size.width).background(Color(UIColor.label).opacity(0.1)).cornerRadius(10).padding(.horizontal)
             }
         }
     }

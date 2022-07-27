@@ -10,6 +10,8 @@ import SwiftUI
 struct CreaSquadraView: View {
     @ObservedObject var model: ViewModel
     @Environment(\.verticalSizeClass) var sizeClass
+    @State var showAlertHomepage = false
+    @State var showAlertRestart = false
     //sharescreenshot
     @State private var showingShareSheet = false
     @State var screenshotMaker: ScreenshotMaker?
@@ -81,19 +83,45 @@ struct CreaSquadraView: View {
             }.navigationBarTitleDisplayMode(.inline).navigationTitle("Crea la tua squadra").toolbar {
                 ToolbarItemGroup(placement: .navigationBarLeading) {
                     Button{
-                        withAnimation{
-                            AppState.shared.gameID = UUID()
+                        if isModified(){
+                            showAlertHomepage = true
+                        } else {
+                            withAnimation{
+                                AppState.shared.gameID = UUID()
+                            }
                         }
                     } label:{
                         Label("home", systemImage: "house")
+                    }.alert("Sicuro di voler tornare nella homepage?", isPresented: $showAlertHomepage){
+                        Button("Annulla", role: .cancel){
+                            showAlertHomepage = false
+                        }
+                        Button("Continua", role: .destructive){
+                            withAnimation{
+                                AppState.shared.gameID = UUID()
+                            }
+                        }
+                    } message : {
+                        Text("Cliccando su 'Continua', tutte le modifiche attuali andranno perse")
+                    }
+                    Button{
+                        if isModified(){
+                            showAlertRestart = true
+                        }
+                    } label:{
+                        Label("restart", systemImage: "arrow.counterclockwise")
+                    }.alert("Sicuro di voler ricominciare?", isPresented: $showAlertRestart){
+                        Button("Annulla", role: .cancel){
+                            showAlertRestart = false
+                        }
+                        Button("Continua", role: .destructive){
+                            refresh()
+                        }
+                    } message : {
+                        Text("Cliccando su 'Continua', tutte le modifiche attuali andranno perse")
                     }
                 }
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
-                    Button{
-                        refresh()
-                    } label:{
-                        Label("restart", systemImage: "arrow.counterclockwise")
-                    }
                     Button{
                         if let screenshotMaker = screenshotMaker {
                             imageShare = screenshotMaker.screenshot()!
@@ -113,6 +141,13 @@ struct CreaSquadraView: View {
             }
         }.onAppear{
             refresh()
+        }
+    }
+    func isModified() -> Bool{
+        if self.por == (name: "", emoji: "") && self.dif1 == (name: "", emoji: "") && self.dif2 == (name: "", emoji: "") && self.dif3 == (name: "", emoji: "") && self.dif4 == (name: "", emoji: "") && self.cen1 == (name: "", emoji: "") && self.cen2 == (name: "", emoji: "") && self.cen3 == (name: "", emoji: "") && self.att1 == (name: "", emoji: "") && self.att2 == (name: "", emoji: "") && self.att3 == (name: "", emoji: "") && self.selectedImage == nil {
+            return false
+        } else {
+            return true
         }
     }
     func refresh(){
@@ -135,8 +170,8 @@ struct CreaSquadraView: View {
     }
 }
 /*
-struct CreaSquadraView_Previews: PreviewProvider {
-    static var previews: some View {
-        CreaSquadraView()
-    }
-}*/
+ struct CreaSquadraView_Previews: PreviewProvider {
+ static var previews: some View {
+ CreaSquadraView()
+ }
+ }*/
