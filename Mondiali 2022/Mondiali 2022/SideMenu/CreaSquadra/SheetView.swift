@@ -28,7 +28,7 @@ struct SheetView: View {
         NavigationView{
             List{
                 ForEach(squadre.sorted(by: {$0.nome < $1.nome})){ squadra in
-                    if searchText.isEmpty || squadra.nome.contains(searchText) {
+                    if searchText.isEmpty || squadra.nome.localizedStandardContains(searchText) {
                         Section(header: Text("\(squadra.nome)")){
                             ForEach(giocatoriPerSquadra[squadra.id]!){ p in
                                 let emoji = squadre.first { Squadra in
@@ -53,7 +53,7 @@ struct SheetView: View {
                 }
                 if !searchText.isEmpty && !checkitem($searchText){
                     ForEach(ListaGiocatori){ p in
-                        if p.nome.contains(searchText) {
+                        if p.nome.localizedStandardContains(searchText) {
                             let emoji = squadre.first { Squadra in
                                 Squadra.id == p.idsquadra
                             }?.emoji ?? "🏴‍☠️"
