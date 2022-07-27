@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		170C34BC2891AD120072A820 /* ImagePickerControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170C34BB2891AD120072A820 /* ImagePickerControllerExtension.swift */; };
 		17260935287F21F900652149 /* Homepage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17260934287F21F900652149 /* Homepage.swift */; };
 		174631242890365500264748 /* Partita.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174631232890365500264748 /* Partita.swift */; };
 		17463128289063DF00264748 /* matches.json in Resources */ = {isa = PBXBuildFile; fileRef = 17463127289063DF00264748 /* matches.json */; };
@@ -47,6 +48,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		170C34BB2891AD120072A820 /* ImagePickerControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerControllerExtension.swift; sourceTree = "<group>"; };
 		17260934287F21F900652149 /* Homepage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homepage.swift; sourceTree = "<group>"; };
 		174631232890365500264748 /* Partita.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Partita.swift; sourceTree = "<group>"; };
 		17463127289063DF00264748 /* matches.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = matches.json; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				175A4A09288D571D003161B5 /* ScreenshotMakerView.swift */,
 				175A4A0B288D572C003161B5 /* ViewExtension.swift */,
 				175A4A0D288D5739003161B5 /* ImagePickerView.swift */,
+				170C34BB2891AD120072A820 /* ImagePickerControllerExtension.swift */,
 				175A4A0F288D574D003161B5 /* Coordinator.swift */,
 				175A4A16288D58BD003161B5 /* ActivityView.swift */,
 			);
@@ -338,6 +341,7 @@
 				17A58A542887FA6F00B7DC06 /* CompressedGironeView.swift in Sources */,
 				175A4A12288D5763003161B5 /* circlePlayerView.swift in Sources */,
 				178BFA9C2882B3BA0091A032 /* InfoQatarView.swift in Sources */,
+				170C34BC2891AD120072A820 /* ImagePickerControllerExtension.swift in Sources */,
 				178BFA962882A95A0091A032 /* PrediciFuturoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

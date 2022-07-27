@@ -18,6 +18,7 @@ struct CreaSquadraView: View {
     @State var imageShare: UIImage = UIImage()
     //camera
     @State private var selectedImage: UIImage?
+    @State private var isFrontCamera = false
     @State private var isImagePickerDisplay = false
     //por
     @State var por = (giocatore: Giocatore(id: "por", idsquadra: "", nazione: "", ruolo: "", nome: ""), emoji: "")
@@ -45,12 +46,19 @@ struct CreaSquadraView: View {
                 Image("footballpitch").resizable().frame(maxHeight: UIScreen.main.bounds.size.height).cornerRadius(15).padding(.vertical,2.5).padding(2)
                 VStack{
                     HStack(alignment:.center){
-                        Text("Allenatore:").foregroundColor(.black)
+                        Text(" Allenatore: ").foregroundColor(.black)
                         if selectedImage != nil {
-                            Image(uiImage: selectedImage!)
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .clipShape(Circle())
+                            if(!isFrontCamera){
+                                Image(uiImage: selectedImage!)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .clipShape(Circle())
+                            } else {
+                                Image(uiImage: selectedImage!)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .clipShape(Circle()).rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
+                            }
                         } else {
                             Image(systemName: "camera.viewfinder")
                                 .foregroundColor(.blue)
@@ -134,7 +142,7 @@ struct CreaSquadraView: View {
             }.screenshotView { screenshotMaker in
                 self.screenshotMaker = screenshotMaker
             }.sheet(isPresented: self.$isImagePickerDisplay) {
-                ImagePickerView(selectedImage: self.$selectedImage)
+                ImagePickerView(selectedImage: self.$selectedImage, isFrontCamera: self.$isFrontCamera)
             }.sheet(isPresented: $showingShareSheet){
                 [imageShare] in
                 ActivityView(activityItems: [imageShare] as [Any], applicationActivities: nil)
