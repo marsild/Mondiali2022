@@ -12,6 +12,7 @@ class ViewModel: ObservableObject{
     @Published var list = [Squadra]()
     @Published var listGiocatori = [Giocatore]()
     @Published var listPartite = [Partita]()
+    @Published var listStadi = [Stadio]()
     init(){
         self.getData()
     }
@@ -20,6 +21,7 @@ class ViewModel: ObservableObject{
         list = getType(fileName: "squads.json")
         listGiocatori = getType(fileName: "players.json")
         listPartite = getType(fileName: "matches.json")
+        listStadi = getType(fileName: "stadiums.json")
         /*
         let db = Firestore.firestore()
         db.collection("squadre").getDocuments { snapshot, error in
@@ -80,6 +82,26 @@ class ViewModel: ObservableObject{
              } else {
                  // errore
                  print("Errore Partite \(error?.localizedDescription ?? "error partite")")
+             }
+         }
+         db.collection("stadi").getDocuments { snapshot, error in
+             if error == nil {
+                 if let snapshot = snapshot {
+                     //DispatchQueue.main.async {
+                     self.listStadi = snapshot.documents.map { d in
+                         return Stadio(id: d.documentID,
+                                       nome: d["nome"] as? String ?? "",
+                                       descrizione: d["descrizione"] as? String ?? "",
+                                       urlFoto: d["urlFoto"] as? String ?? "",
+                                       capacita: d["capacita"] as? String ?? "",
+                                       latitudine: d["latitudine"] as? Double ?? 0,
+                                       longitudine: d["longitudine"] as? Double ?? 0)
+                     }
+                     //}
+                 }
+             } else {
+                 // errore
+                 print("Errore Squadre \(error?.localizedDescription ?? "error squadre")")
              }
          }
          */
@@ -189,6 +211,25 @@ class ViewModel: ObservableObject{
             return paths[0]
         }
     }
+     func jsonPrintStadiums(){
+         let pathDirectory = getDocumentsDirectory()
+         try? FileManager().createDirectory(at: pathDirectory, withIntermediateDirectories: true)
+         let filePath = pathDirectory.appendingPathComponent("stadiums.json")
+
+         let json = try? JSONEncoder().encode(listStadi)
+         print(filePath)
+         do {
+              try json!.write(to: filePath)
+             print("done")
+         } catch {
+             print("Failed to write JSON data: \(error.localizedDescription)")
+         }
+
+         func getDocumentsDirectory() -> URL {
+             let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+             return paths[0]
+         }
+     }
     */
     //func1
     func giocatoriInSquadra(squadra: String) -> [Giocatore]{

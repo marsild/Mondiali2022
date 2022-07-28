@@ -23,7 +23,7 @@ struct Homepage: View {
         default:
             NavigationView{
                 VStack{
-                    NavigationLink(destination: InfoQatarView()) {
+                    NavigationLink(destination: InfoQatarView(model: model)) {
                         VStack{
                             Image("Cup").resizable()
                                 .scaledToFit()
