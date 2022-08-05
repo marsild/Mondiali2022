@@ -7,16 +7,39 @@
 
 import Foundation
 import Firebase
-
+import SwiftUI
 class ViewModel: ObservableObject{
+    @Environment(\.verticalSizeClass) var sizeClass
     @Published var list = [Squadra]()
     @Published var listGiocatori = [Giocatore]()
     @Published var listPartite = [Partita]()
     @Published var listStadi = [Stadio]()
+    //WWWWWWW var imageLoader = ImageLoader()
     init(){
         self.getData()
+        self.loadStadiumImages()
     }
-    
+    //wwwwww
+    @Published var stadiumImages: [String: (UIImage, URL)] = [:]
+    var data = Optional<Data>(nil)
+    let notFoundImage = UIImage(systemName: "multiply.circle")
+    func loadImage(url: URL, id: String) {
+        DispatchQueue.global(qos: .background).async {
+            self.data = try? Data(contentsOf: url)
+            
+            DispatchQueue.main.async {
+                if let imageData = self.data {
+                    self.stadiumImages[id] = (UIImage(data: imageData)!, url)
+                }
+            }
+        }
+    }
+    func loadStadiumImages(){
+        for stadio in listStadi {
+            loadImage(url: URL(string: stadio.urlFoto)!, id: stadio.id)
+        }
+    }
+    //qwwwwww
     func getData(){
         list = getType(fileName: "squads.json")
         listGiocatori = getType(fileName: "players.json")

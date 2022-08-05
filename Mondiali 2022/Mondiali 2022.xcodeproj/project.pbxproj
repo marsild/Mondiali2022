@@ -10,6 +10,8 @@
 		170C34BC2891AD120072A820 /* ImagePickerControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170C34BB2891AD120072A820 /* ImagePickerControllerExtension.swift */; };
 		170C34BE2892C7EC0072A820 /* Stadio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170C34BD2892C7EC0072A820 /* Stadio.swift */; };
 		170C34C02892CAC30072A820 /* stadiums.json in Resources */ = {isa = PBXBuildFile; fileRef = 170C34BF2892CAC30072A820 /* stadiums.json */; };
+		170C34C5289D4B290072A820 /* StadioColumnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170C34C4289D4B290072A820 /* StadioColumnView.swift */; };
+		170C34C7289D7C780072A820 /* CountDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170C34C6289D7C780072A820 /* CountDownView.swift */; };
 		17260935287F21F900652149 /* Homepage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17260934287F21F900652149 /* Homepage.swift */; };
 		174631242890365500264748 /* Partita.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174631232890365500264748 /* Partita.swift */; };
 		17463128289063DF00264748 /* matches.json in Resources */ = {isa = PBXBuildFile; fileRef = 17463127289063DF00264748 /* matches.json */; };
@@ -53,6 +55,8 @@
 		170C34BB2891AD120072A820 /* ImagePickerControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerControllerExtension.swift; sourceTree = "<group>"; };
 		170C34BD2892C7EC0072A820 /* Stadio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stadio.swift; sourceTree = "<group>"; };
 		170C34BF2892CAC30072A820 /* stadiums.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = stadiums.json; sourceTree = "<group>"; };
+		170C34C4289D4B290072A820 /* StadioColumnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StadioColumnView.swift; sourceTree = "<group>"; };
+		170C34C6289D7C780072A820 /* CountDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountDownView.swift; sourceTree = "<group>"; };
 		17260934287F21F900652149 /* Homepage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homepage.swift; sourceTree = "<group>"; };
 		174631232890365500264748 /* Partita.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Partita.swift; sourceTree = "<group>"; };
 		17463127289063DF00264748 /* matches.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = matches.json; sourceTree = "<group>"; };
@@ -104,6 +108,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		170C34C3289D4B110072A820 /* InfoQatar */ = {
+			isa = PBXGroup;
+			children = (
+				178BFA9B2882B3BA0091A032 /* InfoQatarView.swift */,
+				170C34C6289D7C780072A820 /* CountDownView.swift */,
+				170C34C4289D4B290072A820 /* StadioColumnView.swift */,
+			);
+			path = InfoQatar;
+			sourceTree = "<group>";
+		};
 		175A4A08288D5705003161B5 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -220,7 +234,7 @@
 				178BFA992882AEB00091A032 /* AppState.swift */,
 				178BFA832880917D0091A032 /* AnimazioneIniziale.swift */,
 				17260934287F21F900652149 /* Homepage.swift */,
-				178BFA9B2882B3BA0091A032 /* InfoQatarView.swift */,
+				170C34C3289D4B110072A820 /* InfoQatar */,
 				178BFA9F28841C990091A032 /* TabBar */,
 				178BFAA028841CA60091A032 /* SideMenu */,
 				17D85F93287C104E003D4D19 /* Assets.xcassets */,
@@ -326,6 +340,7 @@
 				178BFA982882A9650091A032 /* SegnalaView.swift in Sources */,
 				17260935287F21F900652149 /* Homepage.swift in Sources */,
 				17A58A562889A6F700B7DC06 /* Giocatore.swift in Sources */,
+				170C34C5289D4B290072A820 /* StadioColumnView.swift in Sources */,
 				17A58A4B2887517600B7DC06 /* SingolaSquadraView.swift in Sources */,
 				175A4A0C288D572C003161B5 /* ViewExtension.swift in Sources */,
 				178BFA8A2881C0AE0091A032 /* GironiView.swift in Sources */,
@@ -340,6 +355,7 @@
 				17A58A492887373F00B7DC06 /* Squadra.swift in Sources */,
 				175A4A17288D58BD003161B5 /* ActivityView.swift in Sources */,
 				178BFA842880917D0091A032 /* AnimazioneIniziale.swift in Sources */,
+				170C34C7289D7C780072A820 /* CountDownView.swift in Sources */,
 				17A58A512887F2CB00B7DC06 /* SingleGironeView.swift in Sources */,
 				17A58A47288736CD00B7DC06 /* ViewModel.swift in Sources */,
 				178BFA9A2882AEB00091A032 /* AppState.swift in Sources */,
