@@ -20,7 +20,7 @@ struct SingolaSquadraView: View {
     var body: some View {
         ScrollView {
             VStack(alignment:.leading){
-                MapView(latitudine: latitudine, longitudine: longitudine).frame(height:UIScreen.main.bounds.size.height*4/10)
+                MapView(latitudine: latitudine, longitudine: longitudine, showPin: false).frame(height:UIScreen.main.bounds.size.height*4/10)
                 ZStack{
                     Circle()
                         .strokeBorder(.secondary, lineWidth: 2)

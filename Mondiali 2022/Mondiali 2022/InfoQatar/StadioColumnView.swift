@@ -23,7 +23,7 @@ struct StadioColumnView: View {
             }
             Text(nomeStadio).padding(.leading)
             Spacer()
-            Label("", systemImage: "chevron.right.circle")
+            Label("", systemImage: "chevron.right.circle").foregroundColor(Color.blue)
         }.frame(maxWidth: UIScreen.main.bounds.size.width).padding(.horizontal)
     }
 }

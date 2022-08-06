@@ -19,7 +19,7 @@ struct CountDownView : View {
     
     var body: some View {
         Text(countDownString(from: referenceDate))
-            .font(.largeTitle)
+            .font(.title)
             .onAppear(perform: {
                 _ = self.timer
             })
