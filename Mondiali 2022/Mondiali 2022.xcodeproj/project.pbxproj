@@ -20,7 +20,7 @@
 		175A4A0E288D5739003161B5 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175A4A0D288D5739003161B5 /* ImagePickerView.swift */; };
 		175A4A10288D574D003161B5 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175A4A0F288D574D003161B5 /* Coordinator.swift */; };
 		175A4A12288D5763003161B5 /* circlePlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175A4A11288D5763003161B5 /* circlePlayerView.swift */; };
-		175A4A14288D577F003161B5 /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175A4A13288D577F003161B5 /* SheetView.swift */; };
+		175A4A14288D577F003161B5 /* SelectPlayerSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175A4A13288D577F003161B5 /* SelectPlayerSheetView.swift */; };
 		175A4A17288D58BD003161B5 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175A4A16288D58BD003161B5 /* ActivityView.swift */; };
 		178BFA842880917D0091A032 /* AnimazioneIniziale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178BFA832880917D0091A032 /* AnimazioneIniziale.swift */; };
 		178BFA862881A3F70091A032 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178BFA852881A3F70091A032 /* TabBarView.swift */; };
@@ -47,6 +47,7 @@
 		17A58A60288B42DF00B7DC06 /* players.json in Resources */ = {isa = PBXBuildFile; fileRef = 17A58A5E288B42DE00B7DC06 /* players.json */; };
 		17A58A61288B42DF00B7DC06 /* squads.json in Resources */ = {isa = PBXBuildFile; fileRef = 17A58A5F288B42DE00B7DC06 /* squads.json */; };
 		17A72641289EA2DA00CF54FA /* SingoloStadioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A72640289EA2DA00CF54FA /* SingoloStadioView.swift */; };
+		17A769E128A02123001923F5 /* CalendarPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A769E028A02123001923F5 /* CalendarPickerView.swift */; };
 		17D85F90287C104A003D4D19 /* Mondiali_2022App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D85F8F287C104A003D4D19 /* Mondiali_2022App.swift */; };
 		17D85F94287C104E003D4D19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D85F93287C104E003D4D19 /* Assets.xcassets */; };
 		17D85F97287C104E003D4D19 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D85F96287C104E003D4D19 /* Preview Assets.xcassets */; };
@@ -66,7 +67,7 @@
 		175A4A0D288D5739003161B5 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
 		175A4A0F288D574D003161B5 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		175A4A11288D5763003161B5 /* circlePlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = circlePlayerView.swift; sourceTree = "<group>"; };
-		175A4A13288D577F003161B5 /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
+		175A4A13288D577F003161B5 /* SelectPlayerSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPlayerSheetView.swift; sourceTree = "<group>"; };
 		175A4A16288D58BD003161B5 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
 		178BFA832880917D0091A032 /* AnimazioneIniziale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimazioneIniziale.swift; sourceTree = "<group>"; };
 		178BFA852881A3F70091A032 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
@@ -92,6 +93,7 @@
 		17A58A5E288B42DE00B7DC06 /* players.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = players.json; sourceTree = "<group>"; };
 		17A58A5F288B42DE00B7DC06 /* squads.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = squads.json; sourceTree = "<group>"; };
 		17A72640289EA2DA00CF54FA /* SingoloStadioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingoloStadioView.swift; sourceTree = "<group>"; };
+		17A769E028A02123001923F5 /* CalendarPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPickerView.swift; sourceTree = "<group>"; };
 		17D85F8C287C104A003D4D19 /* Mondiali 2022.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mondiali 2022.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		17D85F8F287C104A003D4D19 /* Mondiali_2022App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mondiali_2022App.swift; sourceTree = "<group>"; };
 		17D85F93287C104E003D4D19 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -139,7 +141,7 @@
 			children = (
 				178BFA932882A9480091A032 /* CreaSquadraView.swift */,
 				175A4A11288D5763003161B5 /* circlePlayerView.swift */,
-				175A4A13288D577F003161B5 /* SheetView.swift */,
+				175A4A13288D577F003161B5 /* SelectPlayerSheetView.swift */,
 			);
 			path = CreaSquadra;
 			sourceTree = "<group>";
@@ -154,6 +156,7 @@
 				17A58A522887FA4A00B7DC06 /* SingoloGirone */,
 				178BFA8B2881C0D40091A032 /* EliminazioneView.swift */,
 				178BFA8D2881C0EC0091A032 /* CalendarioView.swift */,
+				17A769E028A02123001923F5 /* CalendarPickerView.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -363,9 +366,10 @@
 				17A58A47288736CD00B7DC06 /* ViewModel.swift in Sources */,
 				178BFA9A2882AEB00091A032 /* AppState.swift in Sources */,
 				17A58A5A2889B3E400B7DC06 /* ConvocatiSquadraView.swift in Sources */,
-				175A4A14288D577F003161B5 /* SheetView.swift in Sources */,
+				175A4A14288D577F003161B5 /* SelectPlayerSheetView.swift in Sources */,
 				17D85F90287C104A003D4D19 /* Mondiali_2022App.swift in Sources */,
 				17A58A542887FA6F00B7DC06 /* CompressedGironeView.swift in Sources */,
+				17A769E128A02123001923F5 /* CalendarPickerView.swift in Sources */,
 				175A4A12288D5763003161B5 /* circlePlayerView.swift in Sources */,
 				178BFA9C2882B3BA0091A032 /* InfoQatarView.swift in Sources */,
 				17A72641289EA2DA00CF54FA /* SingoloStadioView.swift in Sources */,

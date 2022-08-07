@@ -32,7 +32,7 @@ struct circlePlayerView: View{
                 showingSheet.toggle()
             //}
         }.sheet(isPresented: $showingSheet) {
-            SheetView(player: $player, title: title, ListaGiocatori: $ListaGiocatori, squadre: squadre)
+            SelectPlayerSheetView(player: $player, title: title, ListaGiocatori: $ListaGiocatori, squadre: squadre)
         }
     }
 }

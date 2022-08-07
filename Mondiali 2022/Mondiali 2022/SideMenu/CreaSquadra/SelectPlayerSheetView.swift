@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SheetView: View {
+struct SelectPlayerSheetView: View {
     @Environment(\.dismiss) var dismiss
     @Binding var player : (giocatore: Giocatore, emoji:String)
     var title:String
