@@ -25,7 +25,7 @@ struct InfoQatarView: View {
             if(Date.now < formatter.date(from: "2022/11/21 13:00")!){
                 VStack(alignment: .center){
                     Text("COUNTDOWN").font(.callout)
-                    CountDownView(referenceDate: formatter.date(from: "2022/11/21 13:00")!)
+                    CountDownView(referenceDate: formatter.date(from: "2022/11/21 11:00")!)
                 }.padding(.vertical).frame(maxWidth:UIScreen.main.bounds.size.width).overlay(RoundedRectangle(cornerRadius: 10).strokeBorder(lineWidth: 2/3)).padding(.horizontal).padding(.bottom)
             }
             Text("Sarà l'ultima edizione del torneo a prevedere la partecipazione di sole 32 nazionali, poiché dal 2026 il mondiale verrà esteso a 48 squadre. Per la prima volta nella storia dei mondiali, la competizione non si disputerà nei mesi di giugno e luglio ma in quelli di novembre e dicembre, cioè nel periodo autunnale dell'emisfero boreale. Questa novità è dovuta al fatto che, svolgendosi il torneo in una zona molto calda, nel periodo estivo le temperature sarebbero proibitive.").padding(.horizontal)
