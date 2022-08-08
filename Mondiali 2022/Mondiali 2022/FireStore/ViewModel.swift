@@ -9,6 +9,15 @@ import Foundation
 import Firebase
 import SwiftUI
 class ViewModel: ObservableObject{
+    let gironi : Dictionary<Int8, String> = [1: "A",
+                                             2: "B",
+                                             3: "C",
+                                             4: "D",
+                                             5: "E",
+                                             6: "F",
+                                             7: "G",
+                                             8: "H"]
+    var nomiSquadre: Dictionary<String, String> = [:]
     @Environment(\.verticalSizeClass) var sizeClass
     @Published var list = [Squadra]()
     @Published var listGiocatori = [Giocatore]()
@@ -39,12 +48,18 @@ class ViewModel: ObservableObject{
             loadImage(url: URL(string: stadio.urlFoto)!, id: stadio.id)
         }
     }
+    func loadNomiSquadre(){
+        for squadra in list{
+            nomiSquadre[squadra.id] = squadra.nome
+        }
+    }
     //qwwwwww
     func getData(){
         list = getType(fileName: "squads.json")
         listGiocatori = getType(fileName: "players.json")
         listPartite = getType(fileName: "matches.json")
         listStadi = getType(fileName: "stadiums.json")
+        loadNomiSquadre()
         /*
         let db = Firestore.firestore()
         db.collection("squadre").getDocuments { snapshot, error in
@@ -91,7 +106,7 @@ class ViewModel: ObservableObject{
                      self.listPartite = snapshot.documents.map { d in
                          return Partita(id: d.documentID,
                                         casa: d["casa"] as? String ?? "",
-                                        ospite: d["ospite"] as? String ?? "",
+                                        ospite: d["state"] as? String ?? "",
                                         data: (d["data"] as? Timestamp ?? Timestamp()).dateValue(),
                                         stadio: d["stadio"] as? String ?? "",
                                         golCasa: d["golCasa"] as? Int8 ?? 0,
@@ -300,6 +315,10 @@ class ViewModel: ObservableObject{
             giocatore1.idsquadra < giocatore2.idsquadra
         }
     }
-    
-    
+    //func
+    func getEmoji(idSquadra: String) -> String {
+        list.first { Squadra in
+            Squadra.id == idSquadra
+        }?.emoji ?? "🏴‍☠️"
+    }
 }

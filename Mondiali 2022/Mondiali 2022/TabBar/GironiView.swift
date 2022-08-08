@@ -14,22 +14,13 @@ struct GironiView: View {
     @State var girone:Int8 = 1
     @State var startPos : CGPoint = .zero
     @State var isSwipping = true
-    
-    let gironi : Dictionary<Int8, String> = [1: "A",
-                                             2: "B",
-                                             3: "C",
-                                             4: "D",
-                                             5: "E",
-                                             6: "F",
-                                             7: "G",
-                                             8: "H"]
     var body: some View {
         NavigationView{
             VStack{
                 if seeAll{
                     ScrollView{
                         LazyVGrid(columns: [GridItem(.adaptive(minimum: 150))]) {
-                            ForEach(gironi.sorted(by: <), id: \.key) { key, value in
+                            ForEach(model.gironi.sorted(by: <), id: \.key) { key, value in
                                 CompressedGironeView(girone: value, squadre: model.squadreInGruppo(gruppo: key)).aspectRatio(1, contentMode: .fit).onTapGesture {
                                     withAnimation{
                                         self.seeAll.toggle()
@@ -46,7 +37,7 @@ struct GironiView: View {
                         } label: {
                             Label("", systemImage: "chevron.left.circle")
                         }.disabled(girone==1 ? true : false).padding(.horizontal)
-                        SingleGironeView(girone: gironi[girone]!, gruppo: self.girone, model: model).aspectRatio(1, contentMode: .fit).frame(maxHeight: UIScreen.main.bounds.size.height*6/10)
+                        SingleGironeView(girone: model.gironi[girone]!, gruppo: self.girone, model: model).aspectRatio(1, contentMode: .fit).frame(maxHeight: UIScreen.main.bounds.size.height*6/10)
                         Button{
                             self.girone = self.girone + 1
                         } label: {

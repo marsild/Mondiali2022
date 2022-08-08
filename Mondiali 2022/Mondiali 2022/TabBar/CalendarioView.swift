@@ -11,10 +11,12 @@ struct CalendarioView: View {
     @State var startPos : CGPoint = .zero
     @State var isSwipping = true
     @Binding var showSidebar: Bool
+    @ObservedObject var model: ViewModel
     @State var listView = false
     var formatter = DateFormatter()
     @State var date = Date()
-    init(showSidebar: Binding<Bool>){
+    init(showSidebar: Binding<Bool>, model: ViewModel){
+        self.model = model
         self._showSidebar = showSidebar
         formatter.locale = Locale(identifier: "it")
         formatter.dateFormat = "yyyy/MM/dd HH:mm"
@@ -24,9 +26,7 @@ struct CalendarioView: View {
         NavigationView{
             VStack{
                 if(listView){
-                    VStack{
-                        Text("list")
-                    }
+                    CalendarioListView(model: model)
                 } else {
                     HStack{
                         Button{
@@ -105,6 +105,6 @@ struct CalendarioView: View {
 
 struct CalendarioView_Previews: PreviewProvider {
     static var previews: some View {
-        CalendarioView(showSidebar: .constant(false))
+        CalendarioView(showSidebar: .constant(false), model: ViewModel())
     }
 }

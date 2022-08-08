@@ -23,11 +23,11 @@ struct TabBarView: View {
                     Image(systemName: "square.grid.2x2")
                     Text("GIRONI")
                 }.tag("Two")
-                EliminazioneView(showSidebar: $showSidebar).tabItem{
+                EliminazioneView(showSidebar: $showSidebar, model: model).tabItem{
                     Image(systemName: "square.and.line.vertical.and.square.filled")
                     Text("ELIMINAZIONE")
                 }.tag("Three")
-                CalendarioView(showSidebar: $showSidebar).tabItem{
+                CalendarioView(showSidebar: $showSidebar, model: model).tabItem{
                     Image(systemName: "calendar")
                     Text("CALENDARIO")
                 }.tag("Four")
