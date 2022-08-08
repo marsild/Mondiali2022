@@ -14,6 +14,7 @@ struct InfoQatarView: View {
     init(model: ViewModel){
         self.model = model
         formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "it")
         formatter.dateFormat = "yyyy/MM/dd HH:mm"
     }
     var body: some View {

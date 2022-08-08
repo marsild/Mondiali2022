@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct CountDownView : View {
-    
     @State var nowDate: Date = Date()
     let referenceDate: Date
     var timer: Timer {
@@ -26,7 +25,8 @@ struct CountDownView : View {
     }
 
     func countDownString(from date: Date) -> String {
-        let calendar = Calendar(identifier: .gregorian)
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.locale = Locale(identifier: "it")
         let components = calendar
             .dateComponents([.day, .hour, .minute, .second],
                             from: nowDate,
