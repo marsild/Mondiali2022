@@ -116,7 +116,7 @@ struct EliminazioneView: View {
                                                         Text("Vincitore ottavo (\(partita.partitaCasa))").minimumScaleFactor(0.1).frame(maxWidth: UIScreen.main.bounds.size.width*3/4, alignment: .leading)
                                                         Text("Vincitore ottavo (\(partita.partitaOspite))").minimumScaleFactor(0.1)
                                                     }
-                                                }.padding(.vertical).padding(.horizontal).frame(maxWidth: UIScreen.main.bounds.size.width*3/4).background(Color(UIColor.quaternaryLabel).opacity(0.8)).cornerRadius(10).frame(height: UIScreen.main.bounds.height/6)
+                                                }.padding(.vertical,5).padding(.horizontal).frame(maxWidth: UIScreen.main.bounds.size.width*3/4).background(Color(UIColor.quaternaryLabel).opacity(0.8)).cornerRadius(10).frame(height: UIScreen.main.bounds.height/6)
                                             }.buttonStyle(PlainButtonStyle())
                                             Text("(\(partita.id))").font(.footnote)
                                         }
