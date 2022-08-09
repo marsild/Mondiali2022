@@ -50,15 +50,17 @@ struct EliminazioneView: View {
                             })){ partita in
                                 if(Int(partita.id)! > 48 && Int(partita.id)! < 57){
                                     HStack{
-                                    VStack(alignment: .leading, spacing: 5){
-                                        if(partita.casa != ""){
-                                            Text("\(model.getEmoji(idSquadra: partita.casa)) \(model.nomiSquadre[partita.casa]!)").minimumScaleFactor(0.1).frame(maxWidth: UIScreen.main.bounds.size.width*3/4, alignment: .leading)
-                                            Text("\(model.getEmoji(idSquadra: partita.ospite)) \(model.nomiSquadre[partita.ospite]!)").minimumScaleFactor(0.1)
-                                        } else {
-                                            Text("Prima gruppo \(model.gironi[Int8(partita.gruppoCasa)!]!)").minimumScaleFactor(0.1).frame(maxWidth: UIScreen.main.bounds.size.width*3/4, alignment: .leading)
-                                            Text("Seconda gruppo \(model.gironi[Int8(partita.gruppoOspite)!]!)").minimumScaleFactor(0.1)
-                                        }
-                                    }.padding(.vertical,2).padding(.horizontal).frame(maxWidth: UIScreen.main.bounds.size.width*3/4, maxHeight: UIScreen.main.bounds.height/8).background(Color(UIColor.quaternaryLabel).opacity(0.8)).cornerRadius(10).padding(.leading)
+                                        NavigationLink (destination: PartitaView(model: model, partita: partita)) {
+                                            VStack(alignment: .leading, spacing: 5){
+                                                if(partita.casa != ""){
+                                                    Text("\(model.getEmoji(idSquadra: partita.casa)) \(model.nomiSquadre[partita.casa]!)").minimumScaleFactor(0.1).frame(maxWidth: UIScreen.main.bounds.size.width*3/4, alignment: .leading)
+                                                    Text("\(model.getEmoji(idSquadra: partita.ospite)) \(model.nomiSquadre[partita.ospite]!)").minimumScaleFactor(0.1)
+                                                } else {
+                                                    Text("Prima gruppo \(model.gironi[Int8(partita.gruppoCasa)!]!)").minimumScaleFactor(0.1).frame(maxWidth: UIScreen.main.bounds.size.width*3/4, alignment: .leading)
+                                                    Text("Seconda gruppo \(model.gironi[Int8(partita.gruppoOspite)!]!)").minimumScaleFactor(0.1)
+                                                }
+                                            }.padding(.vertical,2).padding(.horizontal).frame(maxWidth: UIScreen.main.bounds.size.width*3/4, maxHeight: UIScreen.main.bounds.height/8).background(Color(UIColor.quaternaryLabel).opacity(0.8)).cornerRadius(10).padding(.leading)
+                                        }.buttonStyle(PlainButtonStyle())
                                         Text("(\(partita.id))").font(.footnote)
                                     }
                                 }
@@ -101,15 +103,17 @@ struct EliminazioneView: View {
                                         } label: {
                                             Label("", systemImage: "chevron.left.circle")
                                         }.padding(.leading)
-                                    VStack(alignment: .leading, spacing: 10){
-                                        if(partita.casa != ""){
-                                            Text("\(model.getEmoji(idSquadra: partita.casa)) \(model.nomiSquadre[partita.casa]!)").minimumScaleFactor(0.1).frame(maxWidth: UIScreen.main.bounds.size.width*3/4, alignment: .leading)
-                                            Text("\(model.getEmoji(idSquadra: partita.ospite)) \(model.nomiSquadre[partita.ospite]!)").minimumScaleFactor(0.1)
-                                        } else {
-                                            Text("Vincitore ottavo (\(partita.partitaCasa))").minimumScaleFactor(0.1).frame(maxWidth: UIScreen.main.bounds.size.width*3/4, alignment: .leading)
-                                            Text("Vincitore ottavo (\(partita.partitaOspite))").minimumScaleFactor(0.1)
-                                        }
-                                    }.padding(.vertical).padding(.horizontal).frame(maxWidth: UIScreen.main.bounds.size.width*3/4).background(Color(UIColor.quaternaryLabel).opacity(0.8)).cornerRadius(10).frame(maxHeight: UIScreen.main.bounds.height/4)
+                                        NavigationLink (destination: PartitaView(model: model, partita: partita)) {
+                                            VStack(alignment: .leading, spacing: 10){
+                                                if(partita.casa != ""){
+                                                    Text("\(model.getEmoji(idSquadra: partita.casa)) \(model.nomiSquadre[partita.casa]!)").minimumScaleFactor(0.1).frame(maxWidth: UIScreen.main.bounds.size.width*3/4, alignment: .leading)
+                                                    Text("\(model.getEmoji(idSquadra: partita.ospite)) \(model.nomiSquadre[partita.ospite]!)").minimumScaleFactor(0.1)
+                                                } else {
+                                                    Text("Vincitore ottavo (\(partita.partitaCasa))").minimumScaleFactor(0.1).frame(maxWidth: UIScreen.main.bounds.size.width*3/4, alignment: .leading)
+                                                    Text("Vincitore ottavo (\(partita.partitaOspite))").minimumScaleFactor(0.1)
+                                                }
+                                            }.padding(.vertical).padding(.horizontal).frame(maxWidth: UIScreen.main.bounds.size.width*3/4).background(Color(UIColor.quaternaryLabel).opacity(0.8)).cornerRadius(10).frame(maxHeight: UIScreen.main.bounds.height/4)
+                                        }.buttonStyle(PlainButtonStyle())
                                         Text("(\(partita.id))").font(.footnote)
                                     }
                                 }
@@ -142,15 +146,17 @@ struct EliminazioneView: View {
                                         } label: {
                                             Label("", systemImage: "chevron.left.circle")
                                         }.padding(.leading)
-                                    VStack(alignment: .leading, spacing: 10){
-                                        if(partita.casa != ""){
-                                            Text("\(model.getEmoji(idSquadra: partita.casa)) \(model.nomiSquadre[partita.casa]!)").frame(maxWidth: UIScreen.main.bounds.size.width*3/4, alignment: .leading)
-                                            Text("\(model.getEmoji(idSquadra: partita.ospite)) \(model.nomiSquadre[partita.ospite]!)")
-                                        } else {
-                                            Text("Vincitore quarto (\(partita.partitaCasa))").frame(maxWidth: UIScreen.main.bounds.size.width*3/4, alignment: .leading)
-                                            Text("Vincitore quarto (\(partita.partitaOspite))")
-                                        }
-                                    }.padding(.vertical).padding(.horizontal).frame(maxWidth: UIScreen.main.bounds.size.width*3/4).background(Color(UIColor.quaternaryLabel).opacity(0.8)).cornerRadius(10).frame(maxHeight: UIScreen.main.bounds.height/2)
+                                        NavigationLink (destination: PartitaView(model: model, partita: partita)) {
+                                            VStack(alignment: .leading, spacing: 10){
+                                                if(partita.casa != ""){
+                                                    Text("\(model.getEmoji(idSquadra: partita.casa)) \(model.nomiSquadre[partita.casa]!)").frame(maxWidth: UIScreen.main.bounds.size.width*3/4, alignment: .leading)
+                                                    Text("\(model.getEmoji(idSquadra: partita.ospite)) \(model.nomiSquadre[partita.ospite]!)")
+                                                } else {
+                                                    Text("Vincitore quarto (\(partita.partitaCasa))").frame(maxWidth: UIScreen.main.bounds.size.width*3/4, alignment: .leading)
+                                                    Text("Vincitore quarto (\(partita.partitaOspite))")
+                                                }
+                                            }.padding(.vertical).padding(.horizontal).frame(maxWidth: UIScreen.main.bounds.size.width*3/4).background(Color(UIColor.quaternaryLabel).opacity(0.8)).cornerRadius(10).frame(maxHeight: UIScreen.main.bounds.height/2)
+                                        }.buttonStyle(PlainButtonStyle())
                                         Text("(\(partita.id))").font(.footnote)
                                     }
                                 }
@@ -167,7 +173,6 @@ struct EliminazioneView: View {
                     }
                 } else {
                     HStack{
-                        
                         VStack{
                             Button{
                                 self.selectedTab = "semi"
@@ -181,20 +186,22 @@ struct EliminazioneView: View {
                             })){ partita in
                                 if(Int(partita.id)! == 63 || Int(partita.id)! == 64){
                                     HStack{
-                                    VStack(alignment: .leading, spacing: 10){
-                                        if(partita.casa != ""){
-                                            Text("\(model.getEmoji(idSquadra: partita.casa)) \(model.nomiSquadre[partita.casa]!)").frame(maxWidth: UIScreen.main.bounds.size.width*3/4, alignment: .leading)
-                                            Text("\(model.getEmoji(idSquadra: partita.ospite)) \(model.nomiSquadre[partita.ospite]!)")
-                                        } else {
-                                            if(Int(partita.id)! == 64){
-                                                Text("Vincitore semifinale (\(partita.partitaCasa))").frame(maxWidth: UIScreen.main.bounds.size.width*3/4, alignment: .leading)
-                                                Text("Vincitore semifinale (\(partita.partitaOspite))")
-                                            } else {
-                                                Text("Sconfitto semifinale (\(partita.partitaCasa))").frame(maxWidth: UIScreen.main.bounds.size.width*3/4, alignment: .leading)
-                                                Text("Sconfitto semifinale (\(partita.partitaOspite))")
-                                            }
-                                        }
-                                    }.padding(.vertical).padding(.horizontal).frame(maxWidth: UIScreen.main.bounds.size.width*3/4).background(Color(UIColor.quaternaryLabel).opacity(0.8)).cornerRadius(10).frame(maxHeight: UIScreen.main.bounds.height/2)
+                                        NavigationLink (destination: PartitaView(model: model, partita: partita)) {
+                                            VStack(alignment: .leading, spacing: 10){
+                                                if(partita.casa != ""){
+                                                    Text("\(model.getEmoji(idSquadra: partita.casa)) \(model.nomiSquadre[partita.casa]!)").frame(maxWidth: UIScreen.main.bounds.size.width*3/4, alignment: .leading)
+                                                    Text("\(model.getEmoji(idSquadra: partita.ospite)) \(model.nomiSquadre[partita.ospite]!)")
+                                                } else {
+                                                    if(Int(partita.id)! == 64){
+                                                        Text("Vincitore semifinale (\(partita.partitaCasa))").frame(maxWidth: UIScreen.main.bounds.size.width*3/4, alignment: .leading)
+                                                        Text("Vincitore semifinale (\(partita.partitaOspite))")
+                                                    } else {
+                                                        Text("Sconfitto semifinale (\(partita.partitaCasa))").frame(maxWidth: UIScreen.main.bounds.size.width*3/4, alignment: .leading)
+                                                        Text("Sconfitto semifinale (\(partita.partitaOspite))")
+                                                    }
+                                                }
+                                            }.padding(.vertical).padding(.horizontal).frame(maxWidth: UIScreen.main.bounds.size.width*3/4).background(Color(UIColor.quaternaryLabel).opacity(0.8)).cornerRadius(10).frame(maxHeight: UIScreen.main.bounds.height/2)
+                                        }.buttonStyle(PlainButtonStyle())
                                         VStack{
                                             if(Int(partita.id)! == 64){
                                                 Text("FINALE").font(.footnote)
@@ -229,27 +236,27 @@ struct EliminazioneView: View {
                 }
             }
             .onEnded { gesture in
-                    let xDist =  abs(gesture.location.x - self.startPos.x)
-                    let yDist =  abs(gesture.location.y - self.startPos.y)
-                    if self.startPos.x > gesture.location.x && yDist < xDist {
-                        if(self.selectedTab == "ottavi"){
-                            self.selectedTab = "quarti"
-                        } else if (self.selectedTab == "quarti"){
-                            self.selectedTab = "semi"
-                        } else if (self.selectedTab == "semi") {
-                            self.selectedTab = "finali"
-                        }
+                let xDist =  abs(gesture.location.x - self.startPos.x)
+                let yDist =  abs(gesture.location.y - self.startPos.y)
+                if self.startPos.x > gesture.location.x && yDist < xDist {
+                    if(self.selectedTab == "ottavi"){
+                        self.selectedTab = "quarti"
+                    } else if (self.selectedTab == "quarti"){
+                        self.selectedTab = "semi"
+                    } else if (self.selectedTab == "semi") {
+                        self.selectedTab = "finali"
                     }
-                    else if self.startPos.x < gesture.location.x && yDist < xDist {
-                        if(self.selectedTab == "finali"){
-                            self.selectedTab = "semi"
-                        } else if (self.selectedTab == "semi"){
-                            self.selectedTab = "quarti"
-                        } else if (self.selectedTab == "quarti") {
-                            self.selectedTab = "ottavi"
-                        }
+                }
+                else if self.startPos.x < gesture.location.x && yDist < xDist {
+                    if(self.selectedTab == "finali"){
+                        self.selectedTab = "semi"
+                    } else if (self.selectedTab == "semi"){
+                        self.selectedTab = "quarti"
+                    } else if (self.selectedTab == "quarti") {
+                        self.selectedTab = "ottavi"
                     }
-                    self.isSwipping.toggle()
+                }
+                self.isSwipping.toggle()
             }
         )
     }

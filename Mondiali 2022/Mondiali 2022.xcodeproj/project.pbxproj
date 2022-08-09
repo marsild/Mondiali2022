@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		170615FC28A2BCEC00CF068E /* PartitaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170615FB28A2BCEC00CF068E /* PartitaView.swift */; };
 		170C34BC2891AD120072A820 /* ImagePickerControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170C34BB2891AD120072A820 /* ImagePickerControllerExtension.swift */; };
 		170C34BE2892C7EC0072A820 /* Stadio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170C34BD2892C7EC0072A820 /* Stadio.swift */; };
 		170C34C02892CAC30072A820 /* stadiums.json in Resources */ = {isa = PBXBuildFile; fileRef = 170C34BF2892CAC30072A820 /* stadiums.json */; };
@@ -55,6 +56,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		170615FB28A2BCEC00CF068E /* PartitaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartitaView.swift; sourceTree = "<group>"; };
 		170C34BB2891AD120072A820 /* ImagePickerControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerControllerExtension.swift; sourceTree = "<group>"; };
 		170C34BD2892C7EC0072A820 /* Stadio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stadio.swift; sourceTree = "<group>"; };
 		170C34BF2892CAC30072A820 /* stadiums.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = stadiums.json; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				170615F928A2BA7A00CF068E /* GironiView */,
 				178BFA8B2881C0D40091A032 /* EliminazioneView.swift */,
 				170615FA28A2BA8B00CF068E /* CalendarioView */,
+				170615FB28A2BCEC00CF068E /* PartitaView.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 				178BFA922882905C0091A032 /* SideMenuView.swift in Sources */,
 				170C34BE2892C7EC0072A820 /* Stadio.swift in Sources */,
 				175A4A0E288D5739003161B5 /* ImagePickerView.swift in Sources */,
+				170615FC28A2BCEC00CF068E /* PartitaView.swift in Sources */,
 				17A58A4F288752AA00B7DC06 /* MapView.swift in Sources */,
 				178BFA8C2881C0D40091A032 /* EliminazioneView.swift in Sources */,
 				175A4A0A288D571D003161B5 /* ScreenshotMakerView.swift in Sources */,

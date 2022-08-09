@@ -60,9 +60,38 @@ struct CalendarioView: View {
                                     let gruppoCasa = partita.gruppoCasa
                                     let gruppoOspite = partita.gruppoOspite
                                     if(partita.casa != ""){
-                                        HStack{
-                                            if( gruppoCasa == "" || gruppoCasa != gruppoOspite ) {
-                                                if(gruppoCasa == ""){
+                                        NavigationLink (destination: PartitaView(model: model, partita: partita)) {
+                                            HStack{
+                                                if( gruppoCasa == "" || gruppoCasa != gruppoOspite ) {
+                                                    if(gruppoCasa == ""){
+                                                        if(partita.id == "64"){
+                                                            Text("Finale (\(partita.id))").font(.footnote)
+                                                        } else if(partita.id == "63"){
+                                                            Text("3° posto (\(partita.id))").font(.footnote)
+                                                        } else if(partita.id == "62" || partita.id == "61"){
+                                                            Text("Semifinale (\(partita.id))").font(.footnote)
+                                                        } else {
+                                                            Text("Quarti (\(partita.id))").font(.footnote)
+                                                        }
+                                                    } else {
+                                                        Text("Ottavi (\(partita.id))").font(.footnote)
+                                                    }
+                                                } else {
+                                                    Text("Gruppo \(model.gironi[Int8(gruppoCasa)!]!)").font(.footnote)
+                                                }
+                                                Divider()
+                                                VStack(alignment: .leading, spacing: 5){
+                                                    Text("\(model.getEmoji(idSquadra: partita.casa)) \(model.nomiSquadre[partita.casa]!)")
+                                                    Text("\(model.getEmoji(idSquadra: partita.ospite)) \(model.nomiSquadre[partita.ospite]!)")
+                                                }.padding(.vertical,2)
+                                                Spacer()
+                                                Text(formatter3.string(from: partita.data)).font(.callout).fontWeight(.light)
+                                            }
+                                        }.buttonStyle(PlainButtonStyle())
+                                    } else {
+                                        NavigationLink (destination: PartitaView(model: model, partita: partita)) {
+                                            HStack{
+                                                if(partita.gruppoCasa == ""){
                                                     if(partita.id == "64"){
                                                         Text("Finale (\(partita.id))").font(.footnote)
                                                     } else if(partita.id == "63"){
@@ -75,45 +104,20 @@ struct CalendarioView: View {
                                                 } else {
                                                     Text("Ottavi (\(partita.id))").font(.footnote)
                                                 }
-                                            } else {
-                                                Text("Gruppo \(model.gironi[Int8(gruppoCasa)!]!)").font(.footnote)
-                                            }
-                                            Divider()
-                                            VStack(alignment: .leading, spacing: 5){
-                                                Text("\(model.getEmoji(idSquadra: partita.casa)) \(model.nomiSquadre[partita.casa]!)")
-                                                Text("\(model.getEmoji(idSquadra: partita.ospite)) \(model.nomiSquadre[partita.ospite]!)")
-                                            }.padding(.vertical,2)
-                                            Spacer()
-                                            Text(formatter3.string(from: partita.data)).font(.callout).fontWeight(.light)
-                                        }
-                                    } else {
-                                        HStack{
-                                            if(partita.gruppoCasa == ""){
-                                                if(partita.id == "64"){
-                                                    Text("Finale (\(partita.id))").font(.footnote)
-                                                } else if(partita.id == "63"){
-                                                    Text("3° posto (\(partita.id))").font(.footnote)
-                                                } else if(partita.id == "62" || partita.id == "61"){
-                                                    Text("Semifinale (\(partita.id))").font(.footnote)
+                                                Divider()
+                                                if(partita.gruppoCasa == ""){
+                                                    if(partita.id == "63"){
+                                                        Text("L\(partita.partitaCasa) - L\(partita.partitaOspite)")
+                                                    } else {
+                                                        Text("W\(partita.partitaCasa) - W\(partita.partitaOspite)")
+                                                    }
                                                 } else {
-                                                    Text("Quarti (\(partita.id))").font(.footnote)
+                                                    Text("1\(model.gironi[Int8(gruppoCasa)!]!) - 2\(model.gironi[Int8(gruppoOspite)!]!)")
                                                 }
-                                            } else {
-                                                Text("Ottavi (\(partita.id))").font(.footnote)
+                                                Spacer()
+                                                Text(formatter3.string(from: partita.data)).font(.callout).fontWeight(.light)
                                             }
-                                            Divider()
-                                            if(partita.gruppoCasa == ""){
-                                                if(partita.id == "63"){
-                                                    Text("L\(partita.partitaCasa) - L\(partita.partitaOspite)")
-                                                } else {
-                                                    Text("W\(partita.partitaCasa) - W\(partita.partitaOspite)")
-                                                }
-                                            } else {
-                                                Text("1\(model.gironi[Int8(gruppoCasa)!]!) - 2\(model.gironi[Int8(gruppoOspite)!]!)")
-                                            }
-                                            Spacer()
-                                            Text(formatter3.string(from: partita.data)).font(.callout).fontWeight(.light)
-                                        }
+                                        }.buttonStyle(PlainButtonStyle())
                                     }
                                 }
                             }
@@ -150,6 +154,8 @@ struct CalendarioView: View {
                     }
                 }
             }
+        }.onAppear{
+            startPos = .zero
         }.gesture(DragGesture()
             .onChanged { gesture in
                 if self.isSwipping {
