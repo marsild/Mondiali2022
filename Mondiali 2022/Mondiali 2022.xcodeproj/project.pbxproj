@@ -114,10 +114,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		170615F828A2BA6600CF068E /* SquadreView */ = {
+			isa = PBXGroup;
+			children = (
+				178BFA872881BA510091A032 /* SquadreView.swift */,
+				17A58A4A2887517600B7DC06 /* SingolaSquadraView.swift */,
+				17A58A592889B3E400B7DC06 /* ConvocatiSquadraView.swift */,
+			);
+			path = SquadreView;
+			sourceTree = "<group>";
+		};
+		170615F928A2BA7A00CF068E /* GironiView */ = {
+			isa = PBXGroup;
+			children = (
+				178BFA892881C0AE0091A032 /* GironiView.swift */,
+				17A58A502887F2CB00B7DC06 /* SingleGironeView.swift */,
+				17A58A532887FA6F00B7DC06 /* CompressedGironeView.swift */,
+			);
+			path = GironiView;
+			sourceTree = "<group>";
+		};
+		170615FA28A2BA8B00CF068E /* CalendarioView */ = {
+			isa = PBXGroup;
+			children = (
+				178BFA8D2881C0EC0091A032 /* CalendarioView.swift */,
+				17A769E028A02123001923F5 /* CalendarPickerView.swift */,
+				17A769E228A13839001923F5 /* CalendarioListView.swift */,
+			);
+			path = CalendarioView;
+			sourceTree = "<group>";
+		};
 		170C34C3289D4B110072A820 /* InfoQatar */ = {
 			isa = PBXGroup;
 			children = (
-				170C34C6289D7C780072A820 /* CountDownView.swift */,
 				178BFA9B2882B3BA0091A032 /* InfoQatarView.swift */,
 				170C34C4289D4B290072A820 /* StadioColumnView.swift */,
 				17A72640289EA2DA00CF54FA /* SingoloStadioView.swift */,
@@ -128,6 +157,9 @@
 		175A4A08288D5705003161B5 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				178BFA992882AEB00091A032 /* AppState.swift */,
+				17A58A4E288752AA00B7DC06 /* MapView.swift */,
+				170C34C6289D7C780072A820 /* CountDownView.swift */,
 				175A4A09288D571D003161B5 /* ScreenshotMakerView.swift */,
 				175A4A0B288D572C003161B5 /* ViewExtension.swift */,
 				175A4A0D288D5739003161B5 /* ImagePickerView.swift */,
@@ -152,14 +184,10 @@
 			isa = PBXGroup;
 			children = (
 				178BFA852881A3F70091A032 /* TabBarView.swift */,
-				178BFA872881BA510091A032 /* SquadreView.swift */,
-				17A58A4D2887524000B7DC06 /* SingolaSquadra */,
-				178BFA892881C0AE0091A032 /* GironiView.swift */,
-				17A58A522887FA4A00B7DC06 /* SingoloGirone */,
+				170615F828A2BA6600CF068E /* SquadreView */,
+				170615F928A2BA7A00CF068E /* GironiView */,
 				178BFA8B2881C0D40091A032 /* EliminazioneView.swift */,
-				178BFA8D2881C0EC0091A032 /* CalendarioView.swift */,
-				17A769E028A02123001923F5 /* CalendarPickerView.swift */,
-				17A769E228A13839001923F5 /* CalendarioListView.swift */,
+				170615FA28A2BA8B00CF068E /* CalendarioView */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -168,7 +196,6 @@
 			isa = PBXGroup;
 			children = (
 				178BFA912882905C0091A032 /* SideMenuView.swift */,
-				175A4A08288D5705003161B5 /* Utils */,
 				175A4A15288D57D1003161B5 /* CreaSquadra */,
 				178BFA972882A9650091A032 /* SegnalaView.swift */,
 				178BFA952882A95A0091A032 /* PrediciFuturoView.swift */,
@@ -176,7 +203,7 @@
 			path = SideMenu;
 			sourceTree = "<group>";
 		};
-		17A58A45288736A700B7DC06 /* FireStore */ = {
+		17A58A45288736A700B7DC06 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				17A58A46288736CD00B7DC06 /* ViewModel.swift */,
@@ -185,26 +212,7 @@
 				174631232890365500264748 /* Partita.swift */,
 				170C34BD2892C7EC0072A820 /* Stadio.swift */,
 			);
-			path = FireStore;
-			sourceTree = "<group>";
-		};
-		17A58A4D2887524000B7DC06 /* SingolaSquadra */ = {
-			isa = PBXGroup;
-			children = (
-				17A58A4A2887517600B7DC06 /* SingolaSquadraView.swift */,
-				17A58A4E288752AA00B7DC06 /* MapView.swift */,
-				17A58A592889B3E400B7DC06 /* ConvocatiSquadraView.swift */,
-			);
-			path = SingolaSquadra;
-			sourceTree = "<group>";
-		};
-		17A58A522887FA4A00B7DC06 /* SingoloGirone */ = {
-			isa = PBXGroup;
-			children = (
-				17A58A502887F2CB00B7DC06 /* SingleGironeView.swift */,
-				17A58A532887FA6F00B7DC06 /* CompressedGironeView.swift */,
-			);
-			path = SingoloGirone;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		17A58A5D288B42CE00B7DC06 /* Resources */ = {
@@ -238,11 +246,11 @@
 			isa = PBXGroup;
 			children = (
 				17A58A5D288B42CE00B7DC06 /* Resources */,
-				17A58A45288736A700B7DC06 /* FireStore */,
+				17A58A45288736A700B7DC06 /* Model */,
 				17D85F8F287C104A003D4D19 /* Mondiali_2022App.swift */,
-				178BFA992882AEB00091A032 /* AppState.swift */,
 				178BFA832880917D0091A032 /* AnimazioneIniziale.swift */,
 				17260934287F21F900652149 /* Homepage.swift */,
+				175A4A08288D5705003161B5 /* Utils */,
 				170C34C3289D4B110072A820 /* InfoQatar */,
 				178BFA9F28841C990091A032 /* TabBar */,
 				178BFAA028841CA60091A032 /* SideMenu */,
