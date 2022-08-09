@@ -15,6 +15,7 @@ struct EliminazioneView: View {
     @State var selectedTab: String = "ottavi"
     var body: some View {
         NavigationView{
+            
             VStack(alignment:.leading){
                 Spacer().frame(height:0.2)
                 HStack{
@@ -43,95 +44,99 @@ struct EliminazioneView: View {
                         }.frame(maxWidth: UIScreen.main.bounds.size.width/4, alignment: .center)
                 }.padding(.horizontal).frame(height: UIScreen.main.bounds.size.height/15).background(Color(UIColor.quaternaryLabel)).overlay(Rectangle().stroke(lineWidth: 1/4))
                 if(self.selectedTab == "ottavi"){
-                    HStack{
-                        VStack{
-                            ForEach(model.listPartite.sorted(by: { p1, p2 in
-                                p1.id < p2.id
-                            })){ partita in
-                                if(Int(partita.id)! > 48 && Int(partita.id)! < 57){
-                                    HStack{
-                                        NavigationLink (destination: PartitaView(model: model, partita: partita)) {
-                                            VStack(alignment: .leading, spacing: 5){
-                                                if(partita.casa != ""){
-                                                    Text("\(model.getEmoji(idSquadra: partita.casa)) \(model.nomiSquadre[partita.casa]!)").minimumScaleFactor(0.1).frame(maxWidth: UIScreen.main.bounds.size.width*3/4, alignment: .leading)
-                                                    Text("\(model.getEmoji(idSquadra: partita.ospite)) \(model.nomiSquadre[partita.ospite]!)").minimumScaleFactor(0.1)
-                                                } else {
-                                                    Text("Prima gruppo \(model.gironi[Int8(partita.gruppoCasa)!]!)").minimumScaleFactor(0.1).frame(maxWidth: UIScreen.main.bounds.size.width*3/4, alignment: .leading)
-                                                    Text("Seconda gruppo \(model.gironi[Int8(partita.gruppoOspite)!]!)").minimumScaleFactor(0.1)
-                                                }
-                                            }.padding(.vertical,2).padding(.horizontal).frame(maxWidth: UIScreen.main.bounds.size.width*3/4, maxHeight: UIScreen.main.bounds.height/8).background(Color(UIColor.quaternaryLabel).opacity(0.8)).cornerRadius(10).padding(.leading)
-                                        }.buttonStyle(PlainButtonStyle())
-                                        Text("(\(partita.id))").font(.footnote)
+                    ScrollView{
+                        HStack{
+                            VStack{
+                                ForEach(model.listPartite.sorted(by: { p1, p2 in
+                                    p1.id < p2.id
+                                })){ partita in
+                                    if(Int(partita.id)! > 48 && Int(partita.id)! < 57){
+                                        HStack{
+                                            NavigationLink (destination: PartitaView(model: model, partita: partita)) {
+                                                VStack(alignment: .leading, spacing: 5){
+                                                    if(partita.casa != ""){
+                                                        Text("\(model.getEmoji(idSquadra: partita.casa)) \(model.nomiSquadre[partita.casa]!)").frame(maxWidth: UIScreen.main.bounds.size.width*3/4, alignment: .leading)
+                                                        Text("\(model.getEmoji(idSquadra: partita.ospite)) \(model.nomiSquadre[partita.ospite]!)")
+                                                    } else {
+                                                        Text("Prima gruppo \(model.gironi[Int8(partita.gruppoCasa)!]!)").frame(maxWidth: UIScreen.main.bounds.size.width*3/4, alignment: .leading)
+                                                        Text("Seconda gruppo \(model.gironi[Int8(partita.gruppoOspite)!]!)")
+                                                    }
+                                                }.padding(.vertical,2).padding(.horizontal).frame(maxWidth: UIScreen.main.bounds.size.width*3/5, maxHeight: UIScreen.main.bounds.height/8).background(Color(UIColor.quaternaryLabel).opacity(0.8)).cornerRadius(10).padding(.leading)
+                                            }.buttonStyle(PlainButtonStyle())
+                                            Text("(\(partita.id))").font(.footnote)
+                                        }
                                     }
                                 }
-                            }
-                            Spacer()
-                        }.frame(maxWidth:UIScreen.main.bounds.size.width*35/50, alignment: .trailing)
-                        VStack{
-                            Button{
-                                self.selectedTab = "quarti"
-                            } label: {
-                                Label("", systemImage: "chevron.right.circle")
-                            }.frame(maxHeight: UIScreen.main.bounds.height/4)
-                            Button{
-                                self.selectedTab = "quarti"
-                            } label: {
-                                Label("", systemImage: "chevron.right.circle")
-                            }.frame(maxHeight: UIScreen.main.bounds.height/4)
-                            Button{
-                                self.selectedTab = "quarti"
-                            } label: {
-                                Label("", systemImage: "chevron.right.circle")
-                            }.frame(maxHeight: UIScreen.main.bounds.height/4)
-                            Button{
-                                self.selectedTab = "quarti"
-                            } label: {
-                                Label("", systemImage: "chevron.right.circle")
-                            }.frame(maxHeight: UIScreen.main.bounds.height/4)
-                        }.frame(maxWidth:UIScreen.main.bounds.size.width*15/50, alignment: .center)
+                                Spacer()
+                            }.frame(maxWidth:UIScreen.main.bounds.size.width*40/50, alignment: .trailing).padding(.vertical)
+                            VStack{
+                                Button{
+                                    self.selectedTab = "quarti"
+                                } label: {
+                                    Label("", systemImage: "chevron.right.circle")
+                                }.frame(maxHeight: UIScreen.main.bounds.height/4)
+                                Button{
+                                    self.selectedTab = "quarti"
+                                } label: {
+                                    Label("", systemImage: "chevron.right.circle")
+                                }.frame(maxHeight: UIScreen.main.bounds.height/4)
+                                Button{
+                                    self.selectedTab = "quarti"
+                                } label: {
+                                    Label("", systemImage: "chevron.right.circle")
+                                }.frame(maxHeight: UIScreen.main.bounds.height/4)
+                                Button{
+                                    self.selectedTab = "quarti"
+                                } label: {
+                                    Label("", systemImage: "chevron.right.circle")
+                                }.frame(maxHeight: UIScreen.main.bounds.height/4)
+                            }.frame(maxWidth:UIScreen.main.bounds.size.width*10/50, alignment: .center).padding(.vertical).padding(.bottom,8)
+                        }
                     }
                 } else if (self.selectedTab == "quarti"){
-                    HStack{
-                        VStack{
-                            ForEach(model.listPartite.sorted(by: { p1, p2 in
-                                p1.id < p2.id
-                            })){ partita in
-                                if(Int(partita.id)! > 56 && Int(partita.id)! < 61){
-                                    HStack{
-                                        Button{
-                                            self.selectedTab = "ottavi"
-                                        } label: {
-                                            Label("", systemImage: "chevron.left.circle")
-                                        }.padding(.leading)
-                                        NavigationLink (destination: PartitaView(model: model, partita: partita)) {
-                                            VStack(alignment: .leading, spacing: 10){
-                                                if(partita.casa != ""){
-                                                    Text("\(model.getEmoji(idSquadra: partita.casa)) \(model.nomiSquadre[partita.casa]!)").minimumScaleFactor(0.1).frame(maxWidth: UIScreen.main.bounds.size.width*3/4, alignment: .leading)
-                                                    Text("\(model.getEmoji(idSquadra: partita.ospite)) \(model.nomiSquadre[partita.ospite]!)").minimumScaleFactor(0.1)
-                                                } else {
-                                                    Text("Vincitore ottavo (\(partita.partitaCasa))").minimumScaleFactor(0.1).frame(maxWidth: UIScreen.main.bounds.size.width*3/4, alignment: .leading)
-                                                    Text("Vincitore ottavo (\(partita.partitaOspite))").minimumScaleFactor(0.1)
-                                                }
-                                            }.padding(.vertical).padding(.horizontal).frame(maxWidth: UIScreen.main.bounds.size.width*3/4).background(Color(UIColor.quaternaryLabel).opacity(0.8)).cornerRadius(10).frame(maxHeight: UIScreen.main.bounds.height/4)
-                                        }.buttonStyle(PlainButtonStyle())
-                                        Text("(\(partita.id))").font(.footnote)
+                    ScrollView{
+                        HStack{
+                            VStack{
+                                ForEach(model.listPartite.sorted(by: { p1, p2 in
+                                    p1.id < p2.id
+                                })){ partita in
+                                    if(Int(partita.id)! > 56 && Int(partita.id)! < 61){
+                                        HStack{
+                                            Button{
+                                                self.selectedTab = "ottavi"
+                                            } label: {
+                                                Label("", systemImage: "chevron.left.circle")
+                                            }.padding(.leading)
+                                            NavigationLink (destination: PartitaView(model: model, partita: partita)) {
+                                                VStack(alignment: .leading, spacing: 10){
+                                                    if(partita.casa != ""){
+                                                        Text("\(model.getEmoji(idSquadra: partita.casa)) \(model.nomiSquadre[partita.casa]!)").minimumScaleFactor(0.1).frame(maxWidth: UIScreen.main.bounds.size.width*3/4, alignment: .leading)
+                                                        Text("\(model.getEmoji(idSquadra: partita.ospite)) \(model.nomiSquadre[partita.ospite]!)").minimumScaleFactor(0.1)
+                                                    } else {
+                                                        Text("Vincitore ottavo (\(partita.partitaCasa))").minimumScaleFactor(0.1).frame(maxWidth: UIScreen.main.bounds.size.width*3/4, alignment: .leading)
+                                                        Text("Vincitore ottavo (\(partita.partitaOspite))").minimumScaleFactor(0.1)
+                                                    }
+                                                }.padding(.vertical).padding(.horizontal).frame(maxWidth: UIScreen.main.bounds.size.width*3/4).background(Color(UIColor.quaternaryLabel).opacity(0.8)).cornerRadius(10).frame(height: UIScreen.main.bounds.height/6)
+                                            }.buttonStyle(PlainButtonStyle())
+                                            Text("(\(partita.id))").font(.footnote)
+                                        }
                                     }
                                 }
-                            }
-                            Spacer()
-                        }.padding(.leading)
-                        VStack{
-                            Button{
-                                self.selectedTab = "semi"
-                            } label: {
-                                Label("", systemImage: "chevron.right.circle")
-                            }.frame(maxHeight: UIScreen.main.bounds.height/2)
-                            Button{
-                                self.selectedTab = "semi"
-                            } label: {
-                                Label("", systemImage: "chevron.right.circle")
-                            }.frame(maxHeight: UIScreen.main.bounds.height/2)
-                        }.padding(.trailing)
+                                Spacer()
+                            }.padding(.leading).padding(.vertical)
+                            VStack{
+                                Button{
+                                    self.selectedTab = "semi"
+                                } label: {
+                                    Label("", systemImage: "chevron.right.circle")
+                                }.frame(maxHeight: UIScreen.main.bounds.height/2)
+                                Button{
+                                    self.selectedTab = "semi"
+                                } label: {
+                                    Label("", systemImage: "chevron.right.circle")
+                                }.frame(maxHeight: UIScreen.main.bounds.height/2)
+                            }.padding(.trailing).padding(.vertical).padding(.bottom,8)
+                        }
                     }
                 } else if (self.selectedTab == "semi"){
                     HStack{
@@ -162,14 +167,14 @@ struct EliminazioneView: View {
                                 }
                             }
                             Spacer()
-                        }.padding(.leading)
+                        }.padding(.leading).padding(.vertical)
                         VStack{
                             Button{
                                 self.selectedTab = "finali"
                             } label: {
                                 Label("", systemImage: "chevron.right.circle")
                             }.frame(maxHeight: UIScreen.main.bounds.height)
-                        }.padding(.trailing)
+                        }.padding(.trailing).padding(.vertical)
                     }
                 } else {
                     HStack{
@@ -179,7 +184,7 @@ struct EliminazioneView: View {
                             } label: {
                                 Label("", systemImage: "chevron.left.circle")
                             }.frame(maxHeight: UIScreen.main.bounds.height)
-                        }.padding(.leading)
+                        }.padding(.leading).padding(.vertical)
                         VStack{
                             ForEach(model.listPartite.sorted(by: { p1, p2 in
                                 p1.id > p2.id
@@ -214,7 +219,7 @@ struct EliminazioneView: View {
                                 }
                             }
                             Spacer()
-                        }.padding(.trailing)
+                        }.padding(.trailing).padding(.vertical)
                     }
                 }
             }.navigationBarTitleDisplayMode(.inline).navigationTitle("Eliminazione").toolbar {
