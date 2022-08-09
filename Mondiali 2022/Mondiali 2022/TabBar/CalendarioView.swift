@@ -47,17 +47,48 @@ struct CalendarioView: View {
                             Label("", systemImage: "chevron.right.circle")
                         }.disabled(date >= formatter.date(from: "2022/12/17 23:59")! ? true : false).frame(width: UIScreen.main.bounds.width/3, alignment: .leading)
                     }.padding(.vertical,5)
-                    List{
-                        ForEach(model.listPartite.sorted(by: { p1, p2 in
-                            p1.data < p2.data
-                        })){ partita in
-                            if(formatter2.string(from: partita.data) == formatter2.string(from:self.date)){
-                                let gruppoCasa = partita.gruppoCasa
-                                let gruppoOspite = partita.gruppoOspite
-                                if(partita.casa != ""){
-                                    HStack{
-                                        if( gruppoCasa == "" || gruppoCasa != gruppoOspite ) {
-                                            if(gruppoCasa == ""){
+                    ZStack{
+                        let d = formatter2.string(from: self.date)
+                        if(d == "07 dicembre" || d == "08 dicembre" || d == "11 dicembre" || d == "12 dicembre" || d == "15 dicembre" || d == "16 dicembre") {
+                            Text("Nessuna partita in programma.").frame(maxHeight: UIScreen.main.bounds.size.height, alignment: .top).padding(.top)
+                        }
+                        List{
+                            ForEach(model.listPartite.sorted(by: { p1, p2 in
+                                p1.data < p2.data
+                            })){ partita in
+                                if(formatter2.string(from: partita.data) == formatter2.string(from:self.date)){
+                                    let gruppoCasa = partita.gruppoCasa
+                                    let gruppoOspite = partita.gruppoOspite
+                                    if(partita.casa != ""){
+                                        HStack{
+                                            if( gruppoCasa == "" || gruppoCasa != gruppoOspite ) {
+                                                if(gruppoCasa == ""){
+                                                    if(partita.id == "64"){
+                                                        Text("Finale (\(partita.id))").font(.footnote)
+                                                    } else if(partita.id == "63"){
+                                                        Text("3° posto (\(partita.id))").font(.footnote)
+                                                    } else if(partita.id == "62" || partita.id == "61"){
+                                                        Text("Semifinale (\(partita.id))").font(.footnote)
+                                                    } else {
+                                                        Text("Quarti (\(partita.id))").font(.footnote)
+                                                    }
+                                                } else {
+                                                    Text("Ottavi (\(partita.id))").font(.footnote)
+                                                }
+                                            } else {
+                                                Text("Gruppo \(model.gironi[Int8(gruppoCasa)!]!)").font(.footnote)
+                                            }
+                                            Divider()
+                                            VStack(alignment: .leading, spacing: 5){
+                                                Text("\(model.getEmoji(idSquadra: partita.casa)) \(model.nomiSquadre[partita.casa]!)")
+                                                Text("\(model.getEmoji(idSquadra: partita.ospite)) \(model.nomiSquadre[partita.ospite]!)")
+                                            }.padding(.vertical,2)
+                                            Spacer()
+                                            Text(formatter3.string(from: partita.data)).font(.callout).fontWeight(.light)
+                                        }
+                                    } else {
+                                        HStack{
+                                            if(partita.gruppoCasa == ""){
                                                 if(partita.id == "64"){
                                                     Text("Finale (\(partita.id))").font(.footnote)
                                                 } else if(partita.id == "63"){
@@ -70,51 +101,26 @@ struct CalendarioView: View {
                                             } else {
                                                 Text("Ottavi (\(partita.id))").font(.footnote)
                                             }
-                                        } else {
-                                            Text("Gruppo \(model.gironi[Int8(gruppoCasa)!]!)").font(.footnote)
-                                        }
-                                        Divider()
-                                        VStack(alignment: .leading, spacing: 5){
-                                            Text("\(model.getEmoji(idSquadra: partita.casa)) \(model.nomiSquadre[partita.casa]!)")
-                                            Text("\(model.getEmoji(idSquadra: partita.ospite)) \(model.nomiSquadre[partita.ospite]!)")
-                                        }.padding(.vertical,2)
-                                        Spacer()
-                                        Text(formatter3.string(from: partita.data)).font(.callout).fontWeight(.light)
-                                    }
-                                } else {
-                                    HStack{
-                                        if(partita.gruppoCasa == ""){
-                                            if(partita.id == "64"){
-                                                Text("Finale (\(partita.id))").font(.footnote)
-                                            } else if(partita.id == "63"){
-                                                Text("3° posto (\(partita.id))").font(.footnote)
-                                            } else if(partita.id == "62" || partita.id == "61"){
-                                                Text("Semifinale (\(partita.id))").font(.footnote)
+                                            Divider()
+                                            if(partita.gruppoCasa == ""){
+                                                if(partita.id == "63"){
+                                                    Text("L\(partita.partitaCasa) - L\(partita.partitaOspite)")
+                                                } else {
+                                                    Text("W\(partita.partitaCasa) - W\(partita.partitaOspite)")
+                                                }
                                             } else {
-                                                Text("Quarti (\(partita.id))").font(.footnote)
+                                                Text("1\(model.gironi[Int8(gruppoCasa)!]!) - 2\(model.gironi[Int8(gruppoOspite)!]!)")
                                             }
-                                        } else {
-                                            Text("Ottavi (\(partita.id))").font(.footnote)
+                                            Spacer()
+                                            Text(formatter3.string(from: partita.data)).font(.callout).fontWeight(.light)
                                         }
-                                        Divider()
-                                        if(partita.gruppoCasa == ""){
-                                            if(partita.id == "63"){
-                                                Text("L\(partita.partitaCasa) - L\(partita.partitaOspite)")
-                                            } else {
-                                                Text("W\(partita.partitaCasa) - W\(partita.partitaOspite)")
-                                            }
-                                        } else {
-                                            Text("1\(model.gironi[Int8(gruppoCasa)!]!) - 2\(model.gironi[Int8(gruppoOspite)!]!)")
-                                        }
-                                        Spacer()
-                                        Text(formatter3.string(from: partita.data)).font(.callout).fontWeight(.light)
                                     }
                                 }
                             }
-                        }
-                    }.listStyle(PlainListStyle()).onAppear{
-                        if(date <= formatter.date(from: "2022/11/21 00:00")! || date >= formatter.date(from: "2022/12/18 23:59")!){
-                            date = formatter.date(from: "2022/11/21 00:00")!
+                        }.listStyle(PlainListStyle()).onAppear{
+                            if(date <= formatter.date(from: "2022/11/21 00:00")! || date >= formatter.date(from: "2022/12/18 23:59")!){
+                                date = formatter.date(from: "2022/11/21 00:00")!
+                            }
                         }
                     }
                 }
