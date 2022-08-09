@@ -184,8 +184,9 @@ struct EliminazioneView: View {
                             } label: {
                                 Label("", systemImage: "chevron.left.circle")
                             }.frame(maxHeight: UIScreen.main.bounds.height)
-                        }.padding(.leading).padding(.vertical).padding(.bottom, 8)
+                        }.padding(.leading).padding(.vertical)
                         VStack{
+                            Spacer().frame(maxHeight: UIScreen.main.bounds.height/4)
                             ForEach(model.listPartite.sorted(by: { p1, p2 in
                                 p1.id > p2.id
                             })){ partita in
@@ -205,7 +206,7 @@ struct EliminazioneView: View {
                                                         Text("Sconfitto semifinale (\(partita.partitaOspite))")
                                                     }
                                                 }
-                                            }.padding(.vertical).padding(.horizontal).frame(maxWidth: UIScreen.main.bounds.size.width*3/4).background(Color(UIColor.quaternaryLabel).opacity(0.8)).cornerRadius(10).frame(maxHeight: UIScreen.main.bounds.height/2)
+                                            }.padding(.vertical).padding(.horizontal).frame(maxWidth: UIScreen.main.bounds.size.width*3/4).background(Color(UIColor.quaternaryLabel).opacity(0.8)).cornerRadius(10).frame(maxHeight: UIScreen.main.bounds.height/4)
                                         }.buttonStyle(PlainButtonStyle())
                                         VStack{
                                             if(Int(partita.id)! == 64){
@@ -218,9 +219,9 @@ struct EliminazioneView: View {
                                     }.padding(.trailing)
                                 }
                             }
-                            Spacer()
+                            Spacer().frame(maxHeight: UIScreen.main.bounds.height/4)
                         }.padding(.trailing).padding(.vertical)
-                    }.padding(.vertical,100)
+                    }
                 }
             }.navigationBarTitleDisplayMode(.inline).navigationTitle("Eliminazione").toolbar {
                 ToolbarItemGroup(placement: .navigationBarLeading) {
