@@ -42,7 +42,6 @@ struct Homepage: View {
                         }
                     }.buttonStyle(PlainButtonStyle())
                     HStack{
-                        /*CREARE METODO UNICO - STESSO BLOCCO RIPETUTO 3 VOLTE*/
                         VStack{
                             Text("🗺").font(.largeTitle).padding(.top)
                             Text("SQUADRE")
