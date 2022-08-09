@@ -184,7 +184,7 @@ struct EliminazioneView: View {
                             } label: {
                                 Label("", systemImage: "chevron.left.circle")
                             }.frame(maxHeight: UIScreen.main.bounds.height)
-                        }.padding(.leading).padding(.vertical)
+                        }.padding(.leading).padding(.vertical).padding(.bottom, 8)
                         VStack{
                             ForEach(model.listPartite.sorted(by: { p1, p2 in
                                 p1.id > p2.id
@@ -209,7 +209,7 @@ struct EliminazioneView: View {
                                         }.buttonStyle(PlainButtonStyle())
                                         VStack{
                                             if(Int(partita.id)! == 64){
-                                                Text("FINALE").font(.footnote)
+                                                Text(" FINALE ").font(.footnote)
                                             }
                                             else {
                                                 Text("3° posto").font(.footnote)
@@ -220,7 +220,7 @@ struct EliminazioneView: View {
                             }
                             Spacer()
                         }.padding(.trailing).padding(.vertical)
-                    }
+                    }.padding(.vertical,100)
                 }
             }.navigationBarTitleDisplayMode(.inline).navigationTitle("Eliminazione").toolbar {
                 ToolbarItemGroup(placement: .navigationBarLeading) {
