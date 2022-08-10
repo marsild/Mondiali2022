@@ -16,11 +16,12 @@ struct SingoloGironePrediciView: View {
     var body: some View {
         ZStack{
             RoundedRectangle(cornerRadius: 10).strokeBorder(lineWidth: 2/3)
-            VStack{
-                Text("Gruppo \(model.gironi[gruppo]!)").minimumScaleFactor(0.1).padding(.top, 5)
+            VStack(spacing:0){
+                Text("Gruppo \(model.gironi[gruppo]!)").font(.footnote).fontWeight(.bold).minimumScaleFactor(0.1).padding(.vertical, 5)
                 Divider()
-                LazyVGrid(columns: columns) {
+                LazyVGrid(columns: columns, spacing: 1) {
                     ForEach(model.squadreInGruppo(gruppo: gruppo)){ squadra in
+                        VStack(spacing:0){
                             ZStack{
                                 if(squadra1.id == squadra.id || squadra2.id == squadra.id){
                                     Circle().foregroundColor(Color(UIColor.quaternaryLabel))
@@ -28,7 +29,8 @@ struct SingoloGironePrediciView: View {
                                     Circle().foregroundColor(Color(UIColor.systemBackground))
                                 }
                                 Text(squadra.emoji).padding(5).minimumScaleFactor(0.1)
-                            }.onTapGesture {
+                        }
+                            Text(squadra.nome.prefix(3).uppercased()).font(.footnote).minimumScaleFactor(0.1)}.onTapGesture {
                             if(squadra1.id != squadra.id && squadra2.id != squadra.id ){
                                 if(squadra1.id == "100"){
                                     squadra1 = squadra
@@ -50,7 +52,7 @@ struct SingoloGironePrediciView: View {
                     }
                 }.padding(5)
             }
-        }.frame(maxWidth:UIScreen.main.bounds.size.width*2/5, maxHeight:UIScreen.main.bounds.size.width*2/5).padding(.horizontal)
+        }.frame(maxWidth:UIScreen.main.bounds.size.width*2/5).padding(.horizontal)
     }
 }
 

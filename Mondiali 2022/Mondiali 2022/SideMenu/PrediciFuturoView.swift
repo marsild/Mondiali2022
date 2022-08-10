@@ -57,7 +57,7 @@ struct PrediciFuturoView: View {
                     SingoloGironePrediciView(model: model, squadra1: $squadra13, squadra2: $squadra14, gruppo: 7)
                     SingoloGironePrediciView(model: model, squadra1: $squadra15, squadra2: $squadra16, gruppo: 8)
                 }.frame(width:UIScreen.main.bounds.size.width*2/5)
-            }.padding(.top)}.padding(.vertical).navigationBarTitleDisplayMode(.inline).navigationTitle("Predici il futuro").toolbar {
+            }.padding(.vertical)}.navigationBarTitleDisplayMode(.inline).navigationTitle("Predici il futuro").toolbar {
                 ToolbarItemGroup(placement: .navigationBarLeading) {
                     Button{
                         withAnimation{
