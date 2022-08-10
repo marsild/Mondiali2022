@@ -33,7 +33,6 @@
 		178BFA922882905C0091A032 /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178BFA912882905C0091A032 /* SideMenuView.swift */; };
 		178BFA942882A9480091A032 /* CreaSquadraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178BFA932882A9480091A032 /* CreaSquadraView.swift */; };
 		178BFA962882A95A0091A032 /* PrediciFuturoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178BFA952882A95A0091A032 /* PrediciFuturoView.swift */; };
-		178BFA982882A9650091A032 /* SegnalaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178BFA972882A9650091A032 /* SegnalaView.swift */; };
 		178BFA9A2882AEB00091A032 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178BFA992882AEB00091A032 /* AppState.swift */; };
 		178BFA9C2882B3BA0091A032 /* InfoQatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178BFA9B2882B3BA0091A032 /* InfoQatarView.swift */; };
 		17A58A412887135C00B7DC06 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17A58A402887135C00B7DC06 /* GoogleService-Info.plist */; };
@@ -83,7 +82,6 @@
 		178BFA912882905C0091A032 /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
 		178BFA932882A9480091A032 /* CreaSquadraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreaSquadraView.swift; sourceTree = "<group>"; };
 		178BFA952882A95A0091A032 /* PrediciFuturoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrediciFuturoView.swift; sourceTree = "<group>"; };
-		178BFA972882A9650091A032 /* SegnalaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegnalaView.swift; sourceTree = "<group>"; };
 		178BFA992882AEB00091A032 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		178BFA9B2882B3BA0091A032 /* InfoQatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoQatarView.swift; sourceTree = "<group>"; };
 		17A58A402887135C00B7DC06 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -203,7 +201,6 @@
 			children = (
 				178BFA912882905C0091A032 /* SideMenuView.swift */,
 				175A4A15288D57D1003161B5 /* CreaSquadra */,
-				178BFA972882A9650091A032 /* SegnalaView.swift */,
 				178BFA952882A95A0091A032 /* PrediciFuturoView.swift */,
 			);
 			path = SideMenu;
@@ -360,7 +357,6 @@
 				178BFA942882A9480091A032 /* CreaSquadraView.swift in Sources */,
 				175A4A10288D574D003161B5 /* Coordinator.swift in Sources */,
 				174631242890365500264748 /* Partita.swift in Sources */,
-				178BFA982882A9650091A032 /* SegnalaView.swift in Sources */,
 				17260935287F21F900652149 /* Homepage.swift in Sources */,
 				170615FE28A3B25B00CF068E /* NotificationManager.swift in Sources */,
 				17A58A562889A6F700B7DC06 /* Giocatore.swift in Sources */,

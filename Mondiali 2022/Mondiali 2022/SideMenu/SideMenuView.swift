@@ -19,8 +19,6 @@ struct SideMenuView: View {
             CreaSquadraView(model: model).transition(.opacity)
         case "predici":
             PrediciFuturoView().transition(.opacity)
-        case "segnala":
-            SegnalaView().transition(.opacity)
         default:
             NavigationView{
                 VStack(alignment: .leading){
@@ -57,9 +55,11 @@ struct SideMenuView: View {
                             Image(systemName: "exclamationmark.triangle").frame(width: 40)
                             Text("Segnala")
                         }.onTapGesture{
-                            withAnimation(.easeIn) {
-                                showView = "segnala"
-                            }
+                            let email = "marsild.spahiu@studio.unibo.it"
+                            let subject = "Mondiali 2022: Feedback"
+                            let body = "Fornisci il tuo feedback qui e ti contatteremo entro le prossime 24-48 ore."
+                            guard let url = URL(string: "mailto:\(email)?subject=\(subject.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? "")&body=\(body.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? "")") else { return }
+                            UIApplication.shared.open(url)
                         }.padding(.leading)
                         Divider()
                     }
