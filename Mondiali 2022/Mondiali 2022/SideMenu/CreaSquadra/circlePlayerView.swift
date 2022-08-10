@@ -28,9 +28,7 @@ struct circlePlayerView: View{
                 Text("\(player.giocatore.nome)").minimumScaleFactor(0.1).multilineTextAlignment(.center).padding(5).background(Color.green.opacity(0.8)).cornerRadius(5).foregroundColor(.black)
             }
         }.onTapGesture {
-            //if(player.name == ""){
-                showingSheet.toggle()
-            //}
+            showingSheet.toggle()
         }.sheet(isPresented: $showingSheet) {
             SelectPlayerSheetView(player: $player, title: title, ListaGiocatori: $ListaGiocatori, squadre: squadre)
         }
