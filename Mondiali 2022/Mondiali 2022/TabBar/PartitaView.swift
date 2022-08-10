@@ -11,12 +11,16 @@ struct PartitaView: View {
     @ObservedObject var model: ViewModel
     var partita: Partita
     @State var bellFilled = false
+    @State var partiteNotificheArray : [String] = UserDefaults.standard.object(forKey: "partiteNotifiche") as? [String] ?? []
     var formatter = DateFormatter()
     init(model: ViewModel, partita: Partita){
         self.model = model
         self.partita = partita
         formatter.locale = Locale(identifier: "it")
         formatter.dateFormat = "dd/MM/yyyy HH:mm"
+        if(partiteNotificheArray.contains(partita.id)){
+            bellFilled = true
+        }
     }
     var body: some View {
         ScrollView{
@@ -113,6 +117,21 @@ struct PartitaView: View {
         }.navigationTitle("Partita (\(partita.id))").navigationBarTitleDisplayMode(.inline).toolbar {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
                 Button{
+                    if bellFilled{
+                        var array = partiteNotificheArray
+                        if(partiteNotificheArray.contains(partita.id)){
+                            array.removeAll { s in
+                                s == partita.id
+                            }
+                            UserDefaults.standard.setValue(array, forKey: "partiteNotifiche")
+                        }
+                    } else {
+                        var array = partiteNotificheArray
+                        if(!partiteNotificheArray.contains(partita.id)){
+                            array.append(partita.id)
+                            UserDefaults.standard.setValue(array, forKey: "partiteNotifiche")
+                        }
+                    }
                     bellFilled.toggle()
                 } label:{
                     if bellFilled{
@@ -121,6 +140,11 @@ struct PartitaView: View {
                         Label("empty bell", systemImage: "bell")
                     }
                 }
+            }
+        }.onAppear{
+            partiteNotificheArray = UserDefaults.standard.object(forKey: "partiteNotifiche") as? [String] ?? []
+            if(partiteNotificheArray.contains(partita.id)){
+                bellFilled = true
             }
         }
     }

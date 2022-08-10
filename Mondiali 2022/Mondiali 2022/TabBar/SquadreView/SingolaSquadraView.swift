@@ -17,6 +17,25 @@ struct SingolaSquadraView: View {
     @ObservedObject var model: ViewModel
     @Environment(\.verticalSizeClass) var sizeClass
     @State var bellFilled: Bool = false
+    @State var partiteNotificheArray : [String] = UserDefaults.standard.object(forKey: "partiteNotifiche") as? [String] ?? []
+    init(latitudine: Double, longitudine: Double, emoji: String, nome: String, descrizione: String, id: String, model: ViewModel){
+        self.latitudine = latitudine
+        self.longitudine = longitudine
+        self.emoji = emoji
+        self.nome = nome
+        self.descrizione = descrizione
+        self.id = id
+        self.model = model
+        var tuttePresenti = true
+        for partita in model.partiteSquadra(idSquadra: id){
+            if(!partiteNotificheArray.contains(partita.id)){
+                tuttePresenti = false
+            }
+        }
+        if(tuttePresenti){
+            bellFilled = true
+        }
+    }
     var body: some View {
         ScrollView {
             VStack(alignment:.leading){
@@ -50,6 +69,25 @@ struct SingolaSquadraView: View {
             .navigationBarTitleDisplayMode(.inline).toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     Button{
+                        if bellFilled{
+                            var array = partiteNotificheArray
+                            for partita in model.partiteSquadra(idSquadra: id){
+                                if(partiteNotificheArray.contains(partita.id)){
+                                    array.removeAll { s in
+                                        s == partita.id
+                                    }
+                                    UserDefaults.standard.setValue(array, forKey: "partiteNotifiche")
+                                }
+                            }
+                        } else {
+                            var array = partiteNotificheArray
+                            for partita in model.partiteSquadra(idSquadra: id){
+                                if(!partiteNotificheArray.contains(partita.id)){
+                                    array.append(partita.id)
+                                    UserDefaults.standard.setValue(array, forKey: "partiteNotifiche")
+                                }
+                            }
+                        }
                         bellFilled.toggle()
                     } label:{
                         if bellFilled{
@@ -58,6 +96,17 @@ struct SingolaSquadraView: View {
                             Label("empty bell", systemImage: "bell")
                         }
                     }
+                }
+            }.onAppear{
+                partiteNotificheArray = UserDefaults.standard.object(forKey: "partiteNotifiche") as? [String] ?? []
+                var tuttePresenti = true
+                for partita in model.partiteSquadra(idSquadra: id){
+                    if(!partiteNotificheArray.contains(partita.id)){
+                        tuttePresenti = false
+                    }
+                }
+                if(tuttePresenti){
+                    bellFilled = true
                 }
             }
     }

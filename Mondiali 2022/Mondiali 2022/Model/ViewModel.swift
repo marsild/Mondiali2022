@@ -321,4 +321,10 @@ class ViewModel: ObservableObject{
             Squadra.id == idSquadra
         }?.emoji ?? "🏴‍☠️"
     }
+    //
+    func partiteSquadra(idSquadra: String) -> [Partita]{
+        return listPartite.filter { partita in
+            partita.casa == idSquadra || partita.ospite == idSquadra
+        }
+    }
 }
