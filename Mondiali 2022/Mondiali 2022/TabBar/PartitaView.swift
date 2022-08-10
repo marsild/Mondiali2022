@@ -12,6 +12,7 @@ struct PartitaView: View {
     var partita: Partita
     @State var bellFilled = false
     @State var partiteNotificheArray : [String] = UserDefaults.standard.object(forKey: "partiteNotifiche") as? [String] ?? []
+    @State private var isPresentingAlert: Bool = false
     var formatter = DateFormatter()
     init(model: ViewModel, partita: Partita){
         self.model = model
@@ -123,16 +124,28 @@ struct PartitaView: View {
                             array.removeAll { s in
                                 s == partita.id
                             }
+                            NotificationManager.istance.cancelNotification(id: partita.id)
                             UserDefaults.standard.setValue(array, forKey: "partiteNotifiche")
                         }
+                        bellFilled = false
                     } else {
-                        var array = partiteNotificheArray
-                        if(!partiteNotificheArray.contains(partita.id)){
-                            array.append(partita.id)
-                            UserDefaults.standard.setValue(array, forKey: "partiteNotifiche")
-                        }
+                        UNUserNotificationCenter.current().getNotificationSettings(completionHandler: { (settings) in
+                            if settings.authorizationStatus == .notDetermined {
+                                NotificationManager.istance.requestAuthorization()
+                            } else if settings.authorizationStatus == .denied {
+                                isPresentingAlert = true
+                            } else if settings.authorizationStatus == .authorized {
+                                var array = partiteNotificheArray
+                                if(!partiteNotificheArray.contains(partita.id)){
+                                    array.append(partita.id)
+                                    NotificationManager.istance.scheduleNotification(id: partita.id, data: partita.data)
+                                    UserDefaults.standard.setValue(array, forKey: "partiteNotifiche")
+                                }
+                                bellFilled = true
+                            }
+                        })
+                        
                     }
-                    bellFilled.toggle()
                 } label:{
                     if bellFilled{
                         Label("filled bell", systemImage: "bell.fill")
@@ -143,9 +156,16 @@ struct PartitaView: View {
             }
         }.onAppear{
             partiteNotificheArray = UserDefaults.standard.object(forKey: "partiteNotifiche") as? [String] ?? []
-            if(partiteNotificheArray.contains(partita.id)){
-                bellFilled = true
-            }
+            UNUserNotificationCenter.current().getNotificationSettings(completionHandler: { (settings) in
+                if settings.authorizationStatus == .authorized {
+                    if(partiteNotificheArray.contains(partita.id)){
+                        bellFilled = true
+                    }
+                }
+            })
+            NotificationManager.istance.printNotificationsInPending()
+        }.alert("Le notifiche non sono attive. Autorizzale dalle impostazioni se vuoi procedere.",
+                isPresented: $isPresentingAlert) {
         }
     }
 }

@@ -83,6 +83,13 @@ struct Homepage: View {
                     .padding().frame( width: UIScreen.main.bounds.size.width, height:UIScreen.main.bounds.size.height/5)
                     
                 }.navigationBarHidden(true).opacity(opacity)
+            }.onAppear{
+                UNUserNotificationCenter.current().getNotificationSettings(completionHandler: { (settings) in
+                    if settings.authorizationStatus == .notDetermined {
+                        NotificationManager.istance.requestAuthorization()
+                    }
+                })
+                UIApplication.shared.applicationIconBadgeNumber = 0
             }
         }
     }

@@ -18,6 +18,7 @@ struct SingolaSquadraView: View {
     @Environment(\.verticalSizeClass) var sizeClass
     @State var bellFilled: Bool = false
     @State var partiteNotificheArray : [String] = UserDefaults.standard.object(forKey: "partiteNotifiche") as? [String] ?? []
+    @State private var isPresentingAlert: Bool = false
     init(latitudine: Double, longitudine: Double, emoji: String, nome: String, descrizione: String, id: String, model: ViewModel){
         self.latitudine = latitudine
         self.longitudine = longitudine
@@ -76,19 +77,30 @@ struct SingolaSquadraView: View {
                                     array.removeAll { s in
                                         s == partita.id
                                     }
+                                    NotificationManager.istance.cancelNotification(id: partita.id)
                                     UserDefaults.standard.setValue(array, forKey: "partiteNotifiche")
                                 }
                             }
+                            bellFilled = false
                         } else {
-                            var array = partiteNotificheArray
-                            for partita in model.partiteSquadra(idSquadra: id){
-                                if(!partiteNotificheArray.contains(partita.id)){
-                                    array.append(partita.id)
-                                    UserDefaults.standard.setValue(array, forKey: "partiteNotifiche")
+                            UNUserNotificationCenter.current().getNotificationSettings(completionHandler: { (settings) in
+                                if settings.authorizationStatus == .notDetermined {
+                                    NotificationManager.istance.requestAuthorization()
+                                } else if settings.authorizationStatus == .denied {
+                                    isPresentingAlert = true
+                                } else if settings.authorizationStatus == .authorized {
+                                    var array = partiteNotificheArray
+                                    for partita in model.partiteSquadra(idSquadra: id){
+                                        if(!partiteNotificheArray.contains(partita.id)){
+                                            array.append(partita.id)
+                                            NotificationManager.istance.scheduleNotification(id: partita.id, data: partita.data)
+                                            UserDefaults.standard.setValue(array, forKey: "partiteNotifiche")
+                                        }
+                                    }
+                                    bellFilled = true
                                 }
-                            }
+                            })
                         }
-                        bellFilled.toggle()
                     } label:{
                         if bellFilled{
                             Label("filled bell", systemImage: "bell.fill")
@@ -99,15 +111,22 @@ struct SingolaSquadraView: View {
                 }
             }.onAppear{
                 partiteNotificheArray = UserDefaults.standard.object(forKey: "partiteNotifiche") as? [String] ?? []
-                var tuttePresenti = true
-                for partita in model.partiteSquadra(idSquadra: id){
-                    if(!partiteNotificheArray.contains(partita.id)){
-                        tuttePresenti = false
+                UNUserNotificationCenter.current().getNotificationSettings(completionHandler: { (settings) in
+                    if settings.authorizationStatus == .authorized {
+                        var tuttePresenti = true
+                        for partita in model.partiteSquadra(idSquadra: id){
+                            if(!partiteNotificheArray.contains(partita.id)){
+                                tuttePresenti = false
+                            }
+                        }
+                        if(tuttePresenti){
+                            bellFilled = true
+                        }
                     }
-                }
-                if(tuttePresenti){
-                    bellFilled = true
-                }
+                })
+                NotificationManager.istance.printNotificationsInPending()
+            }.alert("Le notifiche non sono attive. Autorizzale dalle impostazioni se vuoi procedere.",
+                    isPresented: $isPresentingAlert) {
             }
     }
 }

@@ -38,6 +38,8 @@ struct TabBarView: View {
                     .frame(width: geometry.size.width)
                     .transition(.move(edge: .leading))
             }
+        }.onAppear{
+            UIApplication.shared.applicationIconBadgeNumber = 0
         }
     }
 }
