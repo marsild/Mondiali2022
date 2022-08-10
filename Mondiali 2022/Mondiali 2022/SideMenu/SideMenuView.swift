@@ -18,7 +18,7 @@ struct SideMenuView: View {
         case "crea":
             CreaSquadraView(model: model).transition(.opacity)
         case "predici":
-            PrediciFuturoView().transition(.opacity)
+            PrediciFuturoView(model: model).transition(.opacity)
         default:
             NavigationView{
                 VStack(alignment: .leading){
