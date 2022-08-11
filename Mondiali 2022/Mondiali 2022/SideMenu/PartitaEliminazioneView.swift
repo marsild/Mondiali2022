@@ -33,7 +33,7 @@ struct PartitaEliminazioneView: View {
                     Text(squadra1.nome.prefix(3).uppercased()).font(.footnote).minimumScaleFactor(0.1)
                 }
             } else {
-                Spacer()
+                Circle().foregroundColor(Color(UIColor.systemBackground))
             }
             Text("-")
             if(squadra2.id != "100"){
@@ -55,7 +55,7 @@ struct PartitaEliminazioneView: View {
                     Text(squadra2.nome.prefix(3).uppercased()).font(.footnote).minimumScaleFactor(0.1)
                 }
             } else {
-                Spacer()
+                Circle().foregroundColor(Color(UIColor.systemBackground))
             }
         }.frame(width:UIScreen.main.bounds.size.width*1/5).frame(height: 45)
     }

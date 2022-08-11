@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct PrediciFuturoView: View {
+    @State var showAlertHomepage = false
+    @State var showAlertRestart = false
+    
     @ObservedObject var model: ViewModel
     @Environment(\.verticalSizeClass) var sizeClass
     @State var squadra1 = Squadra(id: "100", nome: "abc", emoji: "a", descrizione: "a", gruppo: 10, latitudine: 0.1, longitudine: 0.1)
@@ -133,15 +136,90 @@ struct PrediciFuturoView: View {
             }.padding(.vertical)}.navigationBarTitleDisplayMode(.inline).navigationTitle("Predici il futuro").toolbar {
                 ToolbarItemGroup(placement: .navigationBarLeading) {
                     Button{
-                        withAnimation{
-                            AppState.shared.gameID = UUID()
+                        if isModified(){
+                            showAlertHomepage = true
+                        } else {
+                            withAnimation{
+                                AppState.shared.gameID = UUID()
+                            }
                         }
                     } label:{
                         Label("home", systemImage: "house")
+                    }.alert("Sicuro di voler tornare nella homepage?", isPresented: $showAlertHomepage){
+                        Button("Annulla", role: .cancel){
+                            showAlertHomepage = false
+                        }
+                        Button("Continua", role: .destructive){
+                            withAnimation{
+                                AppState.shared.gameID = UUID()
+                            }
+                        }
+                    } message : {
+                        Text("Cliccando su 'Continua', tutte le modifiche attuali andranno perse")
+                    }
+                    
+                }
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    Button{
+                        if isModified(){
+                            showAlertRestart = true
+                        }
+                    } label:{
+                        Label("restart", systemImage: "arrow.counterclockwise")
+                    }.alert("Sicuro di voler ricominciare?", isPresented: $showAlertRestart){
+                        Button("Annulla", role: .cancel){
+                            showAlertRestart = false
+                        }
+                        Button("Continua", role: .destructive){
+                            refresh()
+                        }
+                    } message : {
+                        Text("Cliccando su 'Continua', tutte le modifiche attuali andranno perse")
                     }
                 }
             }
         }
+    }
+    func isModified() -> Bool {
+        var modified = false
+        if (squadra1.id != "100" || squadra2.id != "100" || squadra3.id != "100" || squadra4.id != "100" || squadra5.id != "100" || squadra6.id != "100" || squadra7.id != "100" || squadra8.id != "100" || squadra9.id != "100" || squadra10.id != "100" || squadra11.id != "100" || squadra12.id != "100" || squadra13.id != "100" || squadra14.id != "100" || squadra15.id != "100" || squadra16.id != "100" || squadra17.id != "100" || squadra18.id != "100" || squadra19.id != "100" || squadra20.id != "100" || squadra21.id != "100" || squadra22.id != "100" || squadra23.id != "100" || squadra24.id != "100" || squadra25.id != "100" || squadra26.id != "100" || squadra27.id != "100" || squadra28.id != "100" || squadra29.id != "100" || squadra30.id != "100" || squadra31.id != "100" || squadra32.id != "100") {
+            modified = true
+        }
+        return modified
+    }
+    func refresh(){
+        squadra1.id = "100"
+        squadra2.id = "100"
+        squadra3.id = "100"
+        squadra4.id = "100"
+        squadra5.id = "100"
+        squadra6.id = "100"
+        squadra7.id = "100"
+        squadra8.id = "100"
+        squadra9.id = "100"
+        squadra10.id = "100"
+        squadra11.id = "100"
+        squadra12.id = "100"
+        squadra13.id = "100"
+        squadra14.id = "100"
+        squadra15.id = "100"
+        squadra16.id = "100"
+        squadra17.id = "100"
+        squadra18.id = "100"
+        squadra19.id = "100"
+        squadra20.id = "100"
+        squadra21.id = "100"
+        squadra22.id = "100"
+        squadra23.id = "100"
+        squadra24.id = "100"
+        squadra25.id = "100"
+        squadra26.id = "100"
+        squadra27.id = "100"
+        squadra28.id = "100"
+        squadra29.id = "100"
+        squadra30.id = "100"
+        squadra31.id = "100"
+        squadra32.id = "100"
     }
 }
 
