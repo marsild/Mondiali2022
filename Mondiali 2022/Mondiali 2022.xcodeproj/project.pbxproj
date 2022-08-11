@@ -10,6 +10,7 @@
 		170615FC28A2BCEC00CF068E /* PartitaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170615FB28A2BCEC00CF068E /* PartitaView.swift */; };
 		170615FE28A3B25B00CF068E /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170615FD28A3B25B00CF068E /* NotificationManager.swift */; };
 		1706160228A3DE0B00CF068E /* SingoloGironePrediciView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1706160128A3DE0B00CF068E /* SingoloGironePrediciView.swift */; };
+		1706160428A57A0F00CF068E /* PartitaEliminazioneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1706160328A57A0F00CF068E /* PartitaEliminazioneView.swift */; };
 		170C34BC2891AD120072A820 /* ImagePickerControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170C34BB2891AD120072A820 /* ImagePickerControllerExtension.swift */; };
 		170C34BE2892C7EC0072A820 /* Stadio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170C34BD2892C7EC0072A820 /* Stadio.swift */; };
 		170C34C02892CAC30072A820 /* stadiums.json in Resources */ = {isa = PBXBuildFile; fileRef = 170C34BF2892CAC30072A820 /* stadiums.json */; };
@@ -60,6 +61,7 @@
 		170615FB28A2BCEC00CF068E /* PartitaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartitaView.swift; sourceTree = "<group>"; };
 		170615FD28A3B25B00CF068E /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		1706160128A3DE0B00CF068E /* SingoloGironePrediciView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingoloGironePrediciView.swift; sourceTree = "<group>"; };
+		1706160328A57A0F00CF068E /* PartitaEliminazioneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartitaEliminazioneView.swift; sourceTree = "<group>"; };
 		170C34BB2891AD120072A820 /* ImagePickerControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerControllerExtension.swift; sourceTree = "<group>"; };
 		170C34BD2892C7EC0072A820 /* Stadio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stadio.swift; sourceTree = "<group>"; };
 		170C34BF2892CAC30072A820 /* stadiums.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = stadiums.json; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 				175A4A15288D57D1003161B5 /* CreaSquadra */,
 				178BFA952882A95A0091A032 /* PrediciFuturoView.swift */,
 				1706160128A3DE0B00CF068E /* SingoloGironePrediciView.swift */,
+				1706160328A57A0F00CF068E /* PartitaEliminazioneView.swift */,
 			);
 			path = SideMenu;
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 				175A4A0A288D571D003161B5 /* ScreenshotMakerView.swift in Sources */,
 				178BFA8E2881C0EC0091A032 /* CalendarioView.swift in Sources */,
 				17A769E328A13839001923F5 /* CalendarioListView.swift in Sources */,
+				1706160428A57A0F00CF068E /* PartitaEliminazioneView.swift in Sources */,
 				178BFA882881BA510091A032 /* SquadreView.swift in Sources */,
 				17A58A492887373F00B7DC06 /* Squadra.swift in Sources */,
 				175A4A17288D58BD003161B5 /* ActivityView.swift in Sources */,

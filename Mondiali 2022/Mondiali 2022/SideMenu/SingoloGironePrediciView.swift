@@ -29,26 +29,27 @@ struct SingoloGironePrediciView: View {
                                     Circle().foregroundColor(Color(UIColor.systemBackground))
                                 }
                                 Text(squadra.emoji).padding(5).minimumScaleFactor(0.1)
-                        }
-                            Text(squadra.nome.prefix(3).uppercased()).font(.footnote).minimumScaleFactor(0.1)}.onTapGesture {
-                            if(squadra1.id != squadra.id && squadra2.id != squadra.id ){
-                                if(squadra1.id == "100"){
-                                    squadra1 = squadra
-                                } else if (squadra2.id == "100"){
-                                    squadra2 = squadra
-                                }/* else {
-                                    squadra1 = squadra2
-                                    squadra2 = squadra
-                                }*/
                             }
-                            else {
-                                if(squadra1.id == squadra.id){
-                                    squadra1.id = "100"
-                                } else {
-                                    squadra2.id = "100"
+                            Text(squadra.nome.prefix(3).uppercased()).font(.footnote).minimumScaleFactor(0.1)
+                        }.onTapGesture {
+                                if(squadra1.id != squadra.id && squadra2.id != squadra.id ){
+                                    if(squadra1.id == "100"){
+                                        squadra1 = squadra
+                                    } else if (squadra2.id == "100"){
+                                        squadra2 = squadra
+                                    }/* else {
+                                      squadra1 = squadra2
+                                      squadra2 = squadra
+                                      }*/
+                                }
+                                else {
+                                    if(squadra1.id == squadra.id){
+                                        squadra1.id = "100"
+                                    } else {
+                                        squadra2.id = "100"
+                                    }
                                 }
                             }
-                        }
                     }
                 }.padding(5)
             }
