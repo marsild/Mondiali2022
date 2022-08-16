@@ -18,7 +18,7 @@ struct PartitaEliminazioneView: View {
                 VStack(spacing:0){
                     ZStack{
                         if(squadra1.id == squadraSelected.id){
-                            Circle().foregroundColor(Color(UIColor.quaternaryLabel))
+                            Circle().foregroundColor(Color.green.opacity(0.3))
                         } else {
                             Circle().foregroundColor(Color(UIColor.systemBackground))
                         }
@@ -40,7 +40,7 @@ struct PartitaEliminazioneView: View {
                 VStack(spacing:0){
                     ZStack{
                         if(squadra2.id == squadraSelected.id){
-                            Circle().foregroundColor(Color(UIColor.quaternaryLabel))
+                            Circle().foregroundColor(Color.green.opacity(0.3))
                         } else {
                             Circle().foregroundColor(Color(UIColor.systemBackground))
                         }

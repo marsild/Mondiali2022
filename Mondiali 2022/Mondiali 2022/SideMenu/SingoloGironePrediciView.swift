@@ -23,7 +23,9 @@ struct SingoloGironePrediciView: View {
                     ForEach(model.squadreInGruppo(gruppo: gruppo)){ squadra in
                         VStack(spacing:0){
                             ZStack{
-                                if(squadra1.id == squadra.id || squadra2.id == squadra.id){
+                                if(squadra1.id == squadra.id){
+                                    Circle().foregroundColor(Color.green.opacity(0.4))
+                                } else if(squadra2.id == squadra.id){
                                     Circle().foregroundColor(Color(UIColor.quaternaryLabel))
                                 } else {
                                     Circle().foregroundColor(Color(UIColor.systemBackground))
