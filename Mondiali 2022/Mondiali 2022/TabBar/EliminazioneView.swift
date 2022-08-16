@@ -61,7 +61,7 @@ struct EliminazioneView: View {
                                                         Text("Prima gruppo \(model.gironi[Int8(partita.gruppoCasa)!]!)").frame(maxWidth: UIScreen.main.bounds.size.width*3/4, alignment: .leading)
                                                         Text("Seconda gruppo \(model.gironi[Int8(partita.gruppoOspite)!]!)")
                                                     }
-                                                }.padding(.vertical,2).padding(.horizontal).frame(maxWidth: UIScreen.main.bounds.size.width*3/5, maxHeight: UIScreen.main.bounds.height/8).background(Color(UIColor.quaternaryLabel).opacity(0.8)).cornerRadius(10).padding(.leading)
+                                                }.padding(.vertical,2).padding(.horizontal).frame(maxWidth: UIScreen.main.bounds.size.width*3/5, maxHeight: UIScreen.main.bounds.height/8).background(Color(UIColor.quaternaryLabel).opacity(0.8)).cornerRadius(10).overlay(RoundedRectangle(cornerRadius: 10).strokeBorder(lineWidth: 1/4)).padding(.leading)
                                             }.buttonStyle(PlainButtonStyle())
                                             Text("(\(partita.id))").font(.footnote)
                                         }
@@ -116,7 +116,7 @@ struct EliminazioneView: View {
                                                         Text("Vincitore ottavo (\(partita.partitaCasa))").minimumScaleFactor(0.1).frame(maxWidth: UIScreen.main.bounds.size.width*3/4, alignment: .leading)
                                                         Text("Vincitore ottavo (\(partita.partitaOspite))").minimumScaleFactor(0.1)
                                                     }
-                                                }.padding(.vertical,5).padding(.horizontal).frame(maxWidth: UIScreen.main.bounds.size.width*3/4).background(Color(UIColor.quaternaryLabel).opacity(0.8)).cornerRadius(10).frame(height: UIScreen.main.bounds.height/6)
+                                                }.padding(.vertical,5).padding(.horizontal).frame(maxWidth: UIScreen.main.bounds.size.width*3/4).background(Color(UIColor.quaternaryLabel).opacity(0.8)).cornerRadius(10).overlay(RoundedRectangle(cornerRadius: 10).strokeBorder(lineWidth: 1/4)).frame(height: UIScreen.main.bounds.height/6)
                                             }.buttonStyle(PlainButtonStyle())
                                             Text("(\(partita.id))").font(.footnote)
                                         }
@@ -160,7 +160,7 @@ struct EliminazioneView: View {
                                                     Text("Vincitore quarto (\(partita.partitaCasa))").frame(maxWidth: UIScreen.main.bounds.size.width*3/4, alignment: .leading)
                                                     Text("Vincitore quarto (\(partita.partitaOspite))")
                                                 }
-                                            }.padding(.vertical).padding(.horizontal).frame(maxWidth: UIScreen.main.bounds.size.width*3/4).background(Color(UIColor.quaternaryLabel).opacity(0.8)).cornerRadius(10).frame(maxHeight: UIScreen.main.bounds.height/2)
+                                            }.padding(.vertical).padding(.horizontal).frame(maxWidth: UIScreen.main.bounds.size.width*3/4).background(Color(UIColor.quaternaryLabel).opacity(0.8)).cornerRadius(10).overlay(RoundedRectangle(cornerRadius: 10).strokeBorder(lineWidth: 1/4)).frame(maxHeight: UIScreen.main.bounds.height/2)
                                         }.buttonStyle(PlainButtonStyle())
                                         Text("(\(partita.id))").font(.footnote)
                                     }
@@ -206,7 +206,7 @@ struct EliminazioneView: View {
                                                         Text("Sconfitto semifinale (\(partita.partitaOspite))")
                                                     }
                                                 }
-                                            }.padding(.vertical).padding(.horizontal).frame(maxWidth: UIScreen.main.bounds.size.width*3/4).background(Color(UIColor.quaternaryLabel).opacity(0.8)).cornerRadius(10).frame(maxHeight: UIScreen.main.bounds.height/4)
+                                            }.padding(.vertical).padding(.horizontal).frame(maxWidth: UIScreen.main.bounds.size.width*3/4).background(Color(UIColor.quaternaryLabel).opacity(0.8)).cornerRadius(10).overlay(RoundedRectangle(cornerRadius: 10).strokeBorder(lineWidth: 1/4)).frame(maxHeight: UIScreen.main.bounds.height/4)
                                         }.buttonStyle(PlainButtonStyle())
                                         VStack{
                                             if(Int(partita.id)! == 64){
