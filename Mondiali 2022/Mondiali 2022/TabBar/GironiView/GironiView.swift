@@ -22,10 +22,8 @@ struct GironiView: View {
                         LazyVGrid(columns: [GridItem(.adaptive(minimum: 150))]) {
                             ForEach(model.gironi.sorted(by: <), id: \.key) { key, value in
                                 CompressedGironeView(girone: value, squadre: model.squadreInGruppo(gruppo: key)).aspectRatio(1, contentMode: .fit).onTapGesture {
-                                    withAnimation{
-                                        self.seeAll.toggle()
-                                    }
                                     self.girone = key
+                                    self.seeAll.toggle()
                                 }.padding(5)
                             }
                         }.padding(5)
