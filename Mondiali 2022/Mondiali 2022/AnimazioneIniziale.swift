@@ -23,7 +23,7 @@ struct AnimazioneIniziale: View {
                 }
             }.transition(.scale(scale: 100))
                 .onAppear {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
                         withAnimation {
                             self.animazioneTerminata = true
                         }
