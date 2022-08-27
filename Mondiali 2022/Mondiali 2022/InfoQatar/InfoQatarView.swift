@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import YouTubePlayerKit
 
 struct InfoQatarView: View {
     @Environment(\.verticalSizeClass) var sizeClass
     @ObservedObject var model: ViewModel
     var formatter : DateFormatter
+    let youTubePlayer: YouTubePlayer = "https://www.youtube.com/watch?v=70aK4grhTMQ"
     init(model: ViewModel){
         self.model = model
         formatter = DateFormatter()
@@ -21,6 +23,18 @@ struct InfoQatarView: View {
         //Image("Cup").resizable().scaledToFit()
         ScrollView{
             Text("Q A T A R   2 0 2 2").font(.largeTitle).fontWeight(.bold).frame(width: UIScreen.main.bounds.size.width, alignment: .center).padding(.vertical)
+            YouTubePlayerView(self.youTubePlayer) { state in
+                // Overlay ViewBuilder closure to place an overlay View
+                // for the current `YouTubePlayer.State`
+                switch state {
+                case .idle:
+                    ProgressView()
+                case .ready:
+                    EmptyView()
+                case .error(_):
+                    Text(verbatim: "Errore nel caricamento del player YouTube")
+                }
+            }.frame(height: 300, alignment: .center).padding(.horizontal)
             Text("Il campionato mondiale di calcio 2022 sarà la 22ª edizione del campionato mondiale di calcio per le rappresentative (comunemente chiamate \"nazionali\") maschili maggiori delle federazioni affiliate alla Fédération Internationale de Football Association che si svolgerà in Qatar dal 21 novembre al 18 dicembre 2022.").padding(.horizontal)
             if(Date.now < formatter.date(from: "2022/11/21 13:00")!){
                 VStack(alignment: .center){
@@ -42,9 +56,9 @@ struct InfoQatarView: View {
             .navigationBarTitleDisplayMode(.inline)
     }
 }
-/*
- struct InfoQatarView_Previews: PreviewProvider {
- static var previews: some View {
- InfoQatarView()
- }
- }*/
+
+struct InfoQatarView_Previews: PreviewProvider {
+    static var previews: some View {
+        InfoQatarView(model: ViewModel())
+    }
+}

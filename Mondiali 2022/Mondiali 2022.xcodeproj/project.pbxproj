@@ -11,6 +11,7 @@
 		170615FE28A3B25B00CF068E /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170615FD28A3B25B00CF068E /* NotificationManager.swift */; };
 		1706160228A3DE0B00CF068E /* SingoloGironePrediciView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1706160128A3DE0B00CF068E /* SingoloGironePrediciView.swift */; };
 		1706160428A57A0F00CF068E /* PartitaEliminazioneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1706160328A57A0F00CF068E /* PartitaEliminazioneView.swift */; };
+		1706162628BA035200CF068E /* YouTubePlayerKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1706162528BA035200CF068E /* YouTubePlayerKit */; };
 		170C34BC2891AD120072A820 /* ImagePickerControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170C34BB2891AD120072A820 /* ImagePickerControllerExtension.swift */; };
 		170C34BE2892C7EC0072A820 /* Stadio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170C34BD2892C7EC0072A820 /* Stadio.swift */; };
 		170C34C02892CAC30072A820 /* stadiums.json in Resources */ = {isa = PBXBuildFile; fileRef = 170C34BF2892CAC30072A820 /* stadiums.json */; };
@@ -113,6 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1706162628BA035200CF068E /* YouTubePlayerKit in Frameworks */,
 				17A58A44288714E700B7DC06 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -296,6 +298,7 @@
 			name = "Mondiali 2022";
 			packageProductDependencies = (
 				17A58A43288714E700B7DC06 /* FirebaseFirestore */,
+				1706162528BA035200CF068E /* YouTubePlayerKit */,
 			);
 			productName = "Mondiali 2022";
 			productReference = 17D85F8C287C104A003D4D19 /* Mondiali 2022.app */;
@@ -327,6 +330,7 @@
 			mainGroup = 17D85F83287C104A003D4D19;
 			packageReferences = (
 				17A58A42288714E700B7DC06 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				1706162428BA035100CF068E /* XCRemoteSwiftPackageReference "YouTubePlayerKit" */,
 			);
 			productRefGroup = 17D85F8D287C104A003D4D19 /* Products */;
 			projectDirPath = "";
@@ -605,6 +609,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		1706162428BA035100CF068E /* XCRemoteSwiftPackageReference "YouTubePlayerKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SvenTiigi/YouTubePlayerKit.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		17A58A42288714E700B7DC06 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -616,6 +628,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		1706162528BA035200CF068E /* YouTubePlayerKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1706162428BA035100CF068E /* XCRemoteSwiftPackageReference "YouTubePlayerKit" */;
+			productName = YouTubePlayerKit;
+		};
 		17A58A43288714E700B7DC06 /* FirebaseFirestore */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 17A58A42288714E700B7DC06 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
