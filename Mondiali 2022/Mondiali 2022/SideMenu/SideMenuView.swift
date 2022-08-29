@@ -27,7 +27,8 @@ struct SideMenuView: View {
                         HStack{
                             Image(systemName: "house").frame(width: 40)
                             Text("Homepage")
-                        }.onTapGesture{
+                            Spacer()
+                        }.contentShape(Rectangle()).onTapGesture{
                             withAnimation(.easeIn) {
                                 AppState.shared.gameID = UUID()
                             }
@@ -36,7 +37,8 @@ struct SideMenuView: View {
                         HStack{
                             Image(systemName: "person.3").frame(width: 40)
                             Text("Crea la tua squadra")
-                        }.onTapGesture{
+                            Spacer()
+                        }.contentShape(Rectangle()).onTapGesture{
                             withAnimation(.easeIn) {
                                 showView = "crea"
                             }
@@ -45,7 +47,8 @@ struct SideMenuView: View {
                         HStack{
                             Image(systemName: "lasso.and.sparkles").frame(width: 40)
                             Text("Predici il futuro")
-                        }.onTapGesture{
+                            Spacer()
+                        }.contentShape(Rectangle()).onTapGesture{
                             withAnimation(.easeIn) {
                                 showView = "predici"
                             }
@@ -54,7 +57,8 @@ struct SideMenuView: View {
                         HStack{
                             Image(systemName: "exclamationmark.triangle").frame(width: 40)
                             Text("Segnala")
-                        }.onTapGesture{
+                            Spacer()
+                        }.contentShape(Rectangle()).onTapGesture{
                             let email = "marsild.spahiu@studio.unibo.it"
                             let subject = "Mondiali 2022: Feedback"
                             let body = "Fornisci il tuo feedback qui e ti contatteremo entro le prossime 24-48 ore."
@@ -96,9 +100,9 @@ struct SideMenuView: View {
         }
     }
 }
-/*
+
 struct SideMenuView_Previews: PreviewProvider {
     static var previews: some View {
-        SideMenuView(showSidebar: .constant(true))
+        SideMenuView(model: ViewModel(), showSidebar: .constant(true))
     }
-}*/
+}
