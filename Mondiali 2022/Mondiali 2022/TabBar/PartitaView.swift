@@ -113,8 +113,12 @@ struct PartitaView: View {
             VStack{
                 MapView(latitudine: stadio.latitudine, longitudine: stadio.longitudine, showPin: true).cornerRadius(10)
             }.padding(.horizontal).frame(width: UIScreen.main.bounds.size.width, height: 200, alignment: .center)
-            
-            Text("Stadio: \(stadio.nome)").padding(.bottom)
+            HStack{
+                Text("Stadio: ")
+                NavigationLink(destination: SingoloStadioView(imgStadio: model.stadiumImages[stadio.id], nome: stadio.nome, descrizione: stadio.descrizione, capacita: stadio.capacita, latitudine: stadio.latitudine, longitudine: stadio.longitudine)){
+                    Text("\(stadio.nome)")
+                }
+            }.padding(.bottom)
         }.navigationTitle("Partita (\(partita.id))").navigationBarTitleDisplayMode(.inline).toolbar {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
                 Button{
