@@ -36,7 +36,7 @@ Presenta informazioni sul torneo, sugli stadi, sulle squadre, sui gironi e sulle
 Se pubblicata nell'App Store: https://github.com/SvenTiigi/YouTubePlayerKit#app-store-review 
 
 ## LICENZA
-[MIT License](https://github.com/marsild/Mondiali2022/blob/main/LICENSE)
+[GNU General Public License v3.0](https://github.com/marsild/Mondiali2022/blob/main/LICENSE)
 
 ## AUTORE
 **Cognome e Nome**: Spahiu Marsild
