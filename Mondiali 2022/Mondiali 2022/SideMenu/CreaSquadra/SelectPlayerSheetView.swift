@@ -81,10 +81,10 @@ struct SelectPlayerSheetView: View {
                         Text("Annulla")
                     }
                 }
-            }
-        }.onAppear{
-            for player in ListaGiocatori{
-                giocatoriPerSquadra[player.idsquadra]!.append(player)
+            }.onAppear{
+                for player in ListaGiocatori{
+                    giocatoriPerSquadra[player.idsquadra]!.append(player)
+                }
             }
         }
     }
