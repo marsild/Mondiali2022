@@ -11,8 +11,7 @@ Presenta informazioni sul torneo, sugli stadi, sulle squadre, sui gironi e sulle
 *L'app è collegata a Cloud Firestore (Firebase), ma dato il limite di letture di quest'ultimo, tutte le informazioni sono copiate nei JSON della cartella [Risorse](https://github.com/marsild/Mondiali2022/tree/main/Mondiali%202022/Mondiali%202022/Resources). Il codice relativo a Firebase è stato commentato, quindi la dipendenza dalla libreria si può togliere.
 
 ## Issues
-- Con iOS16 (e aggiornamento xcode/swift) "Crea la tua squadra" non funziona più (?)
-- In gironi, calendario ed eliminazione: Swipe dx sbagliato se eseguito subito dopo essere tornati indietro (con swipe sx) da altre pagine.
+- In gironi, calendario ed eliminazione: Swipe dx sbagliato se eseguito **subito dopo** essere tornati indietro (con swipe sx) da altre pagine.
 
 ## To Do
 - Loading Screen nelle mappe
