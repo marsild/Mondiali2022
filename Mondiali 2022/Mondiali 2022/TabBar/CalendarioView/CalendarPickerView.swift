@@ -12,7 +12,7 @@ struct CalendarPickerView: View {
     @Binding var date: Date
     let dateRange: ClosedRange<Date> = {
         let calendar = Calendar.current
-        let startComponents = DateComponents(year: 2022, month: 11, day: 21)
+        let startComponents = DateComponents(year: 2022, month: 11, day: 20)
         let endComponents = DateComponents(year: 2022, month: 12, day: 18)
         return calendar.date(from:startComponents)!
         ...
