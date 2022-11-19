@@ -12,6 +12,7 @@ Presenta informazioni sul torneo, sugli stadi, sulle squadre, sui gironi e sulle
 
 ## Issues
 - In gironi, calendario ed eliminazione: Swipe dx sbagliato se eseguito **subito dopo** essere tornati indietro (con swipe sx) da altre pagine.
+- Nell'elenco degli stadi (nelle informazioni del torneo) a volte l'immagine è la stessa per tutti
 
 ## To Do
 - Loading Screen nelle mappe
