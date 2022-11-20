@@ -39,7 +39,7 @@ struct CalendarioView: View {
                             date.addTimeInterval(-24*60*60)
                         } label: {
                             Label("", systemImage: "chevron.left.circle")
-                        }.disabled(date <= formatter.date(from: "2022/11/20 00:00")! ? true : false).frame(width: UIScreen.main.bounds.width/3, alignment: .trailing)
+                        }.disabled(date <= formatter.date(from: "2022/11/21 00:00")! ? true : false).frame(width: UIScreen.main.bounds.width/3, alignment: .trailing)
                         CalendarPickerView(date: self.$date).frame(width: UIScreen.main.bounds.width/3, alignment: .center)
                         Button{
                             date.addTimeInterval(24*60*60)
