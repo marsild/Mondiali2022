@@ -11,7 +11,8 @@ Presenta informazioni sul torneo, sugli stadi, sulle squadre, sui gironi e sulle
 *L'app è collegata a Cloud Firestore (Firebase), ma dato il limite di letture di quest'ultimo, tutte le informazioni sono copiate nei JSON della cartella [Risorse](https://github.com/marsild/Mondiali2022/tree/main/Mondiali%202022/Mondiali%202022/Resources). Il codice relativo a Firebase è stato commentato, quindi la dipendenza dalla libreria si può togliere.
 
 ## Issues
-- In gironi, calendario ed eliminazione: Swipe dx sbagliato se eseguito **subito dopo** essere tornati indietro (con swipe sx) da altre pagine.
+- In GIRONI, ELIMINAZIONE e CALENDARIO (Tab bar): Swipe dx sbagliato se eseguito **subito dopo** essere tornati indietro (con swipe sx) da altre pagine.
+- In GIRONI, ELIMINAZIONE e CALENDARIO (Tab bar): Swipe funziona anche quando si apre una squadra/partita.
 - Nell'elenco degli stadi (nelle informazioni del torneo) a volte l'immagine è erroneamente uguale per tutti gli stadi.
 
 ## To Do
