@@ -8,7 +8,7 @@ Presenta informazioni sul torneo, sugli stadi, sulle squadre, sui gironi e sulle
 * è possibile creare e condividere la propria squadra del torneo (scegliendo 11 giocatori tra i convocati).
 * si può prevedere il vincitore del torneo (partendo dai gironi fino alla finale).
 
-*L'app è collegata a Cloud Firestore (Firebase), ma dato il limite di letture, tutte le informazioni sono copiate nei JSON della cartella [Resources](https://github.com/marsild/Mondiali2022/tree/main/Mondiali%202022/Mondiali%202022/Resources). Il codice relativo a Firebase è stato commentato, quindi la dipendenza dalla libreria si può togliere.
+*L'app è collegata a Cloud Firestore (Firebase) ma, dato il limite di letture, tutte le informazioni sono copiate anche nei JSON della cartella [Resources](https://github.com/marsild/Mondiali2022/tree/main/Mondiali%202022/Mondiali%202022/Resources). Il codice relativo a Firebase è stato commentato, quindi la dipendenza dalla libreria si può togliere.
 
 ## Issues
 - In GIRONI, ELIMINAZIONE e CALENDARIO (Tab bar): Swipe dx sbagliato se eseguito **subito dopo** essere tornati indietro (con swipe sx) da altre pagine.
