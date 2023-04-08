@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Firebase
 import SwiftUI
 class ViewModel: ObservableObject{
     let gironi : Dictionary<Int8, String> = [1: "A",

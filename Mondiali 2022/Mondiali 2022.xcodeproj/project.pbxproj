@@ -38,8 +38,6 @@
 		178BFA962882A95A0091A032 /* PrediciFuturoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178BFA952882A95A0091A032 /* PrediciFuturoView.swift */; };
 		178BFA9A2882AEB00091A032 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178BFA992882AEB00091A032 /* AppState.swift */; };
 		178BFA9C2882B3BA0091A032 /* InfoQatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178BFA9B2882B3BA0091A032 /* InfoQatarView.swift */; };
-		17A58A412887135C00B7DC06 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17A58A402887135C00B7DC06 /* GoogleService-Info.plist */; };
-		17A58A44288714E700B7DC06 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 17A58A43288714E700B7DC06 /* FirebaseFirestore */; };
 		17A58A47288736CD00B7DC06 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A58A46288736CD00B7DC06 /* ViewModel.swift */; };
 		17A58A492887373F00B7DC06 /* Squadra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A58A482887373F00B7DC06 /* Squadra.swift */; };
 		17A58A4B2887517600B7DC06 /* SingolaSquadraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A58A4A2887517600B7DC06 /* SingolaSquadraView.swift */; };
@@ -89,7 +87,6 @@
 		178BFA952882A95A0091A032 /* PrediciFuturoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrediciFuturoView.swift; sourceTree = "<group>"; };
 		178BFA992882AEB00091A032 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		178BFA9B2882B3BA0091A032 /* InfoQatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoQatarView.swift; sourceTree = "<group>"; };
-		17A58A402887135C00B7DC06 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		17A58A46288736CD00B7DC06 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		17A58A482887373F00B7DC06 /* Squadra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Squadra.swift; sourceTree = "<group>"; };
 		17A58A4A2887517600B7DC06 /* SingolaSquadraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingolaSquadraView.swift; sourceTree = "<group>"; };
@@ -115,7 +112,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1706162628BA035200CF068E /* YouTubePlayerKit in Frameworks */,
-				17A58A44288714E700B7DC06 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,7 +262,6 @@
 				178BFA9F28841C990091A032 /* TabBar */,
 				178BFAA028841CA60091A032 /* SideMenu */,
 				17D85F93287C104E003D4D19 /* Assets.xcassets */,
-				17A58A402887135C00B7DC06 /* GoogleService-Info.plist */,
 				17D85F95287C104E003D4D19 /* Preview Content */,
 			);
 			path = "Mondiali 2022";
@@ -297,7 +292,6 @@
 			);
 			name = "Mondiali 2022";
 			packageProductDependencies = (
-				17A58A43288714E700B7DC06 /* FirebaseFirestore */,
 				1706162528BA035200CF068E /* YouTubePlayerKit */,
 			);
 			productName = "Mondiali 2022";
@@ -329,7 +323,6 @@
 			);
 			mainGroup = 17D85F83287C104A003D4D19;
 			packageReferences = (
-				17A58A42288714E700B7DC06 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				1706162428BA035100CF068E /* XCRemoteSwiftPackageReference "YouTubePlayerKit" */,
 			);
 			productRefGroup = 17D85F8D287C104A003D4D19 /* Products */;
@@ -352,7 +345,6 @@
 				17A58A61288B42DF00B7DC06 /* squads.json in Resources */,
 				170C34C02892CAC30072A820 /* stadiums.json in Resources */,
 				17D85F94287C104E003D4D19 /* Assets.xcassets in Resources */,
-				17A58A412887135C00B7DC06 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -617,14 +609,6 @@
 				kind = branch;
 			};
 		};
-		17A58A42288714E700B7DC06 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 9.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -632,11 +616,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1706162428BA035100CF068E /* XCRemoteSwiftPackageReference "YouTubePlayerKit" */;
 			productName = YouTubePlayerKit;
-		};
-		17A58A43288714E700B7DC06 /* FirebaseFirestore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 17A58A42288714E700B7DC06 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFirestore;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
