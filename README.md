@@ -8,12 +8,14 @@ Presenta informazioni sul torneo, sugli stadi, sulle squadre, sui gironi e sulle
 * è possibile creare e condividere la propria squadra del torneo (scegliendo 11 giocatori tra i convocati).
 * si può prevedere il vincitore del torneo (partendo dai gironi fino alla finale).
 
-*Precedentemente collegato a Cloud Firestore (Firebase), adesso tutte le informazioni sono nei JSON della cartella [Resources](https://github.com/marsild/Mondiali2022/tree/main/Mondiali%202022/Mondiali%202022/Resources).
+[Slide di presentazione (.pdf)](https://github.com/marsild/Mondiali2022/blob/main/Presentazione%20Mondiali2022.pdf)
+
+Precedentemente collegato a Cloud Firestore (Firebase), adesso tutte le informazioni (giocatori, squadre, partite, stadi) sono nei JSON della cartella [Resources](https://github.com/marsild/Mondiali2022/tree/main/Mondiali%202022/Mondiali%202022/Resources).
 
 ## Issues
 - In GIRONI, ELIMINAZIONE e CALENDARIO (Tab bar): Swipe dx sbagliato se eseguito **subito dopo** essere tornati indietro (con swipe sx) da altre pagine.
 - In GIRONI, ELIMINAZIONE e CALENDARIO (Tab bar): Swipe funziona anche quando si apre una squadra/partita.
-- Nell'elenco degli stadi (nelle informazioni del torneo) a volte l'immagine è erroneamente uguale per tutti gli stadi.
+- Nell'elenco degli stadi (nelle informazioni del torneo) a volte l'immagine è uguale per tutti gli stadi.
 
 ## Link Utili
 - [Stadi](https://www.fifa.com/fifaplus/en/cat/4b0QLgOgdGrLB0IhsNHSV1)
