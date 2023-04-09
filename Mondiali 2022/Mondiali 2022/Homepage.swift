@@ -93,11 +93,6 @@ struct Homepage: View {
             }
         }
     }
-    /*init(){
-        if model.isLoaded==false {
-            model.getData()
-        }
-    }*/
 }
 
 struct Homepage_Previews: PreviewProvider {

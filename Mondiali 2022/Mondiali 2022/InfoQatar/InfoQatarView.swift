@@ -20,7 +20,6 @@ struct InfoQatarView: View {
         formatter.dateFormat = "yyyy/MM/dd HH:mm"
     }
     var body: some View {
-        //Image("Cup").resizable().scaledToFit()
         ScrollView{
             Text("Q A T A R   2 0 2 2").font(.largeTitle).fontWeight(.bold).frame(width: UIScreen.main.bounds.size.width, alignment: .center).padding(.vertical)
             YouTubePlayerView(self.youTubePlayer) { state in
